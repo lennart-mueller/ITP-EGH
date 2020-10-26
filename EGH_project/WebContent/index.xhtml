@@ -9,6 +9,81 @@
 
 </h:head>
 <h:body>
+<h:form>
+
+<!-- ID = Fragebogen Spalte 1  -> FbSp1 fortlaufend -->
+     <p:panel id="FbSp1" header="1 Wichtig zu wissen" footer="Vielleicht hier ein Button zur nächsten Frage?!" style="margin-bottom:20px">
+        <h:panelGrid columns="1" cellpadding="10">
+            <h:outputText value="Du möchtest einen Antrag auf Jugendhilfe stellen? Dann hilft Dir dieser Fragebogen Dich vorzubereiten." />
+			<h:outputText value="Du brauchst dafür Hilfe? Wenn Du beim Ausfüllen des Fragebogens Unterstützung benötigst, dann können Personen Deines Vertrauens Dir helfen."/>
+			<h:outputText value="Wie geht es weiter? Du wirst zu einem Gespräch eingeladen."/>
+			<h:outputText value="Was passiert im Gespräch? Dir werden Fragen zu Deiner Lebenssituation gestellt. Mithilfe des Fragebogens bist Du gut auf das Gespräch vorbereitet."  />							
+        </h:panelGrid>
+    </p:panel>
+    <p:panel id="FbSp2" header="2 Beratung und Unterstützung beim Ausfüllen" footer="Vielleicht hier ein Button zur nächsten Frage?!" style="margin-bottom:20px">
+        <h:panelGrid columns="1" cellpadding="10">
+        <h:outputText value="Du kannst den Fragebogen alleine oder mit Unterstützung ausfüllen. Bitte gib an, wie
+								Du den Fragebogen ausgefüllt hast: "/>
+		
+		
+		<p:selectManyCheckbox id="helpbuttons" value="#{checkboxView.selectedhelp}">
+        <f:selectItem itemLabel="Ich habe den Fragebogen alleine ausgefüllt" itemValue="alone" />
+        <f:selectItem itemLabel="Ich habe den Fragebogen mit Unterstützung ausgefüllt und zwar mit Hilfe von:" itemValue="together" />
+    	</p:selectManyCheckbox>			
+        
+        </h:panelGrid>
+</p:panel>
+
+</h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<h:form>
 		<h:commandButton value="Click" />
 		<br />
