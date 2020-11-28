@@ -22,12 +22,23 @@
 
 <p:panel id="basic" header="Lernen und Wissenanwendung" style="margin-bottom:20px">
 
-<!--  <p:selectManyCheckbox id="grid2" value="123" layout="responsive" columns="3">
+  <p:selectManyCheckbox id="grid2" value= "#{mainController.scala}" layout="responsive" columns="3">
         <f:selectItems  itemLabel="... meine Sinne schärfen" itemValue="alone"/>
-    </p:selectManyCheckbox> -->
+    </p:selectManyCheckbox> 
+    
+     
    
     </p:panel>
+    <h:form>
+        <h3>Responsive</h3>
+    <p:selectManyCheckbox id="grid2" value="#{checkboxView.selectedCities2}" layout="responsive" columns="3">
+        <f:selectItems value="#{checkboxView.cities}" var="city" itemLabel="#{city}" itemValue="#{city}" />
+    </p:selectManyCheckbox>
+    </h:form>
+    
+  <h:outputText value="#{CheckboxView.name}"  />	
        
+  
   
 
 
