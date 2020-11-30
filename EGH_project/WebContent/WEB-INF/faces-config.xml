@@ -5,28 +5,20 @@
 	xmlns:p="http://primefaces.org/ui"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
-    <managed-bean>
-		<managed-bean-name>menuMB</managed-bean-name>
-		<managed-bean-class>MenuMB</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
+ 
 	
-	 <managed-bean>
-		<managed-bean-name>checkboxView</managed-bean-name>
-		<managed-bean-class>CheckboxView</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
+		<managed-bean>
+		<managed-bean-name>formMB</managed-bean-name>
+		<managed-bean-class>Beans.FormMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		</managed-bean>
 	
-		<navigation-rule>
-		<from-view-id>/pages/formular_1.xhtml</from-view-id>
-		</navigation-rule>
+
+	
+	
 		
 		<navigation-rule>
-		<from-view-id>/pages/index.xhtml</from-view-id>
-		</navigation-rule>
-		
-		<navigation-rule>
-		<from-view-id>/pages/index2.xhtml</from-view-id>
+		<from-view-id>index2.xhtml</from-view-id>
 		</navigation-rule>
 
 </faces-config>
