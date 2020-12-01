@@ -46,7 +46,7 @@ public class FormMB implements Serializable {
 	public String formUser() throws AnwendungskernException {
 		System.out.println("formUser - Test");
 		
-	//	System.out.println(requestFormular.requestForm());
+		System.out.println(requestFormular.requestForm());
 		String userId = "123";
 	//	String userId = Integer.toString(requestFormular.requestForm());
 		
