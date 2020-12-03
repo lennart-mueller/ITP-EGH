@@ -1,6 +1,6 @@
 package Beans;
 
-import java.io.Serializable;
+
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -13,7 +13,7 @@ import usecase.impl.IRequestForm;
 
 @Named("formMB")
 @RequestScoped
-public class FormMB implements Serializable {
+public class FormMB {
 
 	/**
 	 * 
