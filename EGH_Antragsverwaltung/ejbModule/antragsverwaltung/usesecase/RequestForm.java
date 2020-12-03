@@ -14,16 +14,15 @@ public class RequestForm implements IRequestForm {
 		
 			
 		
-			FormManager aFormManager = FormManager.getFormManager();
-	
-			
-			int userNr = aFormManager.getUserNr();
-			
-//			int userNr = 1254888;
-		
-			
-			return userNr;
-		
+//			FormManager aFormManager = FormManager.getFormManager();
+//	
+//			
+//			int userNr = aFormManager.getUserNr();
+						int userNr = 1254888;
+//		
+//			
+		return userNr;
+//		
 	}
 
 }
