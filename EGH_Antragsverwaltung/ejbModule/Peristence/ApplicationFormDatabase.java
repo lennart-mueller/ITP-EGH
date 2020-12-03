@@ -11,21 +11,26 @@ public class ApplicationFormDatabase implements IApplicationFormDatabase {
 
 	
 	public int getUserNr() throws DatenhaltungsException {
-		Connection aConnection = Persistence.getConnection();
+		int testnr = 55;
+		Connection aConnection = PersistenceOracle.getConnection();
 		ResultSet resultSet;
 		try {
-			resultSet = Persistence.executeQueryStatement(aConnection,
-					"SELECT max(formnr) as max FROM egh_test");
+			resultSet = PersistenceOracle.executeQueryStatement(aConnection,
+					"SELECT * " + "FROM egh_test " + "WHERE formnr = 22");
 
-			if (resultSet.next())
-				return resultSet.getInt("max");
-			else
-				return 0;
+		
+//				return resultSet.getInt("usernr");
+				return testnr;
+			
+		
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DatenhaltungsException();
 		}
+		
+//		int id = 555;
+//		return id;
 	}
 
 

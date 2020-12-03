@@ -6,9 +6,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import Persistence.AnwendungskernException;
-import entity.impl.ApplicationForm;
-import usecase.impl.IRequestForm;
+import antragsverwaltung.entity.impl.ApplicationForm;
+import antragsverwaltung.usesecase.impl.IRequestForm;
+
+
 
 
 @Named("formMB")
@@ -43,14 +44,25 @@ public class FormMB {
 
 	//*****Aufruf des usescases "requestFormular.requestForm()" funktioniert nicht - Warum???****
 	
-	public String formUser() throws AnwendungskernException {
+	public String formUser() {
 		System.out.println("formUser - Test");
 		
-		//System.out.println(requestFormular.requestForm());
-		String userId = "123";
+		try {
+			System.out.println(requestFormular.requestForm());
+		} catch (Peristence.AnwendungskernException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 String userId = "123";
 	//	String userId = Integer.toString(requestFormular.requestForm());
 		
-			return userId;
+		try {
+			return Integer.toString(requestFormular.requestForm());
+		} catch (Peristence.AnwendungskernException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	
 		
 	}
@@ -58,7 +70,7 @@ public class FormMB {
 	
 	
 	
-	public String testeForm() throws AnwendungskernException {
+	public String testeForm() {
 		String lalal = "123";
 		System.out.println("this is a test");
 		return lalal;
@@ -66,7 +78,13 @@ public class FormMB {
 		
 	}
 	
-	public void testeForm2() throws AnwendungskernException {
+	public void testeForm2() {
+		try {
+			System.out.println("today is a day"+requestFormular.requestForm());
+		} catch (Peristence.AnwendungskernException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String lalal = "123";
 		System.out.println("this is a test");
 		

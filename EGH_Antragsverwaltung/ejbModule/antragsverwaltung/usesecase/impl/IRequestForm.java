@@ -1,8 +1,8 @@
-package usecase.impl;
+package antragsverwaltung.usesecase.impl;
 
 import javax.ejb.Local;
 
-import Persistence.AnwendungskernException;
+import Peristence.AnwendungskernException;
 
 @Local
 public interface IRequestForm {

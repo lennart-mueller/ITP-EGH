@@ -19,12 +19,18 @@ public class FormManager {
 	}
 	
 	public int getUserNr() throws AnwendungskernException {
+		
+		
 		try {
 			return this.aDatabase.getUserNr();
 		} catch (DatenhaltungsException e) {
 			e.printStackTrace();
 			throw new AnwendungskernException();
 		}
-	}
 
+		
+//		int id = 777;
+//		return id;
+
+	}
 }

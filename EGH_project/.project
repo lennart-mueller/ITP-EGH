@@ -3,6 +3,7 @@
 	<name>EGH_project</name>
 	<comment></comment>
 	<projects>
+		<project>EGH_Antragsverwaltung</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
