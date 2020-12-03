@@ -1,6 +1,6 @@
 package Beans;
 
-import java.io.Serializable;
+
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -13,7 +13,7 @@ import usecase.impl.IRequestForm;
 
 @Named("formMB")
 @RequestScoped
-public class FormMB implements Serializable {
+public class FormMB {
 
 	/**
 	 * 
@@ -38,7 +38,7 @@ public class FormMB implements Serializable {
 
 	private ApplicationForm form;
 
-
+//dhiskdhok
 
 
 	//*****Aufruf des usescases "requestFormular.requestForm()" funktioniert nicht - Warum???****
@@ -46,7 +46,7 @@ public class FormMB implements Serializable {
 	public String formUser() throws AnwendungskernException {
 		System.out.println("formUser - Test");
 		
-	//	System.out.println(requestFormular.requestForm());
+		//System.out.println(requestFormular.requestForm());
 		String userId = "123";
 	//	String userId = Integer.toString(requestFormular.requestForm());
 		
