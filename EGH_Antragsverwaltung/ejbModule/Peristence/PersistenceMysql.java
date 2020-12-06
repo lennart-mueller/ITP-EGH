@@ -30,7 +30,8 @@ public class PersistenceMysql {
 		session.setPortForwardingL(nLocalPort, strRemoteHost, nRemotePort);
 	    }
 	
-	public static void Connect() {
+	@SuppressWarnings("null")
+	public static Connection Connect() throws JSchException, ClassNotFoundException, SQLException {
 		String strSshUser = "mueller"; // SSH loging username
 	    String strSshPassword = "ubuntu-egh"; // SSH login password
 	    String strSshHost = "131.173.88.192"; // hostname or ip or SSH server
@@ -40,31 +41,37 @@ public class PersistenceMysql {
 	    int nRemotePort = 3306; // remote port number of your database
 	    String strDbUser = "root"; // database loging username
 	    String strDbPassword = "mysql"; // database login password
+	    Connection Connect = null;
 
 	    String query = "SHOW DATABASES;";
 
 	    PersistenceMysql.doSshTunnel(strSshUser, strSshPassword, strSshHost, nSshPort, strRemoteHost, nLocalPort, nRemotePort);
 
 	    Class.forName("com.mysql.cj.jdbc.Driver");
-	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:" + nLocalPort, strDbUser,
-		    strDbPassword); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(query)) {
+//	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:" + nLocalPort, strDbUser,strDbPassword); 
+//	    Statement st = con.createStatement(); 
+//	    ResultSet rs = st.executeQuery(query)) {
+//
+//		while (rs.next()) {
+//		    System.out.println(rs.getString(1));
+//
+//		}
+//		con.close();
+//	    } catch (SQLException ex) {
+//		Logger lgr = Logger.getLogger(PersistenceMysql.class.getName());
+//		lgr.log(Level.SEVERE, ex.getMessage(), ex);
+//	    }
+    	
+	    
+	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:" + nLocalPort, strDbUser,strDbPassword)) {
+	    	Connect = con;
+	    	return con;
+	    } catch (SQLException e) {
+			Connect.close();
+			e.printStackTrace();
+			return null;
+		} 
 
-		while (rs.next()) {
-		    System.out.println(rs.getString(1));
-
-		}
-		con.close();
-	    } catch (SQLException ex) {
-		Logger lgr = Logger.getLogger(PersistenceMysql.class.getName());
-		lgr.log(Level.SEVERE, ex.getMessage(), ex);
-	    }
-
-	} catch (Exception e) {
-
-	    e.printStackTrace();
-	} finally {
-
-	    System.exit(0);
 	}
 }
 
