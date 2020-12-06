@@ -33,21 +33,35 @@
   </build>
   
   <dependencies>
-  	<dependency>
+  		<dependency>
     		<groupId>javax.enterprise</groupId>
     		<artifactId>cdi-api</artifactId>
     		<version>1.2</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+			<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
     		<groupId>javax</groupId>
     		<artifactId>javaee-api</artifactId>
-   			 <version>8.0</version>
+   			<version>8.0</version>
     		<scope>provided</scope>
 		</dependency>
+	
+		
+			<!-- https://mvnrepository.com/artifact/com.jcraft/jsch -->
+		<dependency>
+		    <groupId>com.jcraft</groupId>
+		    <artifactId>jsch</artifactId>
+		    <version>0.1.55</version>
+		</dependency>
+		
+			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.22</version>
+		</dependency>
 	</dependencies>
-  
   
   
 </project>
