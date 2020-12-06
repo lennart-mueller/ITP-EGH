@@ -12,6 +12,12 @@
 		<managed-bean-class>Beans.FormMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 		</managed-bean>
+		
+		<managed-bean>
+		<managed-bean-name>fragenMB</managed-bean-name>
+		<managed-bean-class>Beans.FragenMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		</managed-bean>
 	
 
 	
@@ -19,6 +25,10 @@
 		
 		<navigation-rule>
 		<from-view-id>index2.xhtml</from-view-id>
+		</navigation-rule>
+		
+		<navigation-rule>
+		<from-view-id>formular_1.xhtml</from-view-id>
 		</navigation-rule>
 
 </faces-config>
