@@ -30,6 +30,7 @@ public class FragenMB {
 	
 	public String getFragen() {
 		FragenCounter++;
+		System.out.println("FragenCounter");
 	
 		return alleFragen[FragenCounter-1];
 		
