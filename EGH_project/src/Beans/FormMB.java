@@ -45,10 +45,14 @@ public class FormMB {
 	
 	public String formUser() throws AnwendungskernException {
 		System.out.println("formUser - Test");
+//		int test;
+//		
+//		test = requestFormular.requestForm();
 		
-		//System.out.println(requestFormular.requestForm());
-		String userId = "123";
-	//	String userId = Integer.toString(requestFormular.requestForm());
+		System.out.println();
+		//String userId = "123";
+		String userId = Integer.toString(requestFormular.requestForm());
+		
 		
 			return userId;
 	
