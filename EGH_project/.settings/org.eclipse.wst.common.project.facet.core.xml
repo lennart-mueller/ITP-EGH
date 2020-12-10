@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
   <runtime name="WildFly 21.0 Runtime"/>
@@ -8,3 +9,14 @@
   <installed facet="jst.web" version="4.0"/>
   <installed facet="jst.jaxrs" version="2.1"/>
 </faceted-project>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <runtime name="WildFly 21.0 Runtime"/>
+  <fixed facet="wst.jsdt.web"/>
+  <installed facet="wst.jsdt.web" version="1.0"/>
+  <installed facet="jst.jsf" version="2.2"/>
+  <installed facet="java" version="1.8"/>
+  <installed facet="jst.web" version="4.0"/>
+</faceted-project>
+>>>>>>> branch 'main' of https://github.com/lennart-mueller/ITP-EGH.git

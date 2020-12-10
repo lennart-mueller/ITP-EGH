@@ -1,3 +1,4 @@
+
 package Peristence;
 
 import java.sql.Connection;
@@ -45,3 +46,4 @@ public class ApplicationFormDatabase implements IApplicationFormDatabase {
 
 
 }
+>>>>>>> branch 'main' of https://github.com/lennart-mueller/ITP-EGH.git
