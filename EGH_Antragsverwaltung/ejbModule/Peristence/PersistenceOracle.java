@@ -1,4 +1,4 @@
-package Persistence;
+package Peristence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Persistence {
+public class PersistenceOracle {
 	
 	public static Connection getConnection(){
 		Connection aConnection = null;
@@ -27,7 +27,7 @@ public class Persistence {
 //			aConnection = DriverManager.getConnection ("jdbc:oracle:thin:@localhost:1521:XE", "Bank", "Bank");
 			aConnection = 
 					DriverManager.getConnection (
-							"jdbc:oracle:thin:@131.173.92.216:1521:orcl", "BIM_DM2020_15", "NewYork99");
+							"jdbc:oracle:thin:@l4asrv-oracle.wi.hs-osnabrueck.de:1521:ORCL", "BIM_DM2020_15", "NewYork99");
 		} catch (SQLException e) {
 				e.printStackTrace();
 		}

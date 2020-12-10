@@ -3,6 +3,7 @@ package antragsverwaltung.usesecase;
 import javax.ejb.Stateless;
 
 import Peristence.AnwendungskernException;
+import antragsverwaltung.usesecase.impl.IRequestForm;
 
 @Stateless
 public class RequestForm implements IRequestForm {
@@ -14,15 +15,14 @@ public class RequestForm implements IRequestForm {
 			
 		
 //			FormManager aFormManager = FormManager.getFormManager();
-	
-			
+//	
+//			
 //			int userNr = aFormManager.getUserNr();
-			
-			int userNr = 12549;
-		
-			
-			return userNr;
-		
+						int userNr = 1254888;
+//		
+//			
+		return userNr;
+//		
 	}
 
 }

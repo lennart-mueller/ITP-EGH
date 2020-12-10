@@ -1,4 +1,4 @@
-package entity.impl;
+package antragsverwaltung.entity.impl;
 
 public class ApplicationForm {
 	

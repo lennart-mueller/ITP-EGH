@@ -6,6 +6,10 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+ 		<f:metadata>
+        	<f:event type="preRenderView" listener="#{fragenMB.iniFragen}"  />
+        	
+		</f:metadata>
 
 <h2>Selbsteinschätzungsbogen zum Antrag auf Jugendhilfe</h2>
 <div>Prüfe bei jeder Frage, ob du eine Assistenzleistung benötigst oder nicht. </div>
@@ -22,21 +26,51 @@
 
 <p:panel id="basic" header="Lernen und Wissenanwendung" style="margin-bottom:20px">
 
-  <p:selectManyCheckbox id="grid2" value= "#{mainController.scala}" layout="responsive" columns="3">
-        <f:selectItems  itemLabel="... meine Sinne schärfen" itemValue="alone"/>
-    </p:selectManyCheckbox> 
-    
+ <h:outputText value="#{fragenMB.getFragen()}" /> <br/> <br/>
+ <h:outputText value="#{fragenMB.getFragen()}" /> <br/> <br/>
+ <h:outputText value="#{fragenMB.getFragen()}" /> <br/> <br/>
      
-   
-    </p:panel>
-    <h:form>
-        <h3>Responsive</h3>
-    <p:selectManyCheckbox id="grid2" value="#{checkboxView.selectedCities2}" layout="responsive" columns="3">
-        <f:selectItems value="#{checkboxView.cities}" var="city" itemLabel="#{city}" itemValue="#{city}" />
-    </p:selectManyCheckbox>
-    </h:form>
+   </p:panel>
     
-  <h:outputText value="#{CheckboxView.name}"  />	
+ <p:panel id="basic" header="Schlafen und Essen" style="margin-bottom:20px">
+
+
+ 
+ 
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <p:outputLabel for="fragen" value="#{fragenMB.getFragen()}" />
+        <p:selectOneRadio id="fragen" value="#{fragenMB.antworten}" unselectable="true">
+            <f:selectItem itemLabel="" itemValue="1" />
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
+        <p:outputLabel for="fragen2" value="#{fragenMB.getFragen()}" />
+        <p:selectOneRadio id="fragen2" value="#{fragenMB.antworten}" unselectable="true">
+            <f:selectItem itemLabel="" itemValue="1" />
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
+         <p:outputLabel for="fragen3" value="#{fragenMB.getFragen()}" />
+        <p:selectOneRadio id="fragen3" value="#{fragenMB.antworten}" unselectable="true">
+            <f:selectItem itemLabel="" itemValue="1" />
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
+         <p:outputLabel for="fragen4" value="#{fragenMB.getFragen()}" />
+        <p:selectOneRadio id="fragen4" value="#{fragenMB.antworten}" unselectable="true">
+            <f:selectItem itemLabel="" itemValue="1" />
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
+       
+        </h:panelGrid>
+    
+
+     
+ </p:panel>   
+    
+
+  
        
   
   
