@@ -7,16 +7,25 @@ import antragsverwaltung.usesecase.impl.ISaveForm;
 public class SaveForm implements ISaveForm {
 	
 	//speichert die Antworten in die Datenbank
-	public void fillForm(int nr, String bezeichnung) throws AnwendungskernException, DatenhaltungsException {
+	public void fillForm(int formNr, String bezeichnung) throws AnwendungskernException, DatenhaltungsException {
 		
 		
 		
 				FormManager aFormManager = FormManager.getFormManager();
 	
-				aFormManager.saveForm(nr, bezeichnung);
+				aFormManager.saveForm(formNr, bezeichnung);
 				
 
 
 }
+	
+	public void saveAnswers(int formNr, int questionNr, int answerNr ) throws AnwendungskernException, DatenhaltungsException {
+		
+		FormManager aFormManager = FormManager.getFormManager();
+		
+		aFormManager.saveAnswer(formNr, questionNr, answerNr);
+			
+		
+	}
 
 }

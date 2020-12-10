@@ -56,6 +56,14 @@ public class ApplicationFormDatabase implements IApplicationFormDatabase {
 		return aForm;
 	}
 
+	@Override
+	public void saveAnswer(int formNr, int questionNr, int answerNr) throws DatenhaltungsException {
+		
+		/* Code fuer Speichern einer Antwort hinzufuegen*/
+		
+		
+	}
+
 
 	
 	

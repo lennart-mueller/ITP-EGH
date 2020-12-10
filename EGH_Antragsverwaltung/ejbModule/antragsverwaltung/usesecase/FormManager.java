@@ -43,6 +43,11 @@ public class FormManager {
 	public ApplicationFormTO getForm(int formNr) throws DatenhaltungsException {
 		 return this.aDatabase.getForm(formNr);
 	}
+
+	public void saveAnswer(int formNr, int questionNr, int answerNr) throws DatenhaltungsException {
+		this.aDatabase.saveAnswer(formNr, questionNr, answerNr);
+		
+	}
 	
 
 }
