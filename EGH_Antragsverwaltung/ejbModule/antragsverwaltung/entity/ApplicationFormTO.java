@@ -7,6 +7,7 @@ public class ApplicationFormTO {
 	private static final long serialVersionUID = -1965005798780312432L;
 	private int formNr;
 	private int userId;
+	private String description;
 //	private double date;
 //	private QuestionnaireTO questionnaire;
 //	private AnswerTO answers;
@@ -46,6 +47,16 @@ public ApplicationFormTO() {}
 	public void setFormNr(int formNr) {
 		this.formNr = formNr;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 	
 //	public double getDate() {
 //		return date;

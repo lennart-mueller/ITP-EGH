@@ -4,6 +4,7 @@ import Peristence.AnwendungskernException;
 import Peristence.ApplicationFormDatabase;
 import Peristence.DatenhaltungsException;
 import Peristence.IApplicationFormDatabase;
+import antragsverwaltung.entity.ApplicationFormTO;
 
 public class FormManager {
 	
@@ -33,4 +34,15 @@ public class FormManager {
 //		return id;
 
 	}
+	
+	public void saveForm(int nr, String bezeichnung) throws DatenhaltungsException {
+		this.aDatabase.saveForm(nr, bezeichnung);
+	}
+	
+	
+	public ApplicationFormTO getForm(int formNr) throws DatenhaltungsException {
+		 return this.aDatabase.getForm(formNr);
+	}
+	
+
 }

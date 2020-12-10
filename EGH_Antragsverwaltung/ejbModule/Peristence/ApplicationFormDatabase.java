@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import com.jcraft.jsch.JSchException;
 
+import antragsverwaltung.entity.ApplicationFormTO;
+
 public class ApplicationFormDatabase implements IApplicationFormDatabase {
 	
 
@@ -14,6 +16,9 @@ public class ApplicationFormDatabase implements IApplicationFormDatabase {
 
 	
 	public int getUserNr() throws DatenhaltungsException {
+		
+		/*Code fuer das Auslesen ein Nr aus Datenbank hinzufuegen*/
+		
 		Connection aConnection;
 		try {
 			aConnection = PersistenceMysql.Connect();
@@ -27,23 +32,33 @@ public class ApplicationFormDatabase implements IApplicationFormDatabase {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-//		ResultSet resultSet;
-//		try {
-//			resultSet = Persistence.executeQueryStatement(aConnection,
-//					"SELECT max(formnr) as max FROM egh_test");
-//
-//			if (resultSet.next())
-//				return resultSet.getInt("max");
-//			else
-//				return 0;
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			throw new DatenhaltungsException();
-//		}
+
 		return 0;
 	}
 
+	//speichert einen Antrag in die DB
+	public void saveForm(int nr, String bezeichnung) throws DatenhaltungsException {
+		
+		
+		/*Code fuer Speicherung in DB hinzufuegen*/
+	}
 
+	
+	public ApplicationFormTO getForm(int formNr) {
+		/* Code fuer Auslesen eines Antrags hinzufuegen*/
+		
+		int nrausDb = 22;
+		String descriptionAusDb = "hallo";
+		
+		ApplicationFormTO aForm = null;
+		aForm.setFormNr(nrausDb);
+		aForm.setDescription(descriptionAusDb);
+		return aForm;
+	}
+
+
+	
+	
+	
 }
 

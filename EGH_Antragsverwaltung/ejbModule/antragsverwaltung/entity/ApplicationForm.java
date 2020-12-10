@@ -4,6 +4,7 @@ public class ApplicationForm {
 	
 	private int formNr;
 	private int userId;
+	private String description;
 //	private Questionnaire questionnaire;
 	
 	public ApplicationForm() {	
@@ -22,8 +23,18 @@ public class ApplicationForm {
 //		this.questionnaire = questionnaire;
 //	}
 
+	
+	
 	public int getFormNr() {
 		return formNr;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void setFormNr(int formNr) {
