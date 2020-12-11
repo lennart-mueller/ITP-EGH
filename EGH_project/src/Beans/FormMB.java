@@ -12,7 +12,9 @@ import javax.inject.Named;
 
 import antragsverwaltung.entity.AnswerChangeTO;
 import antragsverwaltung.entity.impl.ApplicationForm;
+import antragsverwaltung.usesecase.impl.IFillForm;
 import antragsverwaltung.usesecase.impl.IRequestForm;
+import antragsverwaltung.usesecase.impl.ISaveForm;
 
 
 
@@ -28,12 +30,12 @@ public class FormMB {
 	 */
 	private static final long serialVersionUID = 2526217096894280449L;
 
-//	@Inject
-//	IFillForm fillFormular;
+	@Inject
+	IFillForm fillFormular;
 	
-//	@Inject
-//	ISaveForm saveForm;
-//	
+	@Inject
+	ISaveForm saveForm;
+	
 	@Inject
 	IRequestForm requestFormular;
 

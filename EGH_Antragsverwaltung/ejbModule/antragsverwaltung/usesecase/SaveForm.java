@@ -1,9 +1,12 @@
 package antragsverwaltung.usesecase;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
 import antragsverwaltung.usesecase.impl.ISaveForm;
-
+@Stateless
 public class SaveForm implements ISaveForm {
 	
 	//speichert die Antworten in die Datenbank
