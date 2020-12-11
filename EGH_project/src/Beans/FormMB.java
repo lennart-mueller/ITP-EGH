@@ -10,13 +10,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import Peristence.AnwendungskernException;
-import Peristence.DatenhaltungsException;
 import antragsverwaltung.entity.AnswerChangeTO;
 import antragsverwaltung.entity.impl.ApplicationForm;
-import antragsverwaltung.usesecase.impl.IFillForm;
 import antragsverwaltung.usesecase.impl.IRequestForm;
-import antragsverwaltung.usesecase.impl.ISaveForm;
 
 
 
@@ -35,9 +31,9 @@ public class FormMB {
 //	@Inject
 //	IFillForm fillFormular;
 	
-	@Inject
-	ISaveForm saveForm;
-	
+//	@Inject
+//	ISaveForm saveForm;
+//	
 	@Inject
 	IRequestForm requestFormular;
 
@@ -83,16 +79,16 @@ public class FormMB {
 	}
 	
 	
-	public void saveForm() throws AnwendungskernException, DatenhaltungsException {
-		int formNr = 2;
-		int questionNr = FragenCounter;
-		int answerNr = Integer.parseInt(answer);
-		
-		saveForm.saveAnswers(formNr, questionNr, answerNr);
-		
-		
-		
-	}
+//	public void saveForm() throws AnwendungskernException, DatenhaltungsException {
+//		int formNr = 2;
+//		int questionNr = FragenCounter;
+//		int answerNr = Integer.parseInt(answer);
+//		
+//		saveForm.saveAnswers(formNr, questionNr, answerNr);
+//		
+//		
+//		
+//	}
 	
 	
 	
