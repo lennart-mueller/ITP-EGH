@@ -8,14 +8,43 @@
 <h:head>
 
 </h:head>
-<h:body>
 
-<p:panel id="basic" header="Startseite" footer="Movie Details" style="margin-bottom:20px">
-   
+
+<body> 
+  <h:form id="registrationForm">
+    <p:panel header="Registrierung" style="width: 500px;">
+<p:messages/>
+    <h:panelGrid columns="2">
+     
+      
+      <p:outputLabel value="Vorname:"/>
+      <p:inputText id="firstName" value="#{userMB.firstName}" label="FirstName"/>
+      
+      <p:outputLabel value="Nachname:"/>
+      <p:inputText id="lastName" value="#{userMB.lastName}"/>
+      
+      <p:outputLabel value="Alter:" />
+      <p:inputText id="age" value="#{userMB.age}" label="age"/>
+      
+      <p:outputLabel value="E-Mail:"/>
+      <p:inputText id="email" value="#{userMB.email}" label="EMail" />      
+            
+      <p:outputLabel value="Password:"/>
+      <p:password id="password" value="#{userMB.pwd}" label="Password"/>
+
+      <p:outputLabel value=""/>
+      <p:commandButton action="#{userMB.register}" value="Registrieren" update="registrationForm"/>
+      <br/>
+      <p:commandButton id="loginButton" action="#{userMB.loginMenue}"
+					value="zum Login"  ajax="true" style="float: right;">
+				</p:commandButton>
+      
+    </h:panelGrid>
     </p:panel>
+  </h:form>
+</body>
 
 
 
-</h:body>
 
 </html>

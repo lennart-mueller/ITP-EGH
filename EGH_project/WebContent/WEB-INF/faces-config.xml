@@ -13,8 +13,64 @@
 		<managed-bean-scope>request</managed-bean-scope>
 		</managed-bean>
 	
+		<managed-bean>
+		<managed-bean-name>testMB</managed-bean-name>
+		<managed-bean-class>Beans.Test</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		</managed-bean>
+		
+		<managed-bean>
+		<managed-bean-name>userMB</managed-bean-name>
+		<managed-bean-class>Beans.UserMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		</managed-bean>
 
+		<navigation-rule>
+		<from-view-id>/pages/Answers.xhtml</from-view-id>
+		</navigation-rule>
+		
+		
 	
+	<navigation-rule>
+		<from-view-id>/pages/loginPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>formular</from-outcome>
+			<to-view-id>/pages/Answers.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/registerPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/pages/loginPage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/loginPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>register</from-outcome>
+			<to-view-id>/pages/registerPage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/loginPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>fastlane</from-outcome>
+			<to-view-id>/pages/individualQuestions.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/Answers.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>extra</from-outcome>
+			<to-view-id>/pages/individualQuestions.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+		
 	
 		
 		<navigation-rule>

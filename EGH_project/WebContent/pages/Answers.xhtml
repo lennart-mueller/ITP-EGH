@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
  		<f:metadata>
-        	<f:event type="preRenderView" listener="#{formMB.iniFragen}"  />
+        	<f:event type="preRenderView" listener="#{formMB.iniForm}"  />
         	
 		</f:metadata>
 
@@ -25,15 +25,39 @@
 <h3>Mit der Jugendhilfe möchte ich...</h3>
 
 
-    
+    <h:form>
  <p:panel id="basic" header="Schlafen und Essen" style="margin-bottom:20px">
 
 
- 
+ 		
  
 		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <p:outputLabel for="fragen1" value="#{formMB.getFragen()}" />
+        <p:selectOneRadio id="fragen1" value="#{formMB.allAnswers[0]}" unselectable="true" >
+            <f:selectItem itemLabel="" itemValue="1" />
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
         <p:outputLabel for="fragen2" value="#{formMB.getFragen()}" />
-        <p:selectOneRadio id="fragen2" value="#{formMB.answer}" unselectable="true">
+        <p:selectOneRadio id="fragen2" value="#{formMB.allAnswers[1]}" unselectable="true">
+            <f:selectItem itemLabel="" itemValue="1" />
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
+          <p:outputLabel for="fragen3" value="#{formMB.getFragen()}" />
+        <p:selectOneRadio id="fragen3" value="#{formMB.allAnswers[2]}" unselectable="true" checked = "checked">
+            <f:selectItem itemLabel="" itemValue="1" checked="checked"/>
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
+          <p:outputLabel for="fragen4" value="#{formMB.getFragen()}" />
+        <p:selectOneRadio id="fragen4" value="#{formMB.allAnswers[3]}" unselectable="true">
+            <f:selectItem itemLabel="" itemValue="1" />
+            <f:selectItem itemLabel="" itemValue="2" />
+            <f:selectItem itemLabel="" itemValue="3" />
+        </p:selectOneRadio>
+             <p:outputLabel for="fragen5" value="#{formMB.getFragen()}" />
+        <p:selectOneRadio id="fragen5" value="#{formMB.allAnswers[4]}" unselectable="true">
             <f:selectItem itemLabel="" itemValue="1" />
             <f:selectItem itemLabel="" itemValue="2" />
             <f:selectItem itemLabel="" itemValue="3" />
@@ -43,26 +67,30 @@
       
        
         </h:panelGrid>
-        <form>
-         <h:commandButton value="Senden" action="#{formMB.saveForm}" style=" width: 150px" class = "button"/>
-         <br/>
-         <h:outputLabel value="#{formMB.answer} " />
-         <h:inputText value="#{formMB.eingabe}" style=" width: 50px" />
-         <h:outputLabel value="#{formMB.eingabe} " />
-    
-        </form>
-       
-
+        
      
- </p:panel>   
+         </p:panel>   
+        
+
+         
+       
+ 		<br/><br/>
+ 		<p:commandButton value="Absenden" action="#{formMB.updateForm()}" style=" width: 150px" class = "button"/>
     
+        
+		<br/><br/>
+		<p:commandButton value="Zusatzfragen" action="#{formMB.goToExtraQuestions()}" style=" width: 150px" class = "button"/>
+     
+	
+    	<p>Welcome #{userMB.email}</p>
+    	
 
   
        
   
   
 
-
+</h:form>
 
 </h:body>
 

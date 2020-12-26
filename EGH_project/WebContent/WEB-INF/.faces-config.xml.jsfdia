@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:index2.xhtml" PATH="index2.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:index2.xhtml:0" NAME="item"
+   PATH="index2.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#Answers.xhtml"
+  PATH="/pages/Answers.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#Answers.xhtml:0" NAME="item"
+   PATH="/pages/Answers.xhtml" model-entity="JSFProcessItem"/>
+  <PROCESS-ITEM ID="rules:#pages#Answers.xhtml:1" NAME="item1"
+   PATH="/pages/Answers.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="extra::#pages#individualQuestions.xhtml"
+    NAME="output" PATH="/pages/individualQuestions.xhtml"
+    TARGET="rules:#pages#individualQuestions.xhtml" TITLE="extra" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#loginPage.xhtml"
+  PATH="/pages/loginPage.xhtml" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#loginPage.xhtml:0" NAME="item"
+   PATH="/pages/loginPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="formular::#pages#Answers.xhtml"
+    NAME="output" PATH="/pages/Answers.xhtml"
+    TARGET="rules:#pages#Answers.xhtml" TITLE="formular" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#pages#loginPage.xhtml:1" NAME="item1"
+   PATH="/pages/loginPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="register::#pages#registerPage.xhtml"
+    NAME="output" PATH="/pages/registerPage.xhtml"
+    TARGET="rules:#pages#registerPage.xhtml" TITLE="register" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#pages#loginPage.xhtml:2" NAME="item2"
+   PATH="/pages/loginPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="fastlane::#pages#individualQuestions.xhtml"
+    NAME="output" PATH="/pages/individualQuestions.xhtml"
+    TARGET="rules:#pages#individualQuestions.xhtml" TITLE="fastlane" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#registerPage.xhtml"
+  PATH="/pages/registerPage.xhtml" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#registerPage.xhtml:0" NAME="item"
+   PATH="/pages/registerPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#pages#loginPage.xhtml" NAME="output"
+    PATH="/pages/loginPage.xhtml" TARGET="rules:#pages#loginPage.xhtml"
+    TITLE="login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#individualQuestions.xhtml"
+  PATH="/pages/individualQuestions.xhtml" SHAPE="272,145,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

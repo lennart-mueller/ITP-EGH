@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>EGH_Antragsverwaltung</project>
+		<project>EGH_UserManagement</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
