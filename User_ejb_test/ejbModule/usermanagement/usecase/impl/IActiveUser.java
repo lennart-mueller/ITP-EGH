@@ -1,6 +1,9 @@
 package usermanagement.usecase.impl;
 
+import javax.ejb.Local;
+
 import antragsverwaltung.entity.ApplicationFormTO;
+
 
 public interface IActiveUser {
 	

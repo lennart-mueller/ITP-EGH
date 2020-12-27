@@ -17,6 +17,7 @@ import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
 import antragsverwaltung.entity.ApplicationFormTO;
 import antragsverwaltung.entity.QuestionIndividuellTO;
+import antragsverwaltung.entity.QuestionTO;
 import antragsverwaltung.usesecase.impl.IFillForm;
 import antragsverwaltung.usesecase.impl.IRequestForm;
 import antragsverwaltung.usesecase.impl.ISaveForm;
@@ -73,21 +74,13 @@ public class FormMB {
 	
 	
 	
-//	private ApplicationForm form;
-//	private List<Integer> manyAnswers = new ArrayList<Integer>();
-	
-//	private int formNr;
-//	private String answer;
-//	private AnswerChangeTO aAnswerTO;
-//	private List<AnswerChangeTO> allquestions = new ArrayList<AnswerChangeTO>();
-	
-//	private String Antworten;
+
 
 	//buttons werden selected, muss spaeter geändert werden auf get form von user id
 	 @PostConstruct
 	    public void init() {
 		
-		 
+//		 ApplicationFormTO aFormTO = new ApplicationFormTO();
 		 int actualForm = statelessActiveUser.getUserFormId();
 		 if(actualForm==0) {
 			 createEmptyFormular();
@@ -96,14 +89,18 @@ public class FormMB {
 			 int i = 0;
 			 for(ApplicationFormTO aForm : requestFormular.getAllForms()) {
 					if(aForm.getFormNr()==actualForm) {
-//						
+//						aFormTO = aForm;
+					
+						
+
+
 						for (Integer fnr:aForm.getFormAnswer()) {
 							allAnswers[i] = Integer.toString(fnr);
 							i++;
 							
 							
 						}
-//						statelessActiveUser.setaForm(aForm);
+
 					}
 				}
 			 
@@ -120,6 +117,9 @@ public class FormMB {
 	 
 	//lädt alle Fragen die in iniFragen() initialisiert wurden
 	public String getFragen() {
+
+		 
+		
 	
 		FragenCounter++;
 		System.out.println("FragenCounter");
@@ -150,7 +150,7 @@ public class FormMB {
 		int userNr = statelessActiveUser.getUserid();  //aktive UserID
 		String eMail = statelessActiveUser.getEmail(); //aktiver User/Email
 		int formNr = statelessActiveUser.getUserFormId();
-		String description = "EGH-Form";
+		String description = "EGH9-Form";
 		aFormTO.setUserId(userNr);
 		aFormTO.setFormNr(formNr);;
 		aFormTO.setBezeichnung(description);
@@ -158,6 +158,7 @@ public class FormMB {
 		 for(ApplicationFormTO aForm : requestFormular.getAllForms()) {
 				if(aForm.getUserId()==userNr) {			//FormularNr aus Datenbank abfragen (effizientere Methode wo nur ein das eine Formular abgerufen wird sinnvoll)
 					formNr = aForm.getFormNr();
+		aFormTO.setFormAnswer(aForm.getFormAnswer());
 					int counter = 0;
 					while(counter < allAnswersIndi.length) {
 						
@@ -186,8 +187,11 @@ public class FormMB {
 	public void iniForm() {
 		iniFragen();
 //		iniAnswers();
+	
 	}
 	
+
+
 	//setzt beim ersten Aufruf standardmaessig alle Antworten auf 0
 	public void iniAnswers() {
 		
@@ -214,12 +218,20 @@ public class FormMB {
 		alleFragen[7] = "Wie ist das Wetter?";
 		alleFragen[8] = "Wieso bist du hier?";
 		
+		int i = 0;
+		 for(QuestionTO aQuestion : requestFormular.getAllQuestions()) {
+			 alleFragen[i] = aQuestion.getQuestion();
+			 i++;
+	
+			}
+		
 
 	}
 	
 	//Beim ersten Aufruf der Seite wird ein Formular erstellt mit allen Antworten = 0
 	public void createEmptyFormular() {
 		
+		//ApplicationFormTO aFormTOSave = new ApplicationFormTO();
 		int i = 0;
 		int formNr = 0; //formNr = 0 wenn noch nichts ausgefüllt
 		int userNr = statelessActiveUser.getUserid();  //aktive UserID
@@ -236,10 +248,14 @@ public class FormMB {
 			aFormTO.addAnswer(0);		//allen Antworten 0 zuweisen
 			i ++;
 		}
+		
 		saveForm.createForm(aFormTO);
 		
 		 for(ApplicationFormTO aForm : requestFormular.getAllForms()) {
-				if(aForm.getUserId()==userNr) {			//FormularNr aus Datenbank abfragen (effizientere Methode wo nur ein das eine Formular abgerufen wird sinnvoll)
+				if(aForm.getUserId()==userNr) {	
+					//aFormTOSave = aForm;
+//					statelessActiveUser.setaForm(aFormTOSave);
+					//FormularNr aus Datenbank abfragen (effizientere Methode wo nur ein das eine Formular abgerufen wird sinnvoll)
 					formNr = aForm.getFormNr();
 					
 				}
@@ -327,6 +343,14 @@ public class FormMB {
 		aFormTO.setFormNr(formNr);;
 	
 		aFormTO.setBezeichnung(description);
+		
+		 for(ApplicationFormTO aForm : requestFormular.getAllForms()) {
+				if(aForm.getUserId()==userNr) {			//FormularNr aus Datenbank abfragen (effizientere Methode wo nur ein das eine Formular abgerufen wird sinnvoll)
+				aFormTO.setIndividualQuestions(aForm.getIndividualQuestions());
+	
+				}
+			}
+		 
 		while(i < allAnswers.length) {
 			System.out.println("Your answered with: "+allAnswers[i]);
 			if(allAnswers[i]==null) {

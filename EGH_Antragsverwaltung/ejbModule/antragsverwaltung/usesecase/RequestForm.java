@@ -13,8 +13,11 @@ import javax.persistence.Persistence;
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
 import antragsverwaltung.dao.FormDAO;
+import antragsverwaltung.dao.QuestionDAO;
 import antragsverwaltung.entity.ApplicationFormTO;
+import antragsverwaltung.entity.QuestionTO;
 import antragsverwaltung.entity.impl.ApplicationForm;
+import antragsverwaltung.entity.impl.Question;
 import antragsverwaltung.usesecase.impl.IRequestForm;
 
 @Stateless
@@ -22,6 +25,9 @@ public class RequestForm implements IRequestForm {
 
 	@Inject
 	FormDAO formDAO;
+	
+	@Inject 
+	QuestionDAO questionDAO;
 
 	
 	public int requestForm() throws AnwendungskernException {
@@ -66,4 +72,20 @@ public class RequestForm implements IRequestForm {
 
 		return returnList;
 	}
+	
+	@Override
+	public List<QuestionTO> getAllQuestions() {
+		List<Question> aList = questionDAO.findAll();
+		List<QuestionTO> returnList = new ArrayList<QuestionTO>();
+		for (Question aQuestion : aList) {
+			returnList.add(aQuestion.toQuestionTO());
+
+		}
+
+		return returnList;
+	}
+	
+	
+	
+	
 }
