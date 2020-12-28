@@ -58,7 +58,7 @@ public class FormMB {
 	private int quantityQuestions = 5;
 	private int quantityIndiQuestions = 3;
 	private String userNr = "TesteForm123";
-	private String [] alleFragen = new String [30];
+	private String [] alleFragen = new String [9];
 	private String [] allAnswers = new String [quantityQuestions];
 	private String [] alleQuestionsIndi = new String [30];
 	private String [] allAnswersIndi = new String [quantityIndiQuestions];

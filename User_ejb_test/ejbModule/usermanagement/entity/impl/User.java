@@ -1,5 +1,13 @@
 package usermanagement.entity.impl;
 
+import java.util.Hashtable;
+import java.util.Optional;
+
+import javax.naming.AuthenticationException;
+import javax.naming.Context;
+import javax.naming.NamingException;
+import javax.naming.directory.DirContext;
+import javax.naming.directory.InitialDirContext;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -91,7 +99,25 @@ public class User {
 
 		return aUserTO;
 	}
-
+	
+	public Optional authentifiziereBenutzer(User benutzer)
+		    throws AuthenticationException
+		{
+		  try
+		  {
+		    Hashtable<String, String> env = new Hashtable<>();
+		    env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+		    env.put(Context.PROVIDER_URL, "ldap://ldap.example.de");
+		    env.put(Context.SECURITY_PRINCIPAL, benutzer.getEmail());
+		    env.put(Context.SECURITY_CREDENTIALS, benutzer.getPassword());
+		    DirContext ctx = new InitialDirContext(env);
+		    return Optional.of(benutzer);
+		  }
+		  catch (NamingException e)
+		  {
+		    throw new AuthenticationException("Benutzername oder Passwort falsch");
+		  }
+		}
 
 
 
