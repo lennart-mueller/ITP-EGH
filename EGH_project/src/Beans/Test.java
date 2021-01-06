@@ -3,23 +3,29 @@ package Beans;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class Test implements Serializable {
 
-    private String addressFlag;
-
-    @PostConstruct
-    public void init() {
-        addressFlag = "0";
+	public void info() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
     }
-
-    public String getAddressFlag() {
-        return addressFlag;
+     
+    public void warn() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning!", "Watch out for PrimeFaces."));
     }
-
-    public void setAddressFlag(String addressFlag) {
-        this.addressFlag = addressFlag;
+     
+    public void error() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Contact admin."));
+    }
+     
+    public void fatal() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Fatal!", "System Error"));
     }
 }

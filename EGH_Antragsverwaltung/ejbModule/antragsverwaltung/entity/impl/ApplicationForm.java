@@ -65,13 +65,14 @@ public class ApplicationForm {
 	
 	public ApplicationForm() {	
 		super();
+		this.bezeichnung = "EGH";
 	}
 	
 	//Methode zum Speichern einer neu angelegten Form
 	public ApplicationForm(int formNr, int userId, String bezeichnung) {
 		super();
 		this.userId = userId;
-		this.bezeichnung = bezeichnung;
+		this.bezeichnung = "EGH";
 //		this.formNr = formNr;	fuer update in saveForm stat manueller zwuesiung?
 		this.formAnswer = new ArrayList<Integer>();
 		this.formIndiAnswer = new ArrayList<QuestionIndividuell>();

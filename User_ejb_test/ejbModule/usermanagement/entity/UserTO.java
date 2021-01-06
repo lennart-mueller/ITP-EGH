@@ -1,4 +1,4 @@
-package usermanagement.entity1;
+package usermanagement.entity;
 
 import usermanagement.entity.impl.User;
 

@@ -22,6 +22,7 @@ public class ApplicationFormTO {
 		
 		this.formAnswer = new ArrayList<Integer>();
 		this.individualQuestions = new ArrayList<QuestionIndividuellTO>();
+		this.bezeichnung = "EGH";
 		
 		
 

@@ -71,18 +71,38 @@
      
          </p:panel>   
         
-
-         
+		
+		
+         	
        
  		<br/><br/>
- 		<p:commandButton value="Absenden" action="#{formMB.updateForm()}" style=" width: 150px" class = "button"/>
+ 	  <p:commandButton value="naechste Seite" action="#{formMB.updateForm()}" style=" width: 150px" class = "button"/>
+ 	    
     
-        
+     <p:growl id="message" showDetail="true" /> 
+		
+         
+       
+ 			<p:commandLink action="#{formMB.logout()}" value="Log Out" update="message" >
+				
+       <p:confirm header="Bestaetigung" message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen." icon="pi pi-exclamation-triangle" />
+    </p:commandLink>
+ 	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Jaaaa" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+        <p:commandButton value="Ne doch nicht" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+    </p:confirmDialog> 
+   
+ 	
+ 	
+    
+       
 		<br/><br/>
-		<p:commandButton value="Zusatzfragen" action="#{formMB.goToExtraQuestions()}" style=" width: 150px" class = "button"/>
-     
 	
-    	<p>Welcome #{userMB.email}</p>
+		
+		 </h:form>
+		
+ 
+  
     	
 
   
@@ -90,7 +110,9 @@
   
   
 
-</h:form>
+
+
+
 
 </h:body>
 

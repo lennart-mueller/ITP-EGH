@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
  		<f:metadata>
-        	<f:event type="preRenderView" listener="#{fragenMB.iniFragen}"  />
+        	<f:event type="preRenderView" listener="#{formMB.iniForm}"  />
         	
 		</f:metadata>
 
@@ -55,7 +55,8 @@
             <f:selectItem itemLabel="" itemValue="2" />
             <f:selectItem itemLabel="" itemValue="3" />
         </p:selectOneRadio>
-    	<p:commandButton value="show" action="#{formMB.printIndiQuestions()}" style=" width: 150px" class = "button"/>
+    	<p:commandButton value="senden" action="#{formMB.saveIndiQuestions()}" style=" width: 150px" class = "button"/>
+    	<p:commandButton value="zurueck" action="#{formMB.backToForm1()}" style=" width: 150px" class = "button"/>
        
         </h:panelGrid>
     

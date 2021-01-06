@@ -20,7 +20,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import usermanagement.entity1.UserTO;
+import usermanagement.entity.UserTO;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

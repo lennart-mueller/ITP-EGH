@@ -31,6 +31,8 @@
 		
 		
 	
+
+	
 	<navigation-rule>
 		<from-view-id>/pages/loginPage.xhtml</from-view-id>
 		<navigation-case>
@@ -70,11 +72,24 @@
 			<to-view-id>/pages/individualQuestions.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/Answers.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/pages/loginPage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/individualQuestions.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>form1</from-outcome>
+			<to-view-id>/pages/Answers.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 		
 	
 		
-		<navigation-rule>
-		<from-view-id>index2.xhtml</from-view-id>
-		</navigation-rule>
 
 </faces-config>
