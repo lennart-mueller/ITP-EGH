@@ -32,107 +32,101 @@
 
 
 	<navigation-rule>
-		<from-view-id>/pages/loginPage.xhtml</from-view-id>
+		<from-view-id>/pages/public/loginPage.xhtml</from-view-id>
 	</navigation-rule>
 
-	<!-- WELCOME PAGE -->
 
 	<navigation-rule>
-		<from-view-id>/pages/welcomePage.xhtml</from-view-id>
+		<from-view-id>/pages/public/welcomePage.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>toLogin</from-outcome>
-			<to-view-id>/pages/loginPage.xhtml</to-view-id>
+			<to-view-id>/pages/public/loginPage.xhtml</to-view-id>
 		</navigation-case>
-		<navigation-case>
-			<from-outcome>register</from-outcome>
-			<to-view-id>/pages/registerPage.xhtml</to-view-id>
-		</navigation-case>
-
-		<!-- TESTING -->
-
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/public/welcomePage.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>test</from-outcome>
-			<to-view-id>/pages/test.xhtml</to-view-id>
+			<to-view-id>/pages/protected/test.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
-	<!-- LOGIN PAGE -->
-
+	
 	<navigation-rule>
-		<from-view-id>/pages/loginPage.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>login</from-outcome>
-			<to-view-id>/pages/loginPage.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>goToWelcome</from-outcome>
-			<to-view-id>/pages/welcomePage.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>formular</from-outcome>
-			<to-view-id>/pages/formular1.xhtml</to-view-id>
-		</navigation-case>
-
-		<!-- TESTING -->
-
+		<from-view-id>/pages/public/loginPage.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>test2</from-outcome>
-			<to-view-id>/pages/test.xhtml</to-view-id>
+			<to-view-id>/pages/protected/test.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 
-	<!-- REGISTER PAGE -->
+
+
 
 	<navigation-rule>
-		<from-view-id>/pages/registerPage.xhtml</from-view-id>
+		<from-view-id>/pages/public/registerPage.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>backToLogin</from-outcome>
-			<to-view-id>/pages/loginPage.xhtml</to-view-id>
+			<to-view-id>/pages/public/loginPage.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
-	<!-- FORMULAR 1 -->
+	<navigation-rule>
+		<from-view-id>/pages/public/welcomePage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>register</from-outcome>
+			<to-view-id>/pages/public/registerPage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 	<navigation-rule>
-		<from-view-id>/pages/formular1.xhtml</from-view-id>
+		<from-view-id>/pages/public/loginPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>goToWelcome</from-outcome>
+			<to-view-id>/pages/public/welcomePage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+
+
+
+	<navigation-rule>
+		<from-view-id>/pages/protected/formular1.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>logout</from-outcome>
-			<to-view-id>/pages/loginPage.xhtml</to-view-id>
+			<to-view-id>/pages/public/loginPage.xhtml</to-view-id>
 		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/pages/public/loginPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>formular</from-outcome>
+			<to-view-id>/pages/protected/formular1.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/pages/protected/formular1.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>form2</from-outcome>
-			<to-view-id>/pages/formular2.xhtml</to-view-id>
+			<to-view-id>/pages/protected/formular2.xhtml</to-view-id>
 		</navigation-case>
-
 	</navigation-rule>
 
-	<!-- FORMULAR 2 -->
-
 	<navigation-rule>
-		<from-view-id>/pages/formular2.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>logout2</from-outcome>
-			<to-view-id>/pages/loginPage.xhtml</to-view-id>
-		</navigation-case>
+		<from-view-id>/pages/protected/formular2.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>form3</from-outcome>
-			<to-view-id>/pages/formular3.xhtml</to-view-id>
+			<to-view-id>/pages/protected/formular3.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
-	<!-- FORMULAR 3 -->
 
-	<navigation-rule>
-		<from-view-id>/pages/formular3.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>logout3</from-outcome>
-			<to-view-id>/pages/loginPage.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>form3ToForm1</from-outcome>
-			<to-view-id>/pages/formular1.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+
+
 
 
 

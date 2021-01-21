@@ -1,0 +1,232 @@
+@charset "ISO-8859-1";
+
+.ui-selectonemenu{
+	background-color: blue;
+}
+
+.panelStyle{
+	padding:2000px;
+}
+
+.fragenStyle{
+	
+	
+	 width:350px;
+  	display: inline-block;
+	
+}
+
+.answers {
+	
+	
+	border-style:none;
+	margin-right:auto;
+	
+}
+
+.answers1 {
+	margin-bottom:20px;
+	border-style:none;
+}
+
+.answers2 {
+	
+	
+	border-style:none;
+	
+}
+
+
+
+.answers3 {
+	
+	border-style:none;
+}
+
+.answers3 {
+	
+	border-style:none;
+}
+
+.answers4 {
+	
+	border-style:none;
+}
+
+.answers5 {
+	
+	border-style:none;
+}
+
+
+
+.answers6  {
+
+	border-style:none;
+}
+
+.answers7 {
+
+	border-style:none;
+}
+
+.answers8 {
+
+	border-style:none;
+}
+
+.answers9 {
+
+	border-style:none;
+}
+
+h3 {
+	font-family:arial;
+}
+
+h4 {
+	font-family:arial;
+}
+
+h5 {
+	font-family:arial;
+}
+
+.button {
+	background-color: white;
+	color:black;
+	padding: 15px 32px;
+}
+
+
+.ui-widget .ui-widget label {
+	color:white;
+	pointer-events:none;
+	
+	
+
+}
+
+	
+@media only screen and (max-width: 700px) {
+	
+	.fragenStyle{
+	width:250px;
+  	display: inline-block;
+  	
+  	
+	}
+	
+
+  .box { float: left; }
+  header { height: 40px;}
+  main { width: 100%; }
+ 
+  #categories { width: 100%;}
+  #content { width: 100%; }
+}
+
+/* Phone Portrait (420px) */
+@media only screen and (max-width: 600px) {
+	
+	.fragenStyle{
+	width:140px;
+  	display: inline-block;
+	}
+  .box { float: left; }
+  header { height: 40px;}
+  main { width: 100%; }
+ 
+  #categories { width: 100%;}
+  #content { width: 100%; }
+  
+
+}
+
+/* Phone Portrait (420px) */
+@media only screen and (max-width: 420px) {
+	
+	.fragenStyle{
+	width:140px;
+  	display: inline-block;
+	}
+  .box { float: left; }
+  header { height: 40px;}
+  main { width: 100%; }
+ 
+  #categories { width: 100%;}
+  #content { width: 100%; }
+}
+
+@media only screen and (max-width: 375px) {
+	
+	.fragenStyle{
+	width:50px;
+  	display: inline-block;
+	}
+  .box { float: left; }
+  header { height: 40px;}
+  main { width: 100%; }
+ 
+  #categories { width: 100%;}
+  #content { width: 100%; }
+}
+
+
+.ui-panel-content .ui-widget-content .bodyformular{
+	height:50px;
+
+	}
+	
+
+
+#tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  background-color: gray;
+}
+
+#tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.newButton{
+	
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    cursor: default;
+    font: 400 13.3333px Arial;
+        display: inline-block;
+    position: relative;
+    padding: 0;
+    margin-right: .1em;
+    text-decoration: none!important;
+    cursor: pointer;
+    text-align: center;
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    overflow: visible;
+}
+

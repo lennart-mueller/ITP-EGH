@@ -10,10 +10,11 @@ public class UserTO {
 	private String vorname;
 	private String nachname;
 	private int formnr;
+	private String support;
 	
 	
 	public User toUser() {
-		User aUser = new User(this.getId(), this.getEmail(), this.getPassword(), this.getVorname(), this.getNachname(), this.getFormnr());
+		User aUser = new User(this.getId(), this.getEmail(), this.getPassword(), this.getVorname(), this.getNachname(), this.getFormnr(), this.getSupport());
 
 		return aUser;
 	}
@@ -65,5 +66,24 @@ public class UserTO {
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
 	}
+
+
+
+
+	public String getSupport() {
+		return support;
+	}
+
+
+
+
+	public void setSupport(String support) {
+		this.support = support;
+	}
+	
+
+
+
+
 
 }

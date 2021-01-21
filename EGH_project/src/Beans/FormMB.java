@@ -50,18 +50,13 @@ public class FormMB implements Serializable {
 	@Inject
 	ILoginUser loginUser;
 
-	
 
-//	public FormMB() {
-//		client = new ResteasyClientBuilder().build();
-//	}
 
-	private int quantityQuestions = 70;
+	private int quantityQuestions = 70;			//ANzahl der Fragen
 	private int quantityIndiQuestions = 3;
-//	private String userNr = "TesteForm123";
 	private String[] alleFragen = new String[quantityQuestions];
 	private String[] allAnswers = new String[quantityQuestions];
-	private String[] alleQuestionsIndi = new String[30];
+	private String[] alleQuestionsIndi = new String[5];
 	private String[] allAnswersIndi = new String[quantityIndiQuestions];
 	private int FragenCounter = 0;
 	private int FragenCounter2 = 30;
@@ -70,12 +65,9 @@ public class FormMB implements Serializable {
 	static int latestForm;
 	static int searchedUserForm = 2;
 	static ApplicationFormTO aFormLocal;
-//	private static String test = "0";
-//	private int test1 = 1;
 
 	@EJB(beanName = "ActiveUser")
 	IActiveUser statelessActiveUser;
-	
 
 	// ausfuehrung beim aufruf der seite
 	@PostConstruct
@@ -91,23 +83,20 @@ public class FormMB implements Serializable {
 			for (ApplicationFormTO aForm : requestFormular.getAllForms()) {
 				System.out.println(aForm.getFormNr() + " form nr " + actualForm);
 				if (aForm.getFormNr() == actualForm) {
-					System.out.println("this form"+aFormLocal);
+					System.out.println("this form" + aFormLocal);
 
 					if (aFormLocal == null) {
 						aFormLocal = aForm;
 					}
 
-					for (Integer fnr : aForm.getFormAnswer()) { // fuellt alle Antworten aus
-						allAnswers[i] = Integer.toString(fnr);
+					for (AnswerNormalTO aAnswerTO : aForm.getNormalAnswers()) { // fuellt alle normalen Antworten aus
+						allAnswers[i] = Integer.toString(aAnswerTO.getOneAnswerNormal());
 
 						i++;
 
 					}
-
-					for (QuestionIndividuellTO aQuestionTO : aForm.getIndividualQuestions()) { //// fuellt alle selbste
-																								//// erstellten
-																								//// Antworten und
-																								//// Fragen aus
+					//fuelltalel selbst  erstellten Antworten
+					for (QuestionIndividuellTO aQuestionTO : aForm.getIndividualQuestions()) { 
 						allAnswersIndi[i2] = Integer.toString(aQuestionTO.getAnswer());
 						alleQuestionsIndi[i2] = aQuestionTO.getQuestion();
 						i2++;
@@ -162,7 +151,7 @@ public class FormMB implements Serializable {
 		return "logout";
 
 	}
-	
+
 	public String logout2() {
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Ausloggen erfolgreich"));
@@ -175,15 +164,13 @@ public class FormMB implements Serializable {
 	
 	public String logout3() {
 		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Fragenbogen erfgolgreich abgesendet"));
-//		updateForm(); 
-//		saveForm.updateForm(aFormLocal);
-		saveIndiQuestions();// speichert alle Aenderungen beim Logout
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Ausloggen erfolgreich"));
+		updateForm(); // speichert alle Aenderungen beim Logout
+		saveForm.updateForm(aFormLocal);
 
 		return "logout3";
 
 	}
-
 	public String backToForm1() {
 		saveIndiQuestions();
 		return "form1";
@@ -200,12 +187,11 @@ public class FormMB implements Serializable {
 		updateForm();
 		return "form3";
 	}
-	
+
 	public String backToForm1From3() {
 		updateForm();
 		return "form3ToForm1";
 	}
-	
 
 	// ruft alle selbst erstellten antworten auf
 	public String getIndiQuestions() {
@@ -278,8 +264,8 @@ public class FormMB implements Serializable {
 
 	}
 
-	// Beim ersten Aufruf der Seite wird ein Formular erstellt mit allen Antworten =
-	// 0
+	// Beim ersten Aufruf der Seite wird ein Formular erstellt mit allen Antworten = 0
+	
 	public void createEmptyFormular() {
 		System.out.println("create empty");
 
@@ -292,7 +278,7 @@ public class FormMB implements Serializable {
 		aFormTO.setUserId(userNr); // aktive UserID wird Formular zugewiesen
 		while (i < allAnswers.length) {
 
-			aFormTO.addAnswer(0); // allen Antworten 0 zuweisen
+//			aFormTO.addAnswer(0); // allen Antworten 0 zuweisen
 			aFormTO.addAnswerNormal(new AnswerNormalTO(0, i + 1)); //// allen Antworten 0 und die AntwortNr zuweisen
 
 			i++;
@@ -333,7 +319,7 @@ public class FormMB implements Serializable {
 
 		ApplicationFormTO aFormTO = new ApplicationFormTO();
 		aFormTO = aFormLocal;
-		aFormTO.getFormAnswer().clear();
+//		aFormTO.getFormAnswer().clear();
 		aFormTO.getNormalAnswers().clear();
 
 		while (i < allAnswers.length) {
@@ -344,7 +330,7 @@ public class FormMB implements Serializable {
 				answerNr = Integer.parseInt(allAnswers[i]);
 			}
 
-			aFormTO.addAnswer(answerNr);
+//			aFormTO.addAnswer(answerNr);
 
 			aFormTO.getNormalAnswers().add(new AnswerNormalTO((answerNr), i + 1));
 			System.out.println("added Normal Answer  " + aFormLocal.getNormalAnswers().get(0).getAnswerNr()
@@ -354,8 +340,6 @@ public class FormMB implements Serializable {
 		}
 
 		aFormLocal = aFormTO;
-
-//		return "extra"; // ruft die Seite extra auf
 
 	}
 
@@ -442,14 +426,6 @@ public class FormMB implements Serializable {
 		FragenCounter = fragenCounter;
 	}
 
-//	public String getUserNr() {
-//		return userNr;
-//	}
-//
-//	public void setUserNr(String userNr) {
-//		this.userNr = userNr;
-//	}
-
 	public int getQuantityIndiQuestions() {
 		return quantityIndiQuestions;
 	}
@@ -473,8 +449,6 @@ public class FormMB implements Serializable {
 	public void setAllAnswersIndi(String[] allAnswersIndi) {
 		this.allAnswersIndi = allAnswersIndi;
 	}
-
-
 
 	private String message;
 

@@ -25,34 +25,17 @@ public class RequestForm implements IRequestForm {
 
 	@Inject
 	FormDAO formDAO;
-	
-	@Inject 
+
+	@Inject
 	QuestionDAO questionDAO;
 
-	
-	public int requestForm() throws AnwendungskernException {
-		
-		
-			
-		
-//			FormManager aFormManager = FormManager.getFormManager();
-//	
-//			
-//			int userNr = aFormManager.getUserNr();
-						int userNr = 1254888;
-//		
-//			
-		return userNr;
-//		
-	}
-
-	
+	// Laden einer Form
 	public ApplicationFormTO getApplicationForm(int formNr) throws AnwendungskernException, DatenhaltungsException {
 		System.out.println("Request Form - getApplicationFromdb");
 		return formDAO.find(formNr).toFormTO();
 	}
+
 	
-	//Momentan: auslesen der letzten gespeichterten Form nr, also der aktuellsten. Fuer spaeter: auslesen der formNr des eingeloggten Users
 	public int getFormNumber(int userNr) throws DatenhaltungsException {
 		
 	return 0;
@@ -60,7 +43,7 @@ public class RequestForm implements IRequestForm {
 		
 	}
 
-
+	// Laden aller Formulare
 	@Override
 	public List<ApplicationFormTO> getAllForms() {
 		List<ApplicationForm> aList = formDAO.findAll();
@@ -72,7 +55,8 @@ public class RequestForm implements IRequestForm {
 
 		return returnList;
 	}
-	
+
+	// Laden alelr Frragen
 	@Override
 	public List<QuestionTO> getAllQuestions() {
 		List<Question> aList = questionDAO.findAll();
@@ -84,8 +68,5 @@ public class RequestForm implements IRequestForm {
 
 		return returnList;
 	}
-	
-	
-	
-	
+
 }

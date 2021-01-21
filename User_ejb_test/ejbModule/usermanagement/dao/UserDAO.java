@@ -28,4 +28,5 @@ public class UserDAO extends GenericDAO<User> {
 	
 
 
+
 }

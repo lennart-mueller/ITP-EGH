@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+
+<p:panel id="basic" header="Selbsteinsch&auml;tzungsbogen zum Antrag auf Jugendhilfe" style="margin-bottom:10px">
+   
+    
+
+<h:form>
+    <p:outputPanel deferred="true">
+        <h3>1. Wichtig zu Wissen</h3>
+        <p>Du m&ouml;chtest einen Antrag auf Jugendhilfe stellen? Dann hilft dir dieser Fragebogen dich vorzubereiten.</p>
+        <p>Du brauchst dafür Hilfe? Wenn du beim Ausf&uuml;llen des Fragebogens Unterst&uuml;tzung ben&ouml;tigst, dann k&ouml;nnen Personen deines Vertrauens dir helfen.</p>
+        <p>Wie geht es weiter? Du wirst zu einem Gespr&auml;ch eingeladen.</p>
+        <p>Was passiert im Gespr&auml;ch? Dir werden Fragen zu deiner Lebenssituation gestellt. Mithilfe des Fragebogens bist du gut auf das Gespr&auml;ch vorbereitet.</p>
+    </p:outputPanel>
+ 
+    <div style="height:25px"></div>
+ 
+    <p:outputPanel deferred="true" deferredMode="visible">
+        <h3>2. Hinweise zum Ausf&uuml;llen</h3>
+        <p>Deine Meinung ist wichtig: F&uuml;lle den Fragebogen so aus, wie Du es f&uuml;r richtig h&auml;ltst.Deshalb gibt es kein richtig oder falsch.</p>
+        <p>Lebensbereiche: Der Fragebogen ist nach Lebensbereichen sortiert. Zu jedem Lebensbereich gibt es mehrere Fragen.</p>
+        <p>Vollst&auml;ndigkeit:Bitte f&uuml;lle den Fragebogen vollst&auml;ndig aus. Gehe Lebensbereich f&uuml;r Lebensbereich und Frage f&uuml;r Frage durch und &uuml;berlege, was auf Dich zutrifft.</p>
+        <p>Ver&auml;nderungen erzielen: &uuml;berpr&uuml;fe bei jeder Frage, ob Du mithilfe der Jugendhilfe an einer Situation etwas &auml;ndern m&ouml;chtest. Du kannst dazu die Zahlen 1, 2, 3, 4, und 5 benutzen. Je h&ouml;her die Zahl, desto wichtiger ist Dir eine Ver&auml;nderung. Gibt es ein Problem, wo Du sagst, dass Problem ist zwar da, aber es soll kein Thema für die Jugendhilfe sein, dann kreuzen Sie bitte die 0 an. </p>
+        <p>Es soll so bleiben: M&öuml;chtest Du die Jugendhilfe dazu nutzen, dass etwas so bleibt wie es ist, also eine Situation stabil bleibt, dann kreuze bitte die Rubrik „es soll so bleiben“ an. </p>
+        <p>Assistenz: Pr&uuml;fe bitte bei jeder Frage, ob Du eine Assistenz ben&ouml;tigst. Assistenz meint in diesem Fragebogen nicht die Begleitung, sondern die &Uuml;bernahme von Handlungen zur Alltagsbew&auml;ltigung. Kreuze Assistenz nur an, wenn Dir jemand die Dinge, die Dir schwerfallen abnehmen oder f&uuml;r Dich stellvertretend erledigen soll. </p>
+        <p>Trifft nicht zu: Trifft eine Frage nicht auf Dich zu, weil es kein Problem gibt, dann kreuze bitte die Rubrik „Trifft nicht zu“ an. </p>
+    </p:outputPanel>
+    
+    <div style="height: 25px"></div>
+    
+    <p:outputLabel value=""/>
+    <p:commandButton action="#{userMB.registerMenue()}" value="Zur Registrierung" class="buttonstyle"/>
+    
+    <p:outputPanel deferred="true" >
+    <h4>Sie m&ouml;chten an einem vorhandenen Fragebogen weitermachen? Dann gehts hier zur Anmeldung.</h4>
+    </p:outputPanel>
+    
+    <p:outputLabel value=""/>
+    <p:commandButton action="#{userMB.goToLogin()}" value="Zur Anmeldung" class="buttonstyle"/>
+    
+</h:form>
+
+</p:panel>
+</h:body>
+
+</html>

@@ -23,110 +23,114 @@ import usermanagement.usecase.impl.IRegisterUser;
 @Named("userMB")
 @SessionScoped
 public class UserMB implements Serializable {
-	
-private static final long serialVersionUID = 1094801825228386363L;
+
+	private static final long serialVersionUID = 1094801825228386363L;
 
 	@Inject
 	ILoginUser loginUser;
-	
+
 	@Inject
 	IRegisterUser registerUser;
-	
+
 	@EJB(beanName = "ActiveUser")
 	IActiveUser statelessActiveUser;
-	
+
 	private String firstName;
 	private String lastName;
 	private int age;
 	private String pwd;
-	private String email;  
-	private String msg;		
-	private String support;	//Person zur Unterstutzung
-	
-	
-	
-	//User anhand eingegebener Werte in Datenbank speichern
+	private String email;
+	private String msg; 
+	private String support;  //person die den Ausfuellenden unterstuetzt
+
+	// User anhand eingegebener Werte in Datenbank speichern
 	public void register() {
 		UserTO aUser = new UserTO();
-		aUser.setFormnr(0);				//FormNr wird auf 0 gesetzt, da noch keine zugehoerige Form
+		aUser.setFormnr(0); // FormNr wird auf 0 gesetzt, da noch keine zugehoerige Form
 		aUser.setVorname(firstName);
 		aUser.setNachname(lastName);
 		aUser.setEmail(email);
 		aUser.setPassword(pwd);
-		
+		aUser.setSupport(support);
+		System.out.println("support: "+support);
 		loginUser.updateUser(aUser);
-		
-		System.out.println("Registrieren erfolgreich");
-		
 
-		
+		System.out.println("Registrieren erfolgreich");
+
 	}
-	
+
 	public String registerMenue() {
 		return "register";
 	}
-	
+
 	public String loginMenue() {
 		return "backToLogin";
 	}
-	
+
 	public String goToWelcome() {
 		return "goToWelcome";
 	}
 
+	// https://www.journaldev.com/7252/jsf-authentication-login-logout-database-example
 
-
-	//https://www.journaldev.com/7252/jsf-authentication-login-logout-database-example
-	
-	//validate login
+	// validate login
 	public String validateUsernamePassword() throws AnwendungskernException, DatenhaltungsException {
 		UserTO aUser = new UserTO();
-	
-		aUser = loginUser.getUser(email);
-		System.out.println("my name is:  "+aUser.getEmail());
-		System.out.println("my login is:  "+email);
-		
-		if (aUser.getPassword().equals(pwd)) {
-			System.out.println("Login succesfull");
-			statelessActiveUser.setEmail(email);
-			statelessActiveUser.setUserid(aUser.getId());
 
-			statelessActiveUser.setFormId(aUser.getFormnr());
-
-			return "formular";
-
-			
-		}else {
-			System.out.println("Login not succesfull");
+		if (loginUser.getUser(email) == null) {
+			System.out.println("Login NICHT erfolgreich");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Falsche E-Mail oder Passwort", "Bitte richtige E-Mail und Passwort eingeben"));
 
 			return "login";
-			
+		} else {
+			aUser = loginUser.getUser(email);
+			System.out.println("my name is:  " + aUser.getEmail());
+			System.out.println("my login is:  " + email);
+			if (aUser.getPassword().equals(pwd)) {
+				System.out.println("Login succesfull");
+				statelessActiveUser.setEmail(email);
+				statelessActiveUser.setUserid(aUser.getId());
+
+				statelessActiveUser.setFormId(aUser.getFormnr());
+
+				return "formular";
+
+			}
 		}
-		
-		
+		return "login";
+
+//		boolean valid = LoginDAO.validate(user, pwd);
+//		if (valid) {
+//			HttpSession session = SessionUtils.getSession();
+//			session.setAttribute("username", user);
+//			return "formular";
+//		} else {
+//			FacesContext.getCurrentInstance().addMessage(
+//					null,
+//					new FacesMessage(FacesMessage.SEVERITY_WARN,
+//							"Incorrect Username and Passowrd",
+//							"Please enter correct username and Password"));
+//			return "login";
+//		}
 	}
-	
+
 	public String goToLogin() {
 		return "toLogin";
 	}
-	
+
 	public static HttpSession getSession() {
-		return (HttpSession) FacesContext.getCurrentInstance()
-				.getExternalContext().getSession(false);
+		return (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 	}
 
 	public static HttpServletRequest getRequest() {
-		return (HttpServletRequest) FacesContext.getCurrentInstance()
-				.getExternalContext().getRequest();
+		return (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 	}
 
 	public static String getUserName() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
-				.getExternalContext().getSession(false);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		return session.getAttribute("username").toString();
 	}
-	
-
 
 	public static String getUserId() {
 		HttpSession session = getSession();
@@ -135,10 +139,14 @@ private static final long serialVersionUID = 1094801825228386363L;
 		else
 			return null;
 	}
-	
 
+	// logout event, invalidate session
+//	public String logout() {
+//		HttpSession session = SessionUtils.getSession();
+//		session.invalidate();
+//		return "login";
+//	}
 
-	
 	public String getFirstName() {
 		return firstName;
 	}

@@ -31,7 +31,7 @@ import antragsverwaltung.usesecase.impl.ISaveForm;
 public class RestfulEndpoint {
 
 	// http://localhost:8080/EGH_project/rest/egh/htmlForm/6
-	// http://localhost:8080/EGH_project/rest/egh/getFormByNr/6
+	
 
 	private ApplicationFormTO formTO;
 
@@ -45,32 +45,7 @@ public class RestfulEndpoint {
 	ISaveForm saveForm;
 
 
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("getForm/{param}")
-	public List<Integer> oneUser(@PathParam("param") int key) throws AnwendungskernException, DatenhaltungsException {
 
-		try {
-			this.formTO = requestForm.getApplicationForm(key);
-		} catch (Exception e) {
-			System.out.println("Fehler - Form nicht gefunden");
-
-		}
-
-		if (formTO == null) {
-			System.out.println("Fehler - Form nicht gefunden");
-			return null;
-
-		} else {
-
-			for (Integer nr : formTO.getFormAnswer()) {
-				answerlist.add(nr);
-
-			}
-			return answerlist;
-		}
-
-	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -92,18 +67,7 @@ public class RestfulEndpoint {
 		} else {
 			
 			System.out.println("laenge der liste"+formTO.getNormalAnswers().size());
-//			AnswerNormalTO[] allAnswer = new AnswerNormalTO[70];
-//			List <AnswerNormalTO> nornalAnswers = new ArrayList<AnswerNormalTO>();
-//			for(AnswerNormalTO a : formTO.getNormalAnswers()) {
-//				if (a.getAnswerNr() < 71) {
-//					
-//				}
-//				
-//			}
-//			System.out.println("laenge der liste2:  "+nornalAnswers.size());
-//			formTO.getNormalAnswers().clear();
-//			formTO.setNormalAnswers(nornalAnswers);
-			
+
 
 			return formTO;
 		}
@@ -135,35 +99,6 @@ public class RestfulEndpoint {
 		servletResponse.sendRedirect("http://localhost:8080/EGH_project/pages/create_form.html");
 	}
 
-	@GET
-	@Produces(MediaType.TEXT_HTML)
-	@Path("htmlForm/{param}")
-	public String UserHtml(@PathParam("param") int key) throws AnwendungskernException, DatenhaltungsException {
-		String result;
-		result = "<html> " + "<title>" + "Ausgabe der Antworten" + "</title>" + "<body><br/>"
-				+ "<b>Name: Otto Schmitt</b>" + "<br/><br/>";
-		try {
-			this.formTO = requestForm.getApplicationForm(key);
-		} catch (Exception e) {
-			System.out.println("Fehler - Form nicht gefunden");
 
-		}
-
-		if (formTO == null) {
-			System.out.println("Fehler - Form nicht gefunden");
-			return null;
-
-		} else {
-			int i = 1;
-			for (Integer nr : formTO.getFormAnswer()) {
-				answerlist.add(nr);
-				result = result + "Frage " + i + ", Antwort: " + nr + "<br/>";
-				i++;
-
-			}
-			result = result + "</body></html>";
-			return result;
-		}
-	}
 
 }

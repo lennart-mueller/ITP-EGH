@@ -43,12 +43,8 @@ public class ApplicationForm {
 
 	String bezeichnung;
 
-	@ElementCollection
-	@CollectionTable(name = "EGH_Form_Answer", joinColumns = @JoinColumn(name = "FORM_NR"))
-	private Collection<Integer> formAnswer;
 
 	// https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection
-
 	@ElementCollection
 	@CollectionTable(name = "INDI_ANSWER_QUESTION", joinColumns = @JoinColumn(name = "FORM_NR"))
 	private List<QuestionIndividuell> formIndiAnswer;
@@ -67,7 +63,6 @@ public class ApplicationForm {
 		super();
 		this.userId = userId;
 		this.bezeichnung = "EGH";
-		this.formAnswer = new ArrayList<Integer>();
 		this.formIndiAnswer = new ArrayList<QuestionIndividuell>();
 		this.normalAnswer = new ArrayList<AnswerNormal>();
 	}
@@ -79,25 +74,22 @@ public class ApplicationForm {
 		aFormTO.setBezeichnung(this.bezeichnung); // auf englisch aendern
 		aFormTO.setUserId(this.userId);
 
-		for (Integer fnr : this.getFormAnswer()) {
-			aFormTO.addAnswer(fnr);
 
-		}
 
 		aFormTO.setIndividualQuestions(new ArrayList<QuestionIndividuellTO>());
 		for (QuestionIndividuell aQuestion : this.getFormIndiAnswer()) {
-			aFormTO.getIndividualQuestions()
-					.add(new QuestionIndividuellTO(aQuestion.getQuestion(), aQuestion.getAnswer()));
+			aFormTO.getIndividualQuestions().add(new QuestionIndividuellTO(aQuestion.getQuestion(),
+					aQuestion.getAnswer()));
 
 		}
-
+		
 		aFormTO.setNormalAnswers(new ArrayList<AnswerNormalTO>());
 		for (AnswerNormal aNormalAnswer : this.getNormalAnswer()) {
-			aFormTO.getNormalAnswers()
-					.add(new AnswerNormalTO(aNormalAnswer.getAnswerNr(), aNormalAnswer.getOneAnswerNormal()));
+			aFormTO.getNormalAnswers().add(new AnswerNormalTO(aNormalAnswer.getAnswerNr(),
+					aNormalAnswer.getOneAnswerNormal()));
 
 		}
-
+			
 		return aFormTO;
 	}
 
@@ -106,9 +98,6 @@ public class ApplicationForm {
 		this.formNr = aApplicationFormTO.getFormNr();
 		this.userId = aApplicationFormTO.getUserId();
 		this.bezeichnung = aApplicationFormTO.getBezeichnung();
-		for (Integer fnr : aApplicationFormTO.getFormAnswer()) {
-			this.formAnswer.add(fnr);
-		}
 
 	}
 
@@ -142,19 +131,6 @@ public class ApplicationForm {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public Collection<Integer> getFormAnswer() {
-		return formAnswer;
-	}
-
-	public void setFormAnswer(Collection<Integer> formAnswer) {
-		this.formAnswer = formAnswer;
-	}
-
-	public void addAnswer(int fnr) {
-		this.formAnswer.add(Integer.valueOf(fnr));
-	}
-
-
 	public List<QuestionIndividuell> getFormIndiAnswer() {
 		return formIndiAnswer;
 	}
@@ -166,7 +142,7 @@ public class ApplicationForm {
 	public void addIndiAnswer(QuestionIndividuell aQuestion) {
 		this.formIndiAnswer.add(aQuestion);
 	}
-
+	
 	public void addAnswerNormal(AnswerNormal aAnswer) {
 		this.normalAnswer.add(aAnswer);
 	}
@@ -178,5 +154,7 @@ public class ApplicationForm {
 	public void setNormalAnswer(List<AnswerNormal> normalAnswer) {
 		this.normalAnswer = normalAnswer;
 	}
+	
+	
 
 }

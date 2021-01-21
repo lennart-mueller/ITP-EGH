@@ -27,11 +27,12 @@ import usermanagement.entity.UserTO;
 @Access(AccessType.FIELD)
 @Table(name="EGH_USER")
 @NamedQuery(name="User.findUserByName", query="select u from User u where u.email = :email")
+@NamedQuery(name="User.compareByName", query="select u from User u where u.email = email")
 
 public class User {
 	
 	public static final String FIND_BY_NAME = "User.findUserByName";
-	
+	public static final String COMPARE_BY_NAME = "User.compareByName";
 
 	
 	@Id
@@ -45,6 +46,7 @@ public class User {
 	private int formnr;
 	private String vorname;
 	private String nachname;
+	private String support;
 	
 	
 	
@@ -65,7 +67,7 @@ public class User {
 
 
 
-	public User(int id, String email, String password, String vorname, String nachname, int formnr) {
+	public User(int id, String email, String password, String vorname, String nachname, int formnr, String support) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -73,6 +75,7 @@ public class User {
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.formnr = formnr;
+		this.support = support;
 	}
 	
 	public User(int id, String email, String password, String vorname, String nachname) {
@@ -82,6 +85,7 @@ public class User {
 		this.password = password;
 		this.vorname = vorname;
 		this.nachname = nachname;
+		
 		
 	}
 	
@@ -95,6 +99,7 @@ public class User {
 		aUserTO.setPassword(password);
 		aUserTO.setEmail(email);
 		aUserTO.setFormnr(formnr);
+		aUserTO.setSupport(support);
 	
 
 		return aUserTO;
@@ -193,8 +198,19 @@ public class User {
 	public void setNachname(String nachname) {
 		this.nachname = nachname;
 	}
+
+	public String getSupport() {
+		return support;
+	}
+
+	public void setSupport(String support) {
+		this.support = support;
+	}
 	
 	
+
+
+
 	
 	
 }
