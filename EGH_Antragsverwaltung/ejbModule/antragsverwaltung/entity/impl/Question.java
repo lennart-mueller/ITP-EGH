@@ -26,41 +26,25 @@ import antragsverwaltung.entity.QuestionTO;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Access(AccessType.FIELD)
-@Table(name="EGH_QUESTIONS")
+@Table(name = "EGH_QUESTIONS")
 public class Question {
-	
-	
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="QUEST_NR")
-	@SequenceGenerator(name="QUEST_NR", sequenceName="SEQ_QUEST_NR", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "QUEST_NR")
+	@SequenceGenerator(name = "QUEST_NR", sequenceName = "SEQ_QUEST_NR", allocationSize = 1)
 	int questNr;
-	
-	
 
 	String question;
-	
 
-
-
-	
 	public Question() {
 		super();
 	}
 
-	
-
-	
-	
 	public Question(int questNr, String question) {
 		super();
 		this.questNr = questNr;
 		this.question = question;
 	}
-
-
-
-
 
 	public QuestionTO toQuestionTO() {
 		QuestionTO aQuestionTO = new QuestionTO();
@@ -68,63 +52,30 @@ public class Question {
 		aQuestionTO.setQuestion(this.question);
 		aQuestionTO.setQuestNr(this.questNr);
 
-	
-
 		return aQuestionTO;
 	}
-	
-	public Question (QuestionTO aQuestTO) {
+
+	public Question(QuestionTO aQuestTO) {
 		QuestionTO aQuestionTO = new QuestionTO();
 		this.questNr = aQuestionTO.getQuestNr();
 		this.question = aQuestionTO.getQuestion();
 
-	
-		
 	}
-
-
-
-
 
 	public int getQuestNr() {
 		return questNr;
 	}
 
-
-
-
-
 	public void setQuestNr(int questNr) {
 		this.questNr = questNr;
 	}
-
-
-
-
 
 	public String getQuestions() {
 		return question;
 	}
 
-
-
-
-
 	public void setQuestions(String questions) {
 		this.question = questions;
 	}
-
-
-
-
-
-	
-
-
-
-
- 
-
-	
 
 }

@@ -6,48 +6,62 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<link rel="stylesheet" href="styles.css"/>
+<h:outputStylesheet library="css" name="style.css" />
+
 
 </h:head>
 <h:body>
 
-<p:panel id="basic" header="Login" style="margin-bottom:20px">
+<p:panel id="basic" header="Selbsteinsch&auml;tzungsbogen zum Antrag auf Jugendhilfe" style="margin-bottom:10px">
    
     </p:panel>
-
-
-</h:body>
-<h:body>
-
-
-	<h:form id="loginForm">
+    
+<p:panel id="basic2" header="Login" style="margin-bottom:20px">
+   <p:panel id="basic3" style="margin-bottom:20px; width:450px; border-style:none;">
+   <p:outputPanel deferred="true">
+<h3>  Bitte geben Sie Ihre Anmeldedaten ein.</h3>
+	</p:outputPanel>
+   
+   <h:form id="loginForm">
 		<p:growl id="msg" showDetail="true" life="4000" />
-		<p:panel id="loginPnl" header="Login"
-			style="width: 350px; margin: 0 auto;">
-			<h:panelGrid id="loginPanel" columns="2" cellpadding="5">
-				<h:outputText value="Email" />
-				<p:inputText id="email" value="#{userMB.email}"></p:inputText>
-				<p:spacer /><p:spacer />	
-				<h:outputText value="Password" />
-				<p:password id="password" value="#{userMB.pwd}"
-					feedback="false"></p:password>
-				<p:message for="password"></p:message>
-			</h:panelGrid>
-			<h:panelGrid columns="1" cellpadding="10" width="100%">
-				<h:commandButton id="loginButton" class = "animated-button1" action="#{userMB.validateUsernamePassword()}"
-					value="Login"  ajax="true" style="float: right;">
-				</h:commandButton>
-				
-				<h:commandButton id="registerButton" class="animated-button1" action="#{userMB.registerMenue}"
-					value="Registrieren"  ajax="true" style="float: right;">
-				</h:commandButton>
-			</h:panelGrid>
-		</p:panel>
-		<p:blockUI block="loginPnl" trigger="loginButton" style="float:right;">
+
+		
+			<h:panelGrid id="loginPanel" columns="2" >
 			
-		</p:blockUI>
+				<h:outputText value="Email" />
+				
+				<p:inputText id="email" value="#{userMB.email}"></p:inputText>
+				
+				<p:spacer /><p:spacer />	
+				
+				<h:outputText value="Password" />
+				
+				<p:password id="password" value="#{userMB.pwd}" feedback="false"></p:password>
+				
+				<p:message for="password"></p:message>
+				
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1">
+			
+				<h:commandButton id="loginButton" action="#{userMB.validateUsernamePassword()}"
+					value="Login" update="loginForm" class="buttonstyle" ajax="true" style="float: right;" />
+					
+				
+				
+				<p:commandButton action="#{userMB.goToWelcome()}" value="Zur&uuml;ck" class="newButton"/>
+				
+			</h:panelGrid>
+			
+	
+		
+		
 	</h:form>
+    </p:panel>
+</p:panel>
+
 </h:body>
+
 
 
 

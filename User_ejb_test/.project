@@ -3,7 +3,7 @@
 	<name>EGH_UserManagement</name>
 	<comment></comment>
 	<projects>
-		<project>EGH_Antragsverwaltung</project>
+		<project>EGH_FormularManagement</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-        
-    <wb-module deploy-name="EGH_Antragsverwaltung">
-                
-        <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
-                
-        <property name="java-output-path" value="/EGH_Antragsverwaltung/build/classes"/>
             
-    </wb-module>
     
+    <wb-module deploy-name="EGH_FormularManagement">
+                        
+        
+        <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
+                        
+        
+        <property name="java-output-path" value="/EGH_FormularManagement/build/classes"/>
+                    
+    
+    </wb-module>
+        
+
 </project-modules>

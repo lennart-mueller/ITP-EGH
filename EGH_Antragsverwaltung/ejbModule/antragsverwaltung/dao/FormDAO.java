@@ -17,13 +17,6 @@ public class FormDAO extends GenericDAO<ApplicationForm> {
 		super.delete(aForm.getFormNr(), ApplicationForm.class);
 	}
 	
-//	public int findMaxForm(int userNr){
-//		Map<String, Object> parameters = new HashMap<String, Object>();
-//		parameters.put("formNr", userNr);
-////		parameters.put("nachname", lastName);
-//		
-//		return super.findListResult(ApplicationForm.FIND_BY_MAXNR, parameters);
-//		
-//	}
+
 
 }

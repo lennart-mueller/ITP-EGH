@@ -30,6 +30,6 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/EGH_Antragsverwaltung"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EGH_FormularManagement"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

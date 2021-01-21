@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>EGH_project</name>
+	<name>EGH_JSF_WEB</name>
 	<comment></comment>
 	<projects>
-		<project>EGH_Antragsverwaltung</project>
+		<project>EGH_FormularManagement</project>
 		<project>EGH_UserManagement</project>
 	</projects>
 	<buildSpec>

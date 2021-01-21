@@ -24,7 +24,7 @@
 			<attribute name="owner.project.facets" value="jst.jsf;jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/EGH_Antragsverwaltung"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/EGH_UserManagement"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EGH_FormularManagement"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -1,0 +1,53 @@
+.this{
+	margin-left:10px;
+}
+
+.sth{
+	margin-left:100px;
+	color:red;
+}
+
+.questionPanel{
+	margin-left:10px;
+}
+.questionDiv{
+	margin-left:10px;
+}
+
+.test1{
+	margin-right:200px;
+}
+
+.selectRadio label {
+	margin-right: 200px;
+}
+
+label{
+	color:black;
+}
+/*
+.ui-radiobutton{
+	margin-left:50px;
+}
+*/
+.ui-widget .ui-widget label{
+	
+	color:white;
+	pointer-events: none;
+}
+
+.ui-widget .ui-widget .sue{
+	
+	pointer-events: none;
+}
+
+.ui-widget .ui-widget li {
+	
+	background:red;
+}
+
+.tes{
+	background:blue;
+}
+
+

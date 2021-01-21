@@ -1,80 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://primefaces.org/ui"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
-    version="2.2">
- 
-	
-		<managed-bean>
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+
+	<managed-bean>
 		<managed-bean-name>formMB</managed-bean-name>
 		<managed-bean-class>Beans.FormMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
-		</managed-bean>
-	
-		<managed-bean>
+	</managed-bean>
+
+	<managed-bean>
 		<managed-bean-name>testMB</managed-bean-name>
 		<managed-bean-class>Beans.Test</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
-		</managed-bean>
-		
-		<managed-bean>
+	</managed-bean>
+
+	<managed-bean>
 		<managed-bean-name>userMB</managed-bean-name>
 		<managed-bean-class>Beans.UserMB</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-		</managed-bean>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
-		<navigation-rule>
-		<from-view-id>/pages/Answers.xhtml</from-view-id>
-		</navigation-rule>
-		
-		
-	
+	<managed-bean>
+		<managed-bean-name>applicationSecurityConfig</managed-bean-name>
+		<managed-bean-class>Beans.ApplicationSecurityConfig</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
 
-	
+
 	<navigation-rule>
 		<from-view-id>/pages/loginPage.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>formular</from-outcome>
-			<to-view-id>/pages/Answers.xhtml</to-view-id>
-		</navigation-case>
 	</navigation-rule>
-	
+
+
 	<navigation-rule>
-		<from-view-id>/pages/registerPage.xhtml</from-view-id>
+		<from-view-id>/pages/welcomePage.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>login</from-outcome>
+			<from-outcome>toLogin</from-outcome>
 			<to-view-id>/pages/loginPage.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
+		<from-view-id>/pages/welcomePage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>test</from-outcome>
+			<to-view-id>/pages/test.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<from-view-id>/pages/loginPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>test2</from-outcome>
+			<to-view-id>/pages/test.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+
+
+
+
+	<navigation-rule>
+		<from-view-id>/pages/registerPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>backToLogin</from-outcome>
+			<to-view-id>/pages/loginPage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/pages/welcomePage.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>register</from-outcome>
 			<to-view-id>/pages/registerPage.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<from-view-id>/pages/loginPage.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>fastlane</from-outcome>
-			<to-view-id>/pages/individualQuestions.xhtml</to-view-id>
+			<from-outcome>goToWelcome</from-outcome>
+			<to-view-id>/pages/welcomePage.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
+
+
+
+
 	<navigation-rule>
-		<from-view-id>/pages/Answers.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>extra</from-outcome>
-			<to-view-id>/pages/individualQuestions.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<from-view-id>/pages/Answers.xhtml</from-view-id>
+		<from-view-id>/pages/formular1.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>logout</from-outcome>
 			<to-view-id>/pages/loginPage.xhtml</to-view-id>
@@ -82,14 +101,58 @@
 	</navigation-rule>
 	
 	<navigation-rule>
-		<from-view-id>/pages/individualQuestions.xhtml</from-view-id>
+		<from-view-id>/pages/formular2.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>form1</from-outcome>
-			<to-view-id>/pages/Answers.xhtml</to-view-id>
+			<from-outcome>logout2</from-outcome>
+			<to-view-id>/pages/loginPage.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-		
 	
-		
+	<navigation-rule>
+		<from-view-id>/pages/formular3.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>logout3</from-outcome>
+			<to-view-id>/pages/loginPage.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/pages/loginPage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>formular</from-outcome>
+			<to-view-id>/pages/formular1.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/pages/formular1.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>form2</from-outcome>
+			<to-view-id>/pages/formular2.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/pages/formular2.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>form3</from-outcome>
+			<to-view-id>/pages/formular3.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/formular3.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>form3ToForm1</from-outcome>
+			<to-view-id>/pages/formular1.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+
+
+
+
+
 
 </faces-config>

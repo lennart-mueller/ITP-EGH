@@ -6,8 +6,8 @@
 	<artifactId>EGH_project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
-		<repositories>
+
+	<repositories>
 		<repository>
 			<id>prime-repo</id>
 			<name>PrimeFaces Maven Repository</name>
@@ -15,7 +15,7 @@
 			<layout>default</layout>
 		</repository>
 	</repositories>
-	
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -35,7 +35,10 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		 <finalName>jsf-simple-login</finalName>
 	</build>
+	
+	
 
 
 
@@ -60,33 +63,33 @@
 			<artifactId>all-themes</artifactId>
 			<version>1.0.10</version>
 		</dependency>
-		
+
 		<dependency>
-    		<groupId>javax.enterprise</groupId>
-    		<artifactId>cdi-api</artifactId>
-    		<version>1.2</version>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>8.0</version>
+		
 		</dependency>
 		
-			<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+
+
 		<dependency>
-    		<groupId>javax</groupId>
-    		<artifactId>javaee-api</artifactId>
-   			 <version>8.0</version>
-    		<scope>provided</scope>
+			<groupId>org.glassfish.soteria</groupId>
+			<artifactId>javax.security.enterprise</artifactId>
+			<version>1.0</version>
 		</dependency>
-		
-				<!--  	<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.21</version>
-		</dependency> 
-	
-	<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.22</version>
-</dependency> -->
+
+
 
 	</dependencies>
+	
+	
 
 </project>

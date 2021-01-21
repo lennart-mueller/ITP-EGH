@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -17,15 +18,19 @@ import antragsverwaltung.usesecase.impl.IFillForm;
 import usermanagement.entity.UserTO;
 import usermanagement.usecase.impl.IActiveUser;
 import usermanagement.usecase.impl.ILoginUser;
+import usermanagement.usecase.impl.IRegisterUser;
 
 @Named("userMB")
-@RequestScoped
+@SessionScoped
 public class UserMB implements Serializable {
 	
 private static final long serialVersionUID = 1094801825228386363L;
 
 	@Inject
 	ILoginUser loginUser;
+	
+	@Inject
+	IRegisterUser registerUser;
 	
 	@EJB(beanName = "ActiveUser")
 	IActiveUser statelessActiveUser;
@@ -35,12 +40,12 @@ private static final long serialVersionUID = 1094801825228386363L;
 	private int age;
 	private String pwd;
 	private String email;  
-	private String msg;		//wofuer?
-
+	private String msg;		
+	private String support;	//Person zur Unterstutzung
 	
 	
 	
-	//User nahand eingegebener Werte in Datenbank speichern
+	//User anhand eingegebener Werte in Datenbank speichern
 	public void register() {
 		UserTO aUser = new UserTO();
 		aUser.setFormnr(0);				//FormNr wird auf 0 gesetzt, da noch keine zugehoerige Form
@@ -48,6 +53,7 @@ private static final long serialVersionUID = 1094801825228386363L;
 		aUser.setNachname(lastName);
 		aUser.setEmail(email);
 		aUser.setPassword(pwd);
+		
 		loginUser.updateUser(aUser);
 		
 		System.out.println("Registrieren erfolgreich");
@@ -61,7 +67,11 @@ private static final long serialVersionUID = 1094801825228386363L;
 	}
 	
 	public String loginMenue() {
-		return "login";
+		return "backToLogin";
+	}
+	
+	public String goToWelcome() {
+		return "goToWelcome";
 	}
 
 
@@ -94,19 +104,10 @@ private static final long serialVersionUID = 1094801825228386363L;
 		}
 		
 		
-//		boolean valid = LoginDAO.validate(user, pwd);
-//		if (valid) {
-//			HttpSession session = SessionUtils.getSession();
-//			session.setAttribute("username", user);
-//			return "formular";
-//		} else {
-//			FacesContext.getCurrentInstance().addMessage(
-//					null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN,
-//							"Incorrect Username and Passowrd",
-//							"Please enter correct username and Password"));
-//			return "login";
-//		}
+	}
+	
+	public String goToLogin() {
+		return "toLogin";
 	}
 	
 	public static HttpSession getSession() {
@@ -136,12 +137,7 @@ private static final long serialVersionUID = 1094801825228386363L;
 	}
 	
 
-	//logout event, invalidate session
-//	public String logout() {
-//		HttpSession session = SessionUtils.getSession();
-//		session.invalidate();
-//		return "login";
-//	}
+
 	
 	public String getFirstName() {
 		return firstName;
@@ -190,5 +186,15 @@ private static final long serialVersionUID = 1094801825228386363L;
 	public void setEmail(String user) {
 		this.email = user;
 	}
+
+	public String getSupport() {
+		return support;
+	}
+
+	public void setSupport(String support) {
+		this.support = support;
+	}
+	
+	
 
 }

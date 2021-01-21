@@ -7,40 +7,89 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 
+
+<h:outputStylesheet library="css" name="style.css" />
+
 </h:head>
 
 
 <body> 
+<p:panel id="basic" header="Selbsteinsch&auml;tzungsbogen zum Antrag auf Jugendhilfe" style="margin-bottom:10px">
+   
+    </p:panel>
   <h:form id="registrationForm">
-    <p:panel header="Registrierung" style="width: 500px;">
-<p:messages/>
+
+    <h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+     
+      <h3>Unterst&uuml;tzung</h3>
+
+      <h4>Du kannst den Fragebogen alleine oder mit Unterst&uuml;tzung ausf&uuml;llen. Bitte gib an, wie Du den Fragebogen ausgef&uuml;llt hast:</h4>
+
+      
+      <h4>Ich habe den Fragebogen mithilfe von ausgef&uuml;llt:</h4>
+    
+  
+    </h:panelGrid>
+ 
+    
+    <p:panel header="Registrierung" style="border-style:none">
+
     <h:panelGrid columns="2">
+    
+      <p:selectOneMenu id="unterst" style="width:650px" value="#{userMB.support}">
+    	<f:selectItem itemLabel="alleine" itemValue="alleine" />
+    	<f:selectItem itemLabel="Eltern" itemValue="Eltern" />
+    	<f:selectItem itemLabel="gesetzlichen Betreuers" itemValue="Betreuer"/>
+    	<f:selectItem itemLabel="Geschwister" itemValue="Geschwister"/>
+    	<f:selectItem itemLabel="Bekannten" itemValue="Bekannter"/>
+    	<f:selectItem itemLabel="Freunde" itemValue="Freund"/>
+    	<f:selectItem itemLabel="Nachbarn" itemValue="Nachbarn"/>
+    	<f:selectItem itemLabel="Sonstige" itemValue="Sonstige"/>
+    </p:selectOneMenu>
      
       
-      <p:outputLabel value="Vorname:"/>
-      <p:inputText id="firstName" value="#{userMB.firstName}" label="FirstName"/>
+      <p:outputLabel value="Vorname:" style="margin-right:100px"/>
+      <p:inputText type="text" value="#{userMB.firstName}" placeholder="Vorname" name="Vorname" id="firstName" style="width:250px"/>
       
-      <p:outputLabel value="Nachname:"/>
-      <p:inputText id="lastName" value="#{userMB.lastName}"/>
+      <p:outputLabel value="Nachname:" style="margin-right:100px"/>
+      <p:inputText type="text" value="#{userMB.lastName}" placeholder="Nachname" name="Nachname" id="lastName" style="width:250px"/>
       
-      <p:outputLabel value="Alter:" />
-      <p:inputText id="age" value="#{userMB.age}" label="age"/>
+      <p:outputLabel value="Alter:" style="margin-right:100px"/>
+      <p:inputText type="text" value="#{userMB.age}" placeholder="Alter" name="Alter" id="age" style="width:250px"/>
       
-      <p:outputLabel value="E-Mail:"/>
-      <p:inputText id="email" value="#{userMB.email}" label="EMail" />      
+      <p:outputLabel value="E-Mail:" style="margin-right:100px"/>
+      <p:inputText type="text" value="#{userMB.email}"  placeholder="E-Mail" name="email" id="email" style="width:250px"/>      
             
-      <p:outputLabel value="Password:"/>
-      <p:password id="password" value="#{userMB.pwd}" label="Password"/>
+      <p:outputLabel value="Password:" style="margin-right:100px"/>
+      <p:password type="text" value="#{userMB.pwd}" placeholder="Passwort" name="Passwort" id="password" style="width:250px"/>
+      
+  </h:panelGrid>  
+    
+	
+    
+    
+    
+    <br></br>
+    
+    
 
       <p:outputLabel value=""/>
-      <p:commandButton action="#{userMB.register}" value="Registrieren" update="registrationForm"/>
-      <br/>
-      <p:commandButton id="loginButton" action="#{userMB.loginMenue}"
-					value="zum Login"  ajax="true" style="float: right;">
-				</p:commandButton>
+      <p:commandButton action="#{userMB.register}" value="Registrieren" update="registrationForm" class="buttonstyle"/>
+         <p:commandButton action="#{userMB.loginMenue()}" id="loginButton"  update="registrationForm" 
+					value="zum Login"  class="buttonstyle"></p:commandButton>
+				
       
-    </h:panelGrid>
+
+
+  
+     
+  
+
+    
     </p:panel>
+   
+    
+ 
   </h:form>
 </body>
 
