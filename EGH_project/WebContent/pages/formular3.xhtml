@@ -34,7 +34,7 @@
  <p:panel id="basic10" style="border-style:none">
  
 
- <p><p:spacer width="390" height="0" />1<p:spacer width="35" height="0"/>2<p:spacer width="35" height="0"/>3<p:spacer width="35" height="0"/>4<p:spacer width="35" height="0"/>5
+ <p><p:spacer width="387" height="0" />1<p:spacer width="35" height="0"/>2<p:spacer width="35" height="0"/>3<p:spacer width="35" height="0"/>4<p:spacer width="33" height="0"/>5
  <p:spacer width="31" height="0"/>6<p:spacer width="33" height="0"/>7
  </p>
 
@@ -43,11 +43,10 @@
  
 
 <h:form>
-<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
      
          <p:inputText type="text" placeholder="Weiteres..." value="#{formMB.alleQuestionsIndi[0]}" name="erg1" id="erg1" style="width:360px"/>
     	<p:panel class="answers9" >
-    	<label>eigene Frage eingeben:</label>
         <p:selectOneRadio id="fragen" value="#{formMB.allAnswersIndi[0]}" unselectable="true">
              <f:selectItem itemLabel="" itemValue="1" />
             <f:selectItem itemLabel="" itemValue="2" />
@@ -63,7 +62,7 @@
          <p:inputText type="text" placeholder="Weiteres..." value="#{formMB.alleQuestionsIndi[1]}" name="erg2" id="erg2" style="width:360px"/>
     <p:panel class="answers9" >
         <p:selectOneRadio id="fragen2" value="#{formMB.allAnswersIndi[1]}" unselectable="true">
-        <label>eigene Frage eingeben:</label>
+
             <f:selectItem itemLabel="" itemValue="1" />
             <f:selectItem itemLabel="" itemValue="2" />
             <f:selectItem itemLabel="" itemValue="3" />
@@ -77,7 +76,7 @@
          <p:inputText type="text"  value="#{formMB.alleQuestionsIndi[2]}" placeholder="Weiteres..." name="erg3" id="erg3" style="width:360px"/>
     <p:panel class="answers9" >
         <p:selectOneRadio id="fragen3" value="#{formMB.allAnswersIndi[2]}" unselectable="true">
-        <label>eigene Frage eingeben:</label>
+
             <f:selectItem itemLabel="" itemValue="1" />
             <f:selectItem itemLabel="" itemValue="2" />
             <f:selectItem itemLabel="" itemValue="3" />
