@@ -279,8 +279,8 @@ public class FormMB implements Serializable {
 		while (i < allAnswers.length) {
 
 //			aFormTO.addAnswer(0); // allen Antworten 0 zuweisen
-			aFormTO.addAnswerNormal(new AnswerNormalTO(0, i + 1)); //// allen Antworten 0 und die AntwortNr zuweisen
-
+			aFormTO.addAnswerNormal(new AnswerNormalTO(i + 1,0)); //// allen Antworten 0 und die AntwortNr zuweisen
+//i + 1,0 
 			i++;
 		}
 
@@ -332,7 +332,7 @@ public class FormMB implements Serializable {
 
 //			aFormTO.addAnswer(answerNr);
 
-			aFormTO.getNormalAnswers().add(new AnswerNormalTO((answerNr), i + 1));
+			aFormTO.getNormalAnswers().add(new AnswerNormalTO( i + 1, (answerNr)));
 			System.out.println("added Normal Answer  " + aFormLocal.getNormalAnswers().get(0).getAnswerNr()
 					+ " mit Antwort: " + aFormLocal.getNormalAnswers().get(0).getOneAnswerNormal());
 
