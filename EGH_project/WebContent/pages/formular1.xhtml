@@ -21,12 +21,16 @@
 
 
 
+
 </h:head>
 
 
 <h:body class="bodyformular">
+<p:panel style="border:0px;text-allign:right;" header="Eingeloggter User: #{userMB.email}" />
 
 <p:panel id="basic" header="Selbsteinschaetzungsbogen zum Antrag auf Jugendhilfe" style="margin-bottom:10px">
+
+
 <h3>Pr&uuml;fe bei jeder Frage, ob du eine Assistenzleistung ben&ouml;tigst oder nicht. </h3>
 <h3>Wenn du eine Assistenzleistung ben&ouml;tigst, kreuze Sie an. </h3>
 <br></br>
@@ -550,52 +554,24 @@
       
        
         </h:panelGrid>
-        
      
          </p:panel>   
+	<br/><br/>
 
-       
- 		<br/><br/>
-
- 	    
-	
 	  	<p:growl id="message" showDetail="true" /> 
-	  	<p:commandButton action="#{formMB.logout()}" value="Ausloggen" update="message" class="buttonstyle" >
+	  	<p:commandButton action="#{formMB.logout()}" value="Ausloggen" update="message" class="buttonstyle" />
 				
-       <p:confirm header="Bestaetigung" message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen und bearbeiten." icon="pi pi-exclamation-triangle" />
-    </p:commandButton>
- 	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <p:commandButton value="Ja, abmelden" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-        <p:commandButton value="Nein, bleiben" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-    </p:confirmDialog> 
+<!--        <p:confirm header="Bestaetigung" message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen und bearbeiten." icon="pi pi-exclamation-triangle" /> -->
+<!--     </p:commandButton> -->
+<!--  	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade"> -->
+<!--         <p:commandButton value="Ja, abmelden" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" /> -->
+<!--         <p:commandButton value="Nein, bleiben" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" /> -->
+<!--     </p:confirmDialog>  -->
     
-    <p:commandButton value="Weiter" action="#{formMB.goToFormular2()}" class="buttonstyle"/>
-	  
-       
- 			
-   
- 	
- 	
-    
-       
-		<br/><br/>
+    <p:commandButton value="Weiter" action="#{formMB.goToFormular2()}"/>
 	
-		
+		<br/><br/>
 		 </h:form>
-		
- 
-  
-    	
-
-  
-       
-  
-  
-
-
-
-
-
 </h:body>
 
 </html>

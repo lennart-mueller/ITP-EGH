@@ -73,6 +73,7 @@ public class FormMB implements Serializable {
 	@PostConstruct
 	public void init() {
 
+		
 		int actualForm = statelessActiveUser.getUserFormId();
 		if (actualForm == 0) {
 			createEmptyFormular();

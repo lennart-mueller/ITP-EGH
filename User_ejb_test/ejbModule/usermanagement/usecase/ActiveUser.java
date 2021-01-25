@@ -11,11 +11,28 @@ import usermanagement.usecase.impl.IActiveUser;
 public class ActiveUser implements IActiveUser {
 	
 	private String email;
+	private String firstName;
+	private String lastName;
 	private int userid;
 	private int formid;
 	private ApplicationFormTO aForm;
 
 	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
 	public String getEmail() {
 		return email;

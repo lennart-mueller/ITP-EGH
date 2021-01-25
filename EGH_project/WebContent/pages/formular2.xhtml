@@ -17,7 +17,7 @@
 <h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
-
+<p:panel style="border:0px;text-allign:right;" header="Eingeloggter User: #{userMB.email}" />
 <p:panel id="basic" header="Selbsteinsch&auml;tzungsbogen zum Antrag auf Jugendhilfe" style="margin-bottom:10px">
 <h3>Pr&uuml;fe bei jeder Frage, ob du eine Assistenzleistung ben&ouml;tigst oder nicht. </h3>
 <h3>Wenn du eine Assistenzleistung ben&ouml;tigst, kreuze Sie an. </h3>
@@ -616,20 +616,20 @@
  </h:panelGrid>
  </p:panel>
  
- 		<p:commandButton action="#{formMB.backToForm1()}" value="Zur&uuml;ck" class="buttonstyle"/>
+ 		<h:commandButton action="#{formMB.backToForm1()}" value="Zur&uuml;ck" class="buttonDesign"/>
  
  	
- 	  <p:commandButton value="Weiter" action="#{formMB.goToFormular3()}" class="buttonstyle"/>
+ 	  <h:commandButton value="Weiter" action="#{formMB.goToFormular3()}" class="buttonDesign"/>
  	  <br/> <br/> 
  	  <p:growl id="message" showDetail="true" /> 
  	  
- 	  <p:commandButton action="#{formMB.logout2()}" value="Ausloggen" update="message" class="buttonstyle">
+ 	  <h:commandButton action="#{formMB.logout2()}" value="Ausloggen" update="message" class="buttonDesign">
 				
        <p:confirm header="Bestaetigung" message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen und bearbeiten." icon="pi pi-exclamation-triangle" />
-    </p:commandButton>
+    </h:commandButton>
  	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <p:commandButton value="Ja, abmelden" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-        <p:commandButton value="Nein, bleiben" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+        <h:commandButton value="Ja, abmelden" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+        <h:commandButton value="Nein, bleiben" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
     </p:confirmDialog> 
 
  	  

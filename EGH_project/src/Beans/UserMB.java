@@ -3,7 +3,6 @@ package Beans;
 import java.io.Serializable;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import Persistence.AnwendungskernException;
 import Persistence.DatenhaltungsException;
-import antragsverwaltung.usesecase.impl.IFillForm;
 import usermanagement.entity.UserTO;
 import usermanagement.usecase.impl.IActiveUser;
 import usermanagement.usecase.impl.ILoginUser;
@@ -35,28 +33,45 @@ public class UserMB implements Serializable {
 	@EJB(beanName = "ActiveUser")
 	IActiveUser statelessActiveUser;
 
-	private String firstName;
-	private String lastName;
-	private int age;
-	private String pwd;
-	private String email;
-	private String msg; 
-	private String support;  //person die den Ausfuellenden unterstuetzt
+	private String firstName = null;
+	private String lastName = null;
+	//private int age;
+	private String pwd = null;
+	private String email = null;
+	private String msg = null;
+	private String support = null; // person die den Ausfuellenden unterstuetzt
+	private String registerSuccess = null;
 
 	// User anhand eingegebener Werte in Datenbank speichern
-	public void register() {
-		UserTO aUser = new UserTO();
-		aUser.setFormnr(0); // FormNr wird auf 0 gesetzt, da noch keine zugehoerige Form
-		aUser.setVorname(firstName);
-		aUser.setNachname(lastName);
-		aUser.setEmail(email);
-		aUser.setPassword(pwd);
-		aUser.setSupport(support);
-		System.out.println("support: "+support);
-		loginUser.updateUser(aUser);
+	public String register() throws AnwendungskernException, DatenhaltungsException{
+		
 
-		System.out.println("Registrieren erfolgreich");
+		if(!email.isBlank() && !pwd.isBlank() && !firstName.isBlank() && !lastName.isBlank() && !support.isBlank()  ) {
 
+			System.out.println("Registrieren erfolgreich");
+			
+			UserTO aUser = new UserTO();
+			aUser.setFormnr(0); // FormNr wird auf 0 gesetzt, da noch keine zugehoerige Form
+			aUser.setVorname(firstName);
+			aUser.setNachname(lastName);
+			aUser.setEmail(email);
+			aUser.setPassword(pwd);
+			aUser.setSupport(support);
+			System.out.println("support: " + support);
+			loginUser.updateUser(aUser);
+
+			System.out.println("Registrieren erfolgreich");
+
+			setRegisterSuccess("Die Registrierung war Erfolgreich. Sie können sich jetzt mit ihren Daten anmelden (E-Mail & Passwort).");
+			return "backToLogin";
+		}else{
+			System.out.println("Registrieren nicht erfolgreich -> Keine User Daten");	
+			setRegisterSuccess("Die Registrierung war Unerfolgreich! Bitte Überprüfen Sie ihre eingegeben Daten!");
+			return "";
+			
+		
+		
+				}
 	}
 
 	public String registerMenue() {
@@ -78,16 +93,19 @@ public class UserMB implements Serializable {
 		UserTO aUser = new UserTO();
 
 		if (loginUser.getUser(email) == null) {
-			System.out.println("Login NICHT erfolgreich");
+			System.out.println("Login NICHT erfolgreich (Falscher User)");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Falsche E-Mail oder Passwort", "Bitte richtige E-Mail und Passwort eingeben"));
+					"Diese E-Mail Adresse ist nicht vorhanden", "Bitte richtige E-Mail eingeben"));
 
 			return "login";
 		} else {
 			aUser = loginUser.getUser(email);
 			System.out.println("my name is:  " + aUser.getEmail());
 			System.out.println("my login is:  " + email);
-			if (aUser.getPassword().equals(pwd)) {
+
+			boolean passwordCheck = aUser.getPassword().equals(pwd);
+
+			if (passwordCheck == true) {
 				System.out.println("Login succesfull");
 				statelessActiveUser.setEmail(email);
 				statelessActiveUser.setUserid(aUser.getId());
@@ -96,23 +114,23 @@ public class UserMB implements Serializable {
 
 				return "formular";
 
-			}
-		}
-		return "login";
+			} else if (passwordCheck == false) {
+				System.out.println("Login NICHT erfolgreich (Falsches Passwort)");
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+						"Falsches Passwort", "Bitte richtiges Passwort eingeben"));
 
-//		boolean valid = LoginDAO.validate(user, pwd);
-//		if (valid) {
-//			HttpSession session = SessionUtils.getSession();
-//			session.setAttribute("username", user);
-//			return "formular";
-//		} else {
-//			FacesContext.getCurrentInstance().addMessage(
-//					null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN,
-//							"Incorrect Username and Passowrd",
-//							"Please enter correct username and Password"));
-//			return "login";
-//		}
+				return "login";
+
+			} else {
+				System.out.println("Login NICHT erfolgreich");
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+						"Falsche E-Mail oder Passwort", "Bitte richtige E-Mail und Passwort eingeben"));
+
+				return "login";
+			}
+
+		}
+		
 	}
 
 	public String goToLogin() {
@@ -163,13 +181,14 @@ public class UserMB implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
+//  TODO: Is it in Use?
+//	public int getAge() {
+//		return age;
+//	}
+//
+//	public void setAge(int age) {
+//		this.age = age;
+//	}
 
 	public String getPwd() {
 		return pwd;
@@ -202,7 +221,13 @@ public class UserMB implements Serializable {
 	public void setSupport(String support) {
 		this.support = support;
 	}
-	
-	
+
+	public String getRegisterSuccess() {
+		return registerSuccess;
+	}
+
+	public void setRegisterSuccess(String registerSuccess) {
+		this.registerSuccess = registerSuccess;
+	}
 
 }

@@ -1,5 +1,27 @@
 @charset "ISO-8859-1";
 
+.buttonDesign {
+	background-color:#f6f6f6;
+	border:1px solid #dddddd;
+	display:inline-block;
+	cursor:pointer;
+	color:#0073ea;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 15px;
+}
+.buttonDesign:hover {
+	background-color:#0073ea;
+	color:#ffffff;
+}
+.buttonDesign:active{
+	border:1.5px solid #dddddd;
+	color:#0073ea;
+	background-color:#f6f6f6;
+	
+}
+
 .ui-selectonemenu{
 	background-color: blue;
 }

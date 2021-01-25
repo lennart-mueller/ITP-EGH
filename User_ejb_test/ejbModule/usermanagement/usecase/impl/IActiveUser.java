@@ -1,7 +1,5 @@
 package usermanagement.usecase.impl;
 
-import javax.ejb.Local;
-
 import antragsverwaltung.entity.ApplicationFormTO;
 
 
@@ -22,5 +20,13 @@ public interface IActiveUser {
 	public ApplicationFormTO getaForm();
 
 	public void setaForm(ApplicationFormTO aForm);
+	
+	public String getFirstName();
+	
+	public String getLastName();
+	
+	public void setFirstName(String firstName);
+	
+	public void setLastName(String lastName);
 
 }
