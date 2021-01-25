@@ -33,6 +33,8 @@ public class UserMB implements Serializable {
 	@EJB(beanName = "ActiveUser")
 	IActiveUser statelessActiveUser;
 
+	PlainSHA512PasswordHash hash = new PlainSHA512PasswordHash();
+	
 	private String firstName = null;
 	private String lastName = null;
 	//private int age;
@@ -55,7 +57,7 @@ public class UserMB implements Serializable {
 			aUser.setVorname(firstName);
 			aUser.setNachname(lastName);
 			aUser.setEmail(email);
-			aUser.setPassword(pwd);
+			aUser.setPassword(hash.generate(pwd.toCharArray()));
 			aUser.setSupport(support);
 			System.out.println("support: " + support);
 			loginUser.updateUser(aUser);
@@ -103,8 +105,9 @@ public class UserMB implements Serializable {
 			System.out.println("my name is:  " + aUser.getEmail());
 			System.out.println("my login is:  " + email);
 
-			boolean passwordCheck = aUser.getPassword().equals(pwd);
-
+//			boolean passwordCheck = aUser.getPassword().equals(pwd);
+			boolean passwordCheck = hash.verify(pwd.toCharArray(), aUser.getPassword());
+			
 			if (passwordCheck == true) {
 				System.out.println("Login succesfull");
 				statelessActiveUser.setEmail(email);
