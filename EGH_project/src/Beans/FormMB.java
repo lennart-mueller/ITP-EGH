@@ -54,8 +54,6 @@ public class FormMB implements Serializable {
 	private int QuestionCounter2 = 30;
 	private int AnswerCounter = 0;
 	static boolean firstInvoke = true;
-//	static int latestForm;
-//	static int searchedUserForm = 2;
 	static ApplicationFormTO aFormLocal;
 
 	@EJB(beanName = "ActiveUser")
@@ -66,18 +64,46 @@ public class FormMB implements Serializable {
 	public void init() {
 
 		int actualForm = statelessActiveUser.getUserFormId();
+		
+		//wenn Form bei null, dann neues Formular mit neuer Nr erstellen
 		if (actualForm == 0) {
 			createEmptyFormular();
-		} else {
+			//wenn Form bereits aufgerufen in dieser Session dann Form antworten aus Bean abrufen
+		} else if (aFormLocal!=null){
+			System.out.println("form exisiting");
+			int i = 0;
+			int i2 = 0;
+			
+			// fuellt alle normalen Antworten aus
+			for (AnswerNormalTO aAnswerTO : aFormLocal.getNormalAnswers()) { 
+				allAnswers[i] = Integer.toString(aAnswerTO.getOneAnswerNormal());
+				i++;
+
+			}
+			// fuellt alle selbst erstellten Antworten aus
+			for (QuestionIndividuellTO aQuestionTO : aFormLocal.getIndividualQuestions()) {
+				allAnswersIndi[i2] = Integer.toString(aQuestionTO.getAnswer());
+				allQuestionsIndi[i2] = aQuestionTO.getQuestion();
+				i2++;
+
+			}
+			
+		}
+		
+		//wenn Form vorhanden aber noch nicht in dieser Session, dann aus Datenbank laden
+		else {
 
 			int i = 0;
 			int i2 = 0;
 			for (ApplicationFormTO aForm : requestFormular.getAllForms()) {
 
 				if (aForm.getFormNr() == actualForm) {
+				
 
 					if (aFormLocal == null) {
+						
 						aFormLocal = aForm;
+						
 					}
 					// fuellt alle normalen Antworten aus
 					for (AnswerNormalTO aAnswerTO : aForm.getNormalAnswers()) { 
@@ -128,6 +154,8 @@ public class FormMB implements Serializable {
 
 	}
 	
+	
+	
 	// ruft alle selbst erstellten antworten auf
 	public String getIndiQuestions() {
 
@@ -172,6 +200,7 @@ public class FormMB implements Serializable {
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Ausloggen erfolgreich"));
 		updateForm(); // speichert alle Aenderungen beim Logout
 		saveForm.updateForm(aFormLocal);
+		clearForm();
 
 		return "logout";
 
@@ -182,6 +211,7 @@ public class FormMB implements Serializable {
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Ausloggen erfolgreich"));
 		updateForm(); // speichert alle Aenderungen beim Logout
 		saveForm.updateForm(aFormLocal);
+		clearForm();
 
 		return "logout2";
 
@@ -190,8 +220,10 @@ public class FormMB implements Serializable {
 	public String logout3() {
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Ausloggen erfolgreich"));
-		updateForm(); // speichert alle Aenderungen beim Logout
-		saveForm.updateForm(aFormLocal);
+//		updateForm(); // speichert alle Aenderungen beim Logout
+		saveIndiQuestions();
+		clearForm();
+		
 
 		return "logout3";
 
@@ -202,7 +234,8 @@ public class FormMB implements Serializable {
 	}
 
 	public String backToForm1() {
-		saveIndiQuestions();
+//		saveIndiQuestions();
+		updateForm();
 		return "form1";
 
 	}
@@ -221,25 +254,13 @@ public class FormMB implements Serializable {
 	}
 
 	public String backToForm1From3() {
+//		saveIndiQuestions();
 		updateForm();		
 		System.out.println("Save Form (3)");
 		return "form3ToForm1";
 	}
 
 
-
-
-//	// setzt beim ersten Aufruf standardmaessig alle Antworten auf 0
-//	public void iniAnswers() {
-//
-//		if (firstInvoke == true) {
-//			createEmptyFormular();
-//			firstInvoke = false;
-//		} else {
-//
-//		}
-//
-//	}
 
 	// initialisiert die Fragen
 	public void iniQuestions() {
@@ -321,51 +342,45 @@ public class FormMB implements Serializable {
 //		aFormTO.getFormAnswer().clear();
 		aFormTO.getNormalAnswers().clear();
 
-		for(String q: allAnswers) {
-			if(q == null) {
-				System.out.println("Hier steht nichts drinnen");
-			}else {
-			System.out.println(q.toString());	
-			}
-				
-			
-			
-		}
-		
+//		for(String q: allAnswers) {
+//			if(q == null) {
+//
+//			}else {
+//
+//			}
+//				
+//			
+//			
+//		}
+		System.out.println("Laength ist: "+ allAnswers.length);
 		while (i < allAnswers.length) {
 
-			System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
-			
-			System.out.println("I -> " + i);
-			System.out.println("Vor if: " + allAnswers[i]);
 			if (allAnswers[i] == null) {
 				answerNr = 0;
-				System.out.println("In if: " + allAnswers[i]);
-				System.out.println("else answerNr: " + answerNr);
-				
+
 			} else {
-				System.out.println("In else: " + allAnswers[i]);
+
 				answerNr = Integer.parseInt(allAnswers[i]);
-				System.out.println("else answerNr: " + answerNr);
+
 			}
 			
-//			aFormTO.addAnswer(answerNr);
 
-//			System.out.println("Alle Antwort Nr -> " + allAnswers[i]);
-//			System.out.println("I -> " + i);
 			
 			aFormTO.getNormalAnswers().add(new AnswerNormalTO(i + 1, (answerNr)));
-//			
-//			System.out.println("Antwort Nr -> " + answerNr);
-//			System.out.println("I -> " + i);
-			
-			
-			//System.out.println("added Normal Answer  " + aFormLocal.getNormalAnswers().get(0).getAnswerNr()
-			//		+ " mit Antwort: " + aFormLocal.getNormalAnswers().get(0).getOneAnswerNormal());
 
 			i++;
 		}
 
+		int i2 = 0;
+		aFormTO.getIndividualQuestions().clear();
+		while (i2 < allAnswersIndi.length && allAnswersIndi[i2] != null) {
+
+			aFormTO.getIndividualQuestions()
+					.add(new QuestionIndividuellTO(allQuestionsIndi[i2], Integer.parseInt(allAnswersIndi[i2])));
+
+			i2++;
+
+		}
 		aFormLocal = aFormTO;
 
 	}
@@ -394,6 +409,13 @@ public class FormMB implements Serializable {
 		}
 
 	}
+	
+	
+	//beim logout die aktuelle form wieder auf null setzen
+	public void clearForm() {
+		aFormLocal = null;
+		
+	}
 
 	public void redirectAllAnswers() throws IOException {
 		// Verlinkung zur Restful-URL
@@ -409,13 +431,6 @@ public class FormMB implements Serializable {
 		AnswerCounter = answerCounter;
 	}
 
-//	public static int getLatestForm() {
-//		return latestForm;
-//	}
-//
-//	public static void setLatestForm(int latestForm) {
-//		FormMB.latestForm = latestForm;
-//	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

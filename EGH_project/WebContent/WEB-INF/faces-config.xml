@@ -118,6 +118,10 @@
 			<from-outcome>form3</from-outcome>
 			<to-view-id>/pages/formular3.xhtml</to-view-id>
 		</navigation-case>
+			<navigation-case>
+			<from-outcome>form1</from-outcome>
+			<to-view-id>/pages/formular1.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 
 	<!-- FORMULAR 3 -->
