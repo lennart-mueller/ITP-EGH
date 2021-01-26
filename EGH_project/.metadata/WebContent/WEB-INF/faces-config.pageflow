@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16030370607050" configfile="/EGH_JSF_WEB/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16030370607050" configfile="/EGH_JSF_WEB/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="pages/welcomePage.xhtml" x="338" y="377" id="pf16115939904660" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" outlinks="pf16115939904671 pf16115939904672 pf16115939904673" inlinks="pf16115939904674" path="/pages/welcomePage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/loginPage.xhtml" x="770" y="625" id="pf16115939904675" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" outlinks="pf16115939904676 pf16115939904674 pf16115939904677 pf16115939904678" inlinks="pf16115939904671 pf16115939904676 pf16115939904679 pf161159399046710 pf161159399046711 pf161159399046712" path="/pages/loginPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/registerPage.xhtml" x="720" y="348" id="pf161159399046713" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf16115939904679" inlinks="pf16115939904672" path="/pages/registerPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/test.xhtml" x="804" y="180" id="pf161159399046714" referenceLink="//@navigationRule.2/@navigationCase.3/@toViewId|" inlinks="pf16115939904673 pf16115939904678" path="/pages/test.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/formular1.xhtml" x="192" y="660" id="pf161159399046715" referenceLink="//@navigationRule.6/@navigationCase.1/@toViewId|" outlinks="pf161159399046710 pf161159399046716" inlinks="pf16115939904677 pf161159399046717" path="/pages/formular1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/formular2.xhtml" x="900" y="948" id="pf161159399046718" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf161159399046711 pf161159399046719" inlinks="pf161159399046716" path="/pages/formular2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/formular3.xhtml" x="122" y="963" id="pf161159399046720" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf161159399046712 pf161159399046717" inlinks="pf161159399046719" path="/pages/formular3.xhtml"/>
+  <links id="pf16115939904671" target="pf16115939904675" source="pf16115939904660" outcome="toLogin"/>
+  <links id="pf16115939904672" target="pf161159399046713" source="pf16115939904660" outcome="register"/>
+  <links id="pf16115939904673" target="pf161159399046714" source="pf16115939904660" outcome="test"/>
+  <links id="pf16115939904674" target="pf16115939904660" source="pf16115939904675" outcome="goToWelcome"/>
+  <links id="pf16115939904677" target="pf161159399046715" source="pf16115939904675" outcome="formular"/>
+  <links id="pf16115939904678" target="pf161159399046714" source="pf16115939904675" outcome="test2"/>
+  <links id="pf16115939904679" target="pf16115939904675" source="pf161159399046713" outcome="backToLogin"/>
+  <links id="pf161159399046710" target="pf16115939904675" source="pf161159399046715" outcome="logout"/>
+  <links id="pf161159399046716" target="pf161159399046718" source="pf161159399046715" outcome="form2"/>
+  <links id="pf161159399046711" target="pf16115939904675" source="pf161159399046718" outcome="logout2"/>
+  <links id="pf161159399046719" target="pf161159399046720" source="pf161159399046718" outcome="form3"/>
+  <links id="pf161159399046712" target="pf16115939904675" source="pf161159399046720" outcome="logout3"/>
+  <links id="pf161159399046717" target="pf161159399046715" source="pf161159399046720" outcome="form3ToForm1"/>
+  <links id="pf16115939904676" target="pf16115939904675" source="pf16115939904675" outcome="login">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>

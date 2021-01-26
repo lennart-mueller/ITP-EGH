@@ -45,7 +45,7 @@ public class FormMB implements Serializable {
 	ILoginUser loginUser;
 
 	private int quantityQuestions = 70; // Anzahl der Fragen
-	private int quantityIndiQuestions = 3; // Anzahl der extra Fragen
+	private int quantityIndiQuestions = 5; // Anzahl der extra Fragen
 	private String[] allQuestions = new String[quantityQuestions];
 	private String[] allAnswers = new String[quantityQuestions];
 	private String[] allQuestionsIndi = new String[quantityQuestions];
@@ -198,7 +198,6 @@ public class FormMB implements Serializable {
 	}
 	
 	public String goToExtraQuestions() {
-		updateForm();
 		return "extra";
 	}
 
@@ -210,17 +209,20 @@ public class FormMB implements Serializable {
 
 	public String goToFormular2() {
 		updateForm();
+		System.out.println("Save Form (1)");
 		return "form2";
 
 	}
 
 	public String goToFormular3() {
-		updateForm();
+		updateForm();		
+		System.out.println("Save Form (2)");
 		return "form3";
 	}
 
 	public String backToForm1From3() {
-		updateForm();
+		updateForm();		
+		System.out.println("Save Form (3)");
 		return "form3ToForm1";
 	}
 
@@ -319,19 +321,47 @@ public class FormMB implements Serializable {
 //		aFormTO.getFormAnswer().clear();
 		aFormTO.getNormalAnswers().clear();
 
+		for(String q: allAnswers) {
+			if(q == null) {
+				System.out.println("Hier steht nichts drinnen");
+			}else {
+			System.out.println(q.toString());	
+			}
+				
+			
+			
+		}
+		
 		while (i < allAnswers.length) {
-			System.out.println("Your answered with: " + allAnswers[i]);
+
+			System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+			
+			System.out.println("I -> " + i);
+			System.out.println("Vor if: " + allAnswers[i]);
 			if (allAnswers[i] == null) {
 				answerNr = 0;
+				System.out.println("In if: " + allAnswers[i]);
+				System.out.println("else answerNr: " + answerNr);
+				
 			} else {
+				System.out.println("In else: " + allAnswers[i]);
 				answerNr = Integer.parseInt(allAnswers[i]);
+				System.out.println("else answerNr: " + answerNr);
 			}
-
+			
 //			aFormTO.addAnswer(answerNr);
 
+//			System.out.println("Alle Antwort Nr -> " + allAnswers[i]);
+//			System.out.println("I -> " + i);
+			
 			aFormTO.getNormalAnswers().add(new AnswerNormalTO(i + 1, (answerNr)));
-			System.out.println("added Normal Answer  " + aFormLocal.getNormalAnswers().get(0).getAnswerNr()
-					+ " mit Antwort: " + aFormLocal.getNormalAnswers().get(0).getOneAnswerNormal());
+//			
+//			System.out.println("Antwort Nr -> " + answerNr);
+//			System.out.println("I -> " + i);
+			
+			
+			//System.out.println("added Normal Answer  " + aFormLocal.getNormalAnswers().get(0).getAnswerNr()
+			//		+ " mit Antwort: " + aFormLocal.getNormalAnswers().get(0).getOneAnswerNormal());
 
 			i++;
 		}

@@ -133,8 +133,4 @@
 			<to-view-id>/pages/formular1.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
-
-
-
 </faces-config>
