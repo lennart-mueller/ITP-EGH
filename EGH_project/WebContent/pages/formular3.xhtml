@@ -1,4 +1,5 @@
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -6,107 +7,154 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
- 		<f:metadata>
-        	<f:event type="preRenderView" listener="#{formMB.iniForm}"  />
-        	
-		</f:metadata>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{formMB.iniForm}" />
 
-<h:outputStylesheet library="css" name="style.css" />
+	</f:metadata>
+
+	<h:outputStylesheet library="css" name="style.css" />
 
 </h:head>
 
-<h:body> 
+<h:body>
 
-<p:panel style="border:0px;text-allign:right;" header="Eingeloggter User: #{userMB.email}" />
-<p:panel id="basic" header="Selbsteinschaetzungsbogen zum Antrag auf Jugendhilfe" style="margin-bottom:10px">
-<h3>Pr&uuml;fe bei jeder Frage, ob du eine Assistenzleistung ben&ouml;tigst oder nicht. </h3>
-<h3>Wenn du eine Assistenzleistung ben&ouml;tigst, kreuze Sie an. </h3>
-<br></br>
-<h4>Mit der Jugendhilfe m&ouml;chte ich...<p:spacer width="122" height="10" />Ver&auml;nderungen erzielen<p:spacer width="20" height="10" />Oder...</h4>
-<h5><p:spacer width="392" height="10"/> 1 = unwichtig<p:spacer width="125" height="10" /> 6 = Es soll so bleiben</h5>
-<h5><p:spacer width="392" height="10"/> 5 = sehr wichtig<p:spacer width="108" height="10" /> 7 = Assistenz</h5>
+	<p:panel style="border:0px;text-allign:right;"
+		header="Eingeloggter User: #{userMB.email}" />
+	<p:panel id="basic"
+		header="Selbsteinschaetzungsbogen zum Antrag auf Jugendhilfe"
+		style="margin-bottom:10px">
+		<h3>
+			Pr&uuml;fe bei jeder Frage, ob du eine Assistenzleistung ben&ouml;tigst oder nicht.
+		</h3>
+		<h3>
+			Wenn du eine Assistenzleistung ben&ouml;tigst, kreuze Sie an.
+		</h3>
+		<br></br>
+		<h4>
+			Mit der Jugendhilfe m&ouml;chte ich...<p:spacer width="122" height="10" />Ver&auml;nderungen erzielen<p:spacer width="20" height="10" />Oder...
+		</h4>
+		<h5>
+			<p:spacer width="392" height="10" />
+			1 = unwichtig
+			<p:spacer width="125" height="10" />
+			6 = Es soll so bleiben
+		</h5>
+		<h5>
+			<p:spacer width="392" height="10" />
+			5 = sehr wichtig
+			<p:spacer width="108" height="10" />
+			7 = Assistenz
+		</h5>
 
-    </p:panel>
-    
-    
+	</p:panel>
 
- <h:panelGrid columns="2" cellpadding="5">
- <p:panel id="basic10" style="border-style:none">
- 
 
- <p><p:spacer width="387" height="0" />1<p:spacer width="35" height="0"/>2<p:spacer width="35" height="0"/>3<p:spacer width="35" height="0"/>4<p:spacer width="33" height="0"/>5
- <p:spacer width="31" height="0"/>6<p:spacer width="33" height="0"/>7
- </p>
 
- </p:panel>
- </h:panelGrid>
- 
+	<h:panelGrid columns="2" cellpadding="5">
+		<p:panel id="basic10" style="border-style:none">
 
-<h:form>
-<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-     
-         <p:inputText type="text" placeholder="Weiteres..." value="#{formMB.alleQuestionsIndi[0]}" name="erg1" id="erg1" style="width:360px"/>
-    	<p:panel class="answers9" >
-        <p:selectOneRadio id="fragen" value="#{formMB.allAnswersIndi[0]}" unselectable="true">
-             <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-        
-        </p:selectOneRadio>
-        </p:panel>
-        
-         <p:inputText type="text" placeholder="Weiteres..." value="#{formMB.alleQuestionsIndi[1]}" name="erg2" id="erg2" style="width:360px"/>
-    <p:panel class="answers9" >
-        <p:selectOneRadio id="fragen2" value="#{formMB.allAnswersIndi[1]}" unselectable="true">
 
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            
-        </p:selectOneRadio>
-        </p:panel>
-         <p:inputText type="text"  value="#{formMB.alleQuestionsIndi[2]}" placeholder="Weiteres..." name="erg3" id="erg3" style="width:360px"/>
-    <p:panel class="answers9" >
-        <p:selectOneRadio id="fragen3" value="#{formMB.allAnswersIndi[2]}" unselectable="true">
+			<p>
+				<p:spacer width="387" height="0" />
+				1
+				<p:spacer width="35" height="0" />
+				2
+				<p:spacer width="35" height="0" />
+				3
+				<p:spacer width="35" height="0" />
+				4
+				<p:spacer width="33" height="0" />
+				5
+				<p:spacer width="31" height="0" />
+				6
+				<p:spacer width="33" height="0" />
+				7
+			</p>
 
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-         
-        </p:selectOneRadio>
-        </p:panel>
-</h:panelGrid>
+		</p:panel>
+	</h:panelGrid>
 
-  <h:commandButton action="#{formMB.logout3()}" value="Abschlie&szlig;en" class="buttonDesign"/>
-  
-  <h:commandButton action="#{formMB.backToForm1From3()}" value="&Uuml;berpr&uuml;fen" class="buttonDesign"/>
-  
-    <p:growl id="message" showDetail="true" /> 
-		
-         
-       
- 			<h:commandButton action="#{formMB.logout3()}" value="Ausloggen" update="message" class="buttonDesign">
-				
-       <p:confirm header="Bestaetigung" message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen und bearbeiten." icon="pi pi-exclamation-triangle" />
-    </h:commandButton>
- 	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <h:commandButton value="Ja, abmelden" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-        <h:commandButton value="Nein, bleiben" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-    </p:confirmDialog> 
 
-</h:form>
+	<h:form>
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+			<p:inputText type="text" placeholder="Weiteres..."
+				value="#{formMB.alleQuestionsIndi[0]}" name="erg1" id="erg1"
+				style="width:360px" />
+			<p:panel class="answers9">
+				<p:selectOneRadio id="fragen" value="#{formMB.allAnswersIndi[0]}"
+					unselectable="true">
+					<f:selectItem itemLabel="" itemValue="1" />
+					<f:selectItem itemLabel="" itemValue="2" />
+					<f:selectItem itemLabel="" itemValue="3" />
+					<f:selectItem itemLabel="" itemValue="4" />
+					<f:selectItem itemLabel="" itemValue="5" />
+					<f:selectItem itemLabel="" itemValue="6" />
+					<f:selectItem itemLabel="" itemValue="7" />
+
+				</p:selectOneRadio>
+			</p:panel>
+
+			<p:inputText type="text" placeholder="Weiteres..."
+				value="#{formMB.alleQuestionsIndi[1]}" name="erg2" id="erg2"
+				style="width:360px" />
+			<p:panel class="answers9">
+				<p:selectOneRadio id="fragen2" value="#{formMB.allAnswersIndi[1]}"
+					unselectable="true">
+
+					<f:selectItem itemLabel="" itemValue="1" />
+					<f:selectItem itemLabel="" itemValue="2" />
+					<f:selectItem itemLabel="" itemValue="3" />
+					<f:selectItem itemLabel="" itemValue="4" />
+					<f:selectItem itemLabel="" itemValue="5" />
+					<f:selectItem itemLabel="" itemValue="6" />
+					<f:selectItem itemLabel="" itemValue="7" />
+
+				</p:selectOneRadio>
+			</p:panel>
+			<p:inputText type="text" value="#{formMB.alleQuestionsIndi[2]}"
+				placeholder="Weiteres..." name="erg3" id="erg3" style="width:360px" />
+			<p:panel class="answers9">
+				<p:selectOneRadio id="fragen3" value="#{formMB.allAnswersIndi[2]}"
+					unselectable="true">
+
+					<f:selectItem itemLabel="" itemValue="1" />
+					<f:selectItem itemLabel="" itemValue="2" />
+					<f:selectItem itemLabel="" itemValue="3" />
+					<f:selectItem itemLabel="" itemValue="4" />
+					<f:selectItem itemLabel="" itemValue="5" />
+					<f:selectItem itemLabel="" itemValue="6" />
+					<f:selectItem itemLabel="" itemValue="7" />
+
+				</p:selectOneRadio>
+			</p:panel>
+		</h:panelGrid>
+
+		<h:commandButton action="#{formMB.logout3()}"
+			value="Abschlie&szlig;en" class="buttonDesign" />
+
+		<h:commandButton action="#{formMB.backToForm1From3()}"
+			value="&Uuml;berpr&uuml;fen" class="buttonDesign" />
+
+		<p:growl id="message" showDetail="true" />
+
+
+
+		<p:commandButton action="#{formMB.logout3()}" value="Ausloggen"
+			update="message" class="buttonDesign">
+
+			<p:confirm header="Bestaetigung"
+				message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen und bearbeiten."
+				icon="pi pi-exclamation-triangle" />
+		</p:commandButton>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton value="Ja, abmelden" type="button"
+				styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+			<p:commandButton value="Nein, bleiben" type="button"
+				styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+		</p:confirmDialog>
+
+	</h:form>
 
 </h:body>
 

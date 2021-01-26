@@ -12,8 +12,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.primefaces.event.CloseEvent;
 import org.primefaces.event.MoveEvent;
 
@@ -21,7 +19,6 @@ import antragsverwaltung.entity.AnswerNormalTO;
 import antragsverwaltung.entity.ApplicationFormTO;
 import antragsverwaltung.entity.QuestionIndividuellTO;
 import antragsverwaltung.entity.QuestionTO;
-import antragsverwaltung.usesecase.impl.IFillForm;
 import antragsverwaltung.usesecase.impl.IRequestForm;
 import antragsverwaltung.usesecase.impl.ISaveForm;
 import usermanagement.entity.UserTO;
@@ -38,9 +35,6 @@ public class FormMB implements Serializable {
 	private static final long serialVersionUID = 2526217096894280449L;
 
 	@Inject
-	IFillForm fillFormular;
-
-	@Inject
 	ISaveForm saveForm;
 
 	@Inject
@@ -50,20 +44,18 @@ public class FormMB implements Serializable {
 	@Inject
 	ILoginUser loginUser;
 
-
-
-	private int quantityQuestions = 70;			//ANzahl der Fragen
-	private int quantityIndiQuestions = 3;
-	private String[] alleFragen = new String[quantityQuestions];
+	private int quantityQuestions = 70; // Anzahl der Fragen
+	private int quantityIndiQuestions = 3; // Anzahl der extra Fragen
+	private String[] allQuestions = new String[quantityQuestions];
 	private String[] allAnswers = new String[quantityQuestions];
-	private String[] alleQuestionsIndi = new String[5];
+	private String[] allQuestionsIndi = new String[quantityQuestions];
 	private String[] allAnswersIndi = new String[quantityIndiQuestions];
-	private int FragenCounter = 0;
-	private int FragenCounter2 = 30;
+	private int QuestionCounter = 0;
+	private int QuestionCounter2 = 30;
 	private int AnswerCounter = 0;
 	static boolean firstInvoke = true;
-	static int latestForm;
-	static int searchedUserForm = 2;
+//	static int latestForm;
+//	static int searchedUserForm = 2;
 	static ApplicationFormTO aFormLocal;
 
 	@EJB(beanName = "ActiveUser")
@@ -73,7 +65,6 @@ public class FormMB implements Serializable {
 	@PostConstruct
 	public void init() {
 
-		
 		int actualForm = statelessActiveUser.getUserFormId();
 		if (actualForm == 0) {
 			createEmptyFormular();
@@ -82,24 +73,22 @@ public class FormMB implements Serializable {
 			int i = 0;
 			int i2 = 0;
 			for (ApplicationFormTO aForm : requestFormular.getAllForms()) {
-				System.out.println(aForm.getFormNr() + " form nr " + actualForm);
+
 				if (aForm.getFormNr() == actualForm) {
-					System.out.println("this form" + aFormLocal);
 
 					if (aFormLocal == null) {
 						aFormLocal = aForm;
 					}
-
-					for (AnswerNormalTO aAnswerTO : aForm.getNormalAnswers()) { // fuellt alle normalen Antworten aus
+					// fuellt alle normalen Antworten aus
+					for (AnswerNormalTO aAnswerTO : aForm.getNormalAnswers()) { 
 						allAnswers[i] = Integer.toString(aAnswerTO.getOneAnswerNormal());
-
 						i++;
 
 					}
-					//fuelltalel selbst  erstellten Antworten
-					for (QuestionIndividuellTO aQuestionTO : aForm.getIndividualQuestions()) { 
+					// fuellt alle selbst erstellten Antworten aus
+					for (QuestionIndividuellTO aQuestionTO : aForm.getIndividualQuestions()) {
 						allAnswersIndi[i2] = Integer.toString(aQuestionTO.getAnswer());
-						alleQuestionsIndi[i2] = aQuestionTO.getQuestion();
+						allQuestionsIndi[i2] = aQuestionTO.getQuestion();
 						i2++;
 
 					}
@@ -110,26 +99,61 @@ public class FormMB implements Serializable {
 		}
 
 	}
+	
 
-	public String goToExtraQuestions() {
-		updateForm();
-		return "extra";
+	// Ausführung beim Aufruf der Seite
+	public void iniForm() {
+		iniQuestions();
+
 	}
+	
+	// speichern der vom Nutzer eingegebenen Fragen
+	public void saveIndiQuestions() {
+
+		ApplicationFormTO aFormTO = new ApplicationFormTO();
+		aFormTO = aFormLocal;
+
+		int i = 0;
+		aFormTO.getIndividualQuestions().clear();
+		while (i < allAnswersIndi.length && allAnswersIndi[i] != null) {
+
+			aFormTO.getIndividualQuestions()
+					.add(new QuestionIndividuellTO(allQuestionsIndi[i], Integer.parseInt(allAnswersIndi[i])));
+
+			i++;
+
+		}
+
+		saveForm.updateForm(aFormTO);
+
+	}
+	
+	// ruft alle selbst erstellten antworten auf
+	public String getIndiQuestions() {
+
+		QuestionCounter++;
+	
+
+		return allQuestionsIndi[QuestionCounter - 1];
+
+	}
+
+
 
 	// lädt alle Fragen die in iniFragen() initialisiert wurden
-	public String getFragen() {
+	public String getQuestions() {
 
-		FragenCounter++;
+		QuestionCounter++;
 
-		return alleFragen[FragenCounter - 1];
+		return allQuestions[QuestionCounter - 1];
 
 	}
 
-	public String getFragen2() {
+	public String getQuestions2() {
 
-		FragenCounter2++;
+		QuestionCounter2++;
 
-		return alleFragen[FragenCounter2 - 1];
+		return allQuestions[QuestionCounter2 - 1];
 
 	}
 
@@ -162,7 +186,7 @@ public class FormMB implements Serializable {
 		return "logout2";
 
 	}
-	
+
 	public String logout3() {
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Ausloggen erfolgreich"));
@@ -172,6 +196,12 @@ public class FormMB implements Serializable {
 		return "logout3";
 
 	}
+	
+	public String goToExtraQuestions() {
+		updateForm();
+		return "extra";
+	}
+
 	public String backToForm1() {
 		saveIndiQuestions();
 		return "form1";
@@ -194,79 +224,46 @@ public class FormMB implements Serializable {
 		return "form3ToForm1";
 	}
 
-	// ruft alle selbst erstellten antworten auf
-	public String getIndiQuestions() {
 
-		FragenCounter++;
-		System.out.println("FragenIndi");
 
-		return alleQuestionsIndi[FragenCounter - 1];
 
-	}
-
-	// speichern der vom Nutzer eingegebenen Fragen
-	public void saveIndiQuestions() {
-
-		ApplicationFormTO aFormTO = new ApplicationFormTO();
-		aFormTO = aFormLocal;
-
-		int i = 0;
-		aFormTO.getIndividualQuestions().clear();
-		while (i < allAnswersIndi.length && allAnswersIndi[i] != null) {
-
-			aFormTO.getIndividualQuestions()
-					.add(new QuestionIndividuellTO(alleQuestionsIndi[i], Integer.parseInt(allAnswersIndi[i])));
-
-			i++;
-
-		}
-
-		saveForm.updateForm(aFormTO);
-
-	}
-
-	// Ausführung beim Aufruf der Seite
-	public void iniForm() {
-		iniFragen();
-
-	}
-
-	// setzt beim ersten Aufruf standardmaessig alle Antworten auf 0
-	public void iniAnswers() {
-
-		if (firstInvoke == true) {
-			createEmptyFormular();
-			firstInvoke = false;
-		} else {
-
-		}
-
-	}
+//	// setzt beim ersten Aufruf standardmaessig alle Antworten auf 0
+//	public void iniAnswers() {
+//
+//		if (firstInvoke == true) {
+//			createEmptyFormular();
+//			firstInvoke = false;
+//		} else {
+//
+//		}
+//
+//	}
 
 	// initialisiert die Fragen
-	public void iniFragen() {
+	public void iniQuestions() {
 
-//		alleFragen[0] = "Dummy-Frage";
-//		alleFragen[1] = "Dummy-Frage";
-//		alleFragen[2] = "Dummy-Frage";
-//		alleFragen[3] = "Dummy-Frage";
-//		alleFragen[4] = "Dummy-Frage";
-//		alleFragen[5] = "Dummy-Frage";
-//		alleFragen[6] = "Dummy-Frage";
-//		alleFragen[7] = "Dummy-Frage";
-//		alleFragen[8] = "Dummy-Frage";
+		// Dummy Fragen, falls es Probleme in der DB mit dem Ladden der Fragen geben sollte
+		
+//		int count = 0;
+//		while (count < alleQuestions.length) {
+//			alleFragen[count-1] = "Dummy-Frage";
+//			count++;
+//		}
 
+		
+		// ruft alle Fragen aus Datenbank ab
 		int i = 0;
-		for (QuestionTO aQuestion : requestFormular.getAllQuestions()) { // ruft alle Fragen aus Datenbank ab
-			alleFragen[i] = aQuestion.getQuestion();
+		for (QuestionTO aQuestion : requestFormular.getAllQuestions()) { 
+			allQuestions[i] = aQuestion.getQuestion();
 			i++;
 
 		}
 
 	}
 
-	// Beim ersten Aufruf der Seite wird ein Formular erstellt mit allen Antworten = 0
-	
+	// Beim ersten Aufruf der Seite wird ein Formular erstellt mit allen Antworten =
+	// 0
+
 	public void createEmptyFormular() {
 		System.out.println("create empty");
 
@@ -279,9 +276,9 @@ public class FormMB implements Serializable {
 		aFormTO.setUserId(userNr); // aktive UserID wird Formular zugewiesen
 		while (i < allAnswers.length) {
 
-//			aFormTO.addAnswer(0); // allen Antworten 0 zuweisen
-			aFormTO.addAnswerNormal(new AnswerNormalTO(i + 1,0)); //// allen Antworten 0 und die AntwortNr zuweisen
-//i + 1,0 
+
+			aFormTO.addAnswerNormal(new AnswerNormalTO(i + 1, 0)); //// allen Antworten 0 und die AntwortNr zuweisen
+
 			i++;
 		}
 
@@ -290,8 +287,7 @@ public class FormMB implements Serializable {
 		for (ApplicationFormTO aForm : requestFormular.getAllForms()) {
 			if (aForm.getUserId() == userNr) {
 
-				// FormularNr aus Datenbank abfragen (effizientere Methode wo nur ein das eine
-				// Formular abgerufen wird sinnvoll)
+				// FormularNr aus Datenbank abfragen
 				formNr = aForm.getFormNr();
 				aFormLocal = aForm;
 
@@ -333,7 +329,7 @@ public class FormMB implements Serializable {
 
 //			aFormTO.addAnswer(answerNr);
 
-			aFormTO.getNormalAnswers().add(new AnswerNormalTO( i + 1, (answerNr)));
+			aFormTO.getNormalAnswers().add(new AnswerNormalTO(i + 1, (answerNr)));
 			System.out.println("added Normal Answer  " + aFormLocal.getNormalAnswers().get(0).getAnswerNr()
 					+ " mit Antwort: " + aFormLocal.getNormalAnswers().get(0).getOneAnswerNormal());
 
@@ -370,7 +366,7 @@ public class FormMB implements Serializable {
 	}
 
 	public void redirectAllAnswers() throws IOException {
-		// Verlinkung zur Restful-URL welche im Hauptmenue aufgerufen werden kann
+		// Verlinkung zur Restful-URL
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		externalContext.redirect("http://localhost:8080/EGH_project/JS_Client_REST.html");
 	}
@@ -383,13 +379,13 @@ public class FormMB implements Serializable {
 		AnswerCounter = answerCounter;
 	}
 
-	public static int getLatestForm() {
-		return latestForm;
-	}
-
-	public static void setLatestForm(int latestForm) {
-		FormMB.latestForm = latestForm;
-	}
+//	public static int getLatestForm() {
+//		return latestForm;
+//	}
+//
+//	public static void setLatestForm(int latestForm) {
+//		FormMB.latestForm = latestForm;
+//	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -411,20 +407,20 @@ public class FormMB implements Serializable {
 		this.allAnswers = allAnswers;
 	}
 
-	public String[] getAlleFragen() {
-		return alleFragen;
+	public String[] getAllQuestions() {
+		return allQuestions;
 	}
 
-	public void setAlleFragen(String[] alleFragen) {
-		this.alleFragen = alleFragen;
+	public void setAllQuestions(String[] allQuestions) {
+		this.allQuestions = allQuestions;
 	}
 
-	public int getFragenCounter() {
-		return FragenCounter;
+	public int getQuestionCounter() {
+		return QuestionCounter;
 	}
 
-	public void setFragenCounter(int fragenCounter) {
-		FragenCounter = fragenCounter;
+	public void setQuestionCounter(int questionCounter) {
+		QuestionCounter = questionCounter;
 	}
 
 	public int getQuantityIndiQuestions() {
@@ -436,11 +432,11 @@ public class FormMB implements Serializable {
 	}
 
 	public String[] getAlleQuestionsIndi() {
-		return alleQuestionsIndi;
+		return allQuestionsIndi;
 	}
 
 	public void setAlleQuestionsIndi(String[] alleQuestionsIndi) {
-		this.alleQuestionsIndi = alleQuestionsIndi;
+		this.allQuestionsIndi = alleQuestionsIndi;
 	}
 
 	public String[] getAllAnswersIndi() {
@@ -468,9 +464,6 @@ public class FormMB implements Serializable {
 		context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
 	}
 
-	public String goToTest() {
-		return "testpage";
-	}
 
 	public void handleClose(CloseEvent event) {
 		addMessage(event.getComponent().getId() + " closed", "So you don't like nature?");
@@ -480,9 +473,7 @@ public class FormMB implements Serializable {
 		addMessage(event.getComponent().getId() + " moved", "Left: " + event.getLeft() + ", Top: " + event.getTop());
 	}
 
-	public void destroyWorld() {
-		addMessage("System Error", "Please try again later.");
-	}
+	//Info messages
 
 	public void addMessage(String summary, String detail) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
@@ -507,12 +498,12 @@ public class FormMB implements Serializable {
 		this.aFormLocal = aFormLocal;
 	}
 
-	public int getFragenCounter2() {
-		return FragenCounter2;
+	public int getQuestionCounter2() {
+		return QuestionCounter2;
 	}
 
-	public void setFragenCounter2(int fragenCounter2) {
-		FragenCounter2 = fragenCounter2;
+	public void setQuestionCounter2(int questionCounter2) {
+		QuestionCounter2 = questionCounter2;
 	}
 
 }

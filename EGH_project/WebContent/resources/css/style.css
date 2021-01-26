@@ -148,7 +148,7 @@ h5 {
   #content { width: 100%; }
 }
 
-/* Phone Portrait (420px) */
+/* Phone Portrait (600px) */
 @media only screen and (max-width: 600px) {
 	
 	.fragenStyle{
@@ -180,6 +180,7 @@ h5 {
   #content { width: 100%; }
 }
 
+/* Phone Portrait (375px) */
 @media only screen and (max-width: 375px) {
 	
 	.fragenStyle{
@@ -212,7 +213,7 @@ h5 {
 #tooltip .tooltiptext {
   visibility: hidden;
   width: 250px;
-  background-color: black;
+  background-color: grey;
   color: #fff;
   text-align: center;
   border-radius: 6px;

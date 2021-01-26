@@ -6,637 +6,834 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<f:metadata>
-        	<f:event type="preRenderView" listener="#{formMB.iniForm}"  />
-        	
-		</f:metadata>
-		 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320 mobile devices cant zoom-->
-		 		 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-		 <!-- https://stackoverflow.com/questions/28112188/how-to-set-dynamic-responsive-divs-with-only-css-no-javascript -->
-    <title>Formular Eingliederungshilfe</title>
-<h:outputStylesheet library="css" name="style.css" />
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{formMB.iniForm}" />
+
+	</f:metadata>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<!--320 mobile devices cant zoom-->
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<!-- https://stackoverflow.com/questions/28112188/how-to-set-dynamic-responsive-divs-with-only-css-no-javascript -->
+	<title>Formular Eingliederungshilfe</title>
+	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
-<p:panel style="border:0px;text-allign:right;" header="Eingeloggter User: #{userMB.email}" />
-<p:panel id="basic" header="Selbsteinsch&auml;tzungsbogen zum Antrag auf Jugendhilfe" style="margin-bottom:10px">
-<h3>Pr&uuml;fe bei jeder Frage, ob du eine Assistenzleistung ben&ouml;tigst oder nicht. </h3>
-<h3>Wenn du eine Assistenzleistung ben&ouml;tigst, kreuze Sie an. </h3>
-<br></br>
-<h4>Mit der Jugendhilfe m&ouml;chte ich...<p:spacer width="122" height="10" />Ver&auml;nderungen erzielen<p:spacer width="20" height="10" />Oder...</h4>
-<h5><p:spacer width="392" height="10"/> 1 = unwichtig<p:spacer width="125" height="10" /> 6 = Es soll so bleiben</h5>
-<h5><p:spacer width="392" height="10"/> 5 = sehr wichtig<p:spacer width="108" height="10" /> 7 = Assistenz</h5>
-<h5><p:spacer width="618" height="10"/>8 = Trifft nicht zu</h5>
-    </p:panel>
- 
+	<p:panel style="border:0px;text-allign:right;"
+		header="Eingeloggter User: #{userMB.email}" />
+	<p:panel id="basic"
+		header="Selbsteinsch&auml;tzungsbogen zum Antrag auf Jugendhilfe"
+		style="margin-bottom:10px">
+		<h3>
+			Pr&uuml;fe bei jeder Frage, ob du eine Assistenzleistung ben&ouml;tigst oder nicht.
+		</h3>
+		<h3>
+			Wenn du eine Assistenzleistung ben&ouml;tigst, kreuze Sie an.
+		</h3>
+		<br></br>
+		<h4>
+			Mit der Jugendhilfe m&ouml;chte ich...<p:spacer width="122" height="10" />Ver&auml;nderungen erzielen<p:spacer width="20" height="10" />Oder...
+		</h4>
+		<h5>
+			<p:spacer width="392" height="10" />
+			1 = unwichtig
+			<p:spacer width="125" height="10" />
+			6 = Es soll so bleiben
+		</h5>
+		<h5>
+			<p:spacer width="392" height="10" />
+			5 = sehr wichtig
+			<p:spacer width="108" height="10" />
+			7 = Assistenz
+		</h5>
+		<h5>
+			<p:spacer width="618" height="10" />
+			8 = Trifft nicht zu
+		</h5>
+	</p:panel>
 
 
 
 
-<h:form>
-<p:panel id="basic" header="H&auml;usliches Leben" style="margin-bottom:20px">
 
- <h:panelGrid columns="2" cellpadding="5">
- <p:panel id="basic10" style="border-style:none">
- 
-<p:spacer width="355" height="0" />
- <div id="tooltip" class="fa fa-fw fa-info">
-<span class="tooltiptext">1 = unwichtig --> 5 = sehr wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 = Trifft nicht zu</span>
-</div>
+	<h:form>
+		<p:panel id="basic" header="H&auml;usliches Leben"
+			style="margin-bottom:20px">
 
- <p><p:spacer width="365" height="0" />1<p:spacer width="35" height="0"/>2<p:spacer width="35" height="0"/>3<p:spacer width="35" height="0"/>4<p:spacer width="35" height="0"/>5
- <p:spacer width="31" height="0"/>6<p:spacer width="33" height="0"/>7<p:spacer width="35" height="0"/>8
- </p>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:panel id="basic10" style="border-style:none">
+
+					<p:spacer width="355" height="0" />
+					<div id="tooltip" class="fa fa-fw fa-info">
+						<span class="tooltiptext">1 = unwichtig --> 5 = sehr
+							wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 =
+							Trifft nicht zu
+						</span>
+					</div>
+
+					<p>
+						<p:spacer width="365" height="0" />
+						1
+						<p:spacer width="35" height="0" />
+						2
+						<p:spacer width="35" height="0" />
+						3
+						<p:spacer width="35" height="0" />
+						4
+						<p:spacer width="35" height="0" />
+						5
+						<p:spacer width="31" height="0" />
+						6
+						<p:spacer width="33" height="0" />
+						7
+						<p:spacer width="35" height="0" />
+						8
+					</p>
 
 
- </p:panel>
- </h:panelGrid>
- 
-<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				</p:panel>
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
 
 
-        <p:outputLabel for="fragen" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers6">
-        <p:selectOneRadio id="fragen" value="#{formMB.allAnswers[31]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen2" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers6">
-        <p:selectOneRadio id="fragen2" value="#{formMB.allAnswers[32]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen3" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers6">
-        <p:selectOneRadio id="fragen3" value="#{formMB.allAnswers[33]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen4" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers6">
-        <p:selectOneRadio id="fragen4" value="#{formMB.allAnswers[34]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" /> 
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen5" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers6">
-        <p:selectOneRadio id="fragen5" value="#{formMB.allAnswers[35]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen6" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers6">
-        <p:selectOneRadio id="fragen6" value="#{formMB.allAnswers[36]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-       </p:panel>
-        </h:panelGrid>
- </p:panel>
- 
-<p:panel id="basic2" header="Interpersonelle Interaktionen und Beziehungen" style="margin-bottom:20px">
+				<p:outputLabel for="fragen" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers6">
+					<p:selectOneRadio id="fragen" value="#{formMB.allAnswers[31]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen2" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers6">
+					<p:selectOneRadio id="fragen2" value="#{formMB.allAnswers[32]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen3" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers6">
+					<p:selectOneRadio id="fragen3" value="#{formMB.allAnswers[33]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen4" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers6">
+					<p:selectOneRadio id="fragen4" value="#{formMB.allAnswers[34]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen5" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers6">
+					<p:selectOneRadio id="fragen5" value="#{formMB.allAnswers[35]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen6" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers6">
+					<p:selectOneRadio id="fragen6" value="#{formMB.allAnswers[36]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+			</h:panelGrid>
+		</p:panel>
 
-  <h:panelGrid columns="1" >
- <p:panel id="basic16" style="border-style:none">
- <p:spacer width="360" height="0" />
-<div id="tooltip" class="fa fa-fw fa-info">
-<span class="tooltiptext">1 = unwichtig --> 5 = sehr wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 = Trifft nicht zu</span>
-</div>
- <h5><p:spacer width="375" height="0" />1<p:spacer width="35" height="0"/>2<p:spacer width="37" height="0"/>3<p:spacer width="37" height="0"/>4<p:spacer width="35" height="0"/>5<p:spacer width="35" height="0"/>6<p:spacer width="35" height="0"/>7<p:spacer width="35" height="0"/>8</h5>
- </p:panel>
- </h:panelGrid>
+		<p:panel id="basic2"
+			header="Interpersonelle Interaktionen und Beziehungen"
+			style="margin-bottom:20px">
 
-<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<h:panelGrid columns="1">
+				<p:panel id="basic16" style="border-style:none">
+					<p:spacer width="360" height="0" />
+					<div id="tooltip" class="fa fa-fw fa-info">
+						<span class="tooltiptext">1 = unwichtig --> 5 = sehr
+							wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 =
+							Trifft nicht zu
+						</span>
+					</div>
+					<h5>
+						<p:spacer width="375" height="0" />
+						1
+						<p:spacer width="35" height="0" />
+						2
+						<p:spacer width="37" height="0" />
+						3
+						<p:spacer width="37" height="0" />
+						4
+						<p:spacer width="35" height="0" />
+						5
+						<p:spacer width="35" height="0" />
+						6
+						<p:spacer width="35" height="0" />
+						7
+						<p:spacer width="35" height="0" />
+						8
+					</h5>
+				</p:panel>
+			</h:panelGrid>
 
-<p:outputLabel for="fragen7" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-<p:panel class="answers7">
-        <p:selectOneRadio id="fragen7" value="#{formMB.allAnswers[37]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen8" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen8" value="#{formMB.allAnswers[38]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen9" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen9" value="#{formMB.allAnswers[39]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen10" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen10" value="#{formMB.allAnswers[40]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen11" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen11" value="#{formMB.allAnswers[41]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen12" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen12" value="#{formMB.allAnswers[42]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen13" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen13" value="#{formMB.allAnswers[43]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen14" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen14" value="#{formMB.allAnswers[44]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen15" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen15" value="#{formMB.allAnswers[45]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen16" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen16" value="#{formMB.allAnswers[46]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen17" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen17" value="#{formMB.allAnswers[47]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen18" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen18" value="#{formMB.allAnswers[48]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen19" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers7">
-        <p:selectOneRadio id="fragen19" value="#{formMB.allAnswers[49]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-           </h:panelGrid>
- </p:panel>
- 
- <p:panel id="basic3" header="Bedeutende Lebensbereiche" style="margin-bottom:20px">
- 
-   <h:panelGrid columns="1" >
- <p:panel id="basic17" style="border-style:none">
- <p:spacer width="360" height="0" />
-<div id="tooltip" class="fa fa-fw fa-info">
-<span class="tooltiptext">1 = unwichtig --> 5 = sehr wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 = Trifft nicht zu</span>
-</div>
- <h5><p:spacer width="375" height="0" />1<p:spacer width="35" height="0"/>2<p:spacer width="37" height="0"/>3<p:spacer width="37" height="0"/>4<p:spacer width="35" height="0"/>5<p:spacer width="35" height="0"/>6<p:spacer width="35" height="0"/>7<p:spacer width="35" height="0"/>8</h5>
- </p:panel>
- </h:panelGrid>
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
-<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel for="fragen7" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen7" value="#{formMB.allAnswers[37]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen8" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen8" value="#{formMB.allAnswers[38]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen9" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen9" value="#{formMB.allAnswers[39]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen10" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen10" value="#{formMB.allAnswers[40]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen11" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen11" value="#{formMB.allAnswers[41]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen12" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen12" value="#{formMB.allAnswers[42]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen13" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen13" value="#{formMB.allAnswers[43]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen14" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen14" value="#{formMB.allAnswers[44]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen15" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen15" value="#{formMB.allAnswers[45]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen16" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen16" value="#{formMB.allAnswers[46]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen17" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen17" value="#{formMB.allAnswers[47]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen18" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen18" value="#{formMB.allAnswers[48]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen19" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers7">
+					<p:selectOneRadio id="fragen19" value="#{formMB.allAnswers[49]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+			</h:panelGrid>
+		</p:panel>
 
- <p:outputLabel for="fragen20" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
- 		<p:panel class="answers8">
-        <p:selectOneRadio id="fragen20" value="#{formMB.allAnswers[50]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen21" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen21" value="#{formMB.allAnswers[51]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen22" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen22" value="#{formMB.allAnswers[52]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen23" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen23" value="#{formMB.allAnswers[53]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen24" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen24" value="#{formMB.allAnswers[54]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen25" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen25" value="#{formMB.allAnswers[55]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen26" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen26" value="#{formMB.allAnswers[56]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen27" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen27" value="#{formMB.allAnswers[57]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-         <p:outputLabel for="fragen28" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-         <p:panel class="answers8">
-        <p:selectOneRadio id="fragen28" value="#{formMB.allAnswers[58]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-</p:panel>
-         </h:panelGrid>
- </p:panel>
- 
- <p:panel id="basic4" header="Gemeinschafts-, soziales und staatsb&uuml;rgerliches Leben" style="margin-bottom:20px">
- 
-   <h:panelGrid columns="1" >
- <p:panel id="basic18" style="border-style:none">
- <p:spacer width="360" height="0" />
-<div id="tooltip" class="fa fa-fw fa-info">
-<span class="tooltiptext">1 = unwichtig --> 5 = sehr wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 = Trifft nicht zu</span>
-</div>
- <h5><p:spacer width="375" height="0" />1<p:spacer width="35" height="0"/>2<p:spacer width="37" height="0"/>3<p:spacer width="37" height="0"/>4<p:spacer width="35" height="0"/>5<p:spacer width="35" height="0"/>6<p:spacer width="35" height="0"/>7<p:spacer width="35" height="0"/>8</h5>
- </p:panel>
- </h:panelGrid>
+		<p:panel id="basic3" header="Bedeutende Lebensbereiche"
+			style="margin-bottom:20px">
 
-<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-        <p:outputLabel for="fragen29" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen29" value="#{formMB.allAnswers[59]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen30" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen30" value="#{formMB.allAnswers[60]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen31" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen31" value="#{formMB.allAnswers[61]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen32" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen32" value="#{formMB.allAnswers[62]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen33" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen33" value="#{formMB.allAnswers[63]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen34" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen34" value="#{formMB.allAnswers[64]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen35" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen35" value="#{formMB.allAnswers[65]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen36" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen36" value="#{formMB.allAnswers[66]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen37" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen37" value="#{formMB.allAnswers[57]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen38" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen38" value="#{formMB.allAnswers[58]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
-        <p:outputLabel for="fragen39" value="#{formMB.getFragen2()}" class = "fragenStyle"/>
-        <p:panel class="answers9">
-        <p:selectOneRadio id="fragen39" value="#{formMB.allAnswers[59]}" unselectable="true">
-            <f:selectItem itemLabel="" itemValue="1" />
-            <f:selectItem itemLabel="" itemValue="2" />
-            <f:selectItem itemLabel="" itemValue="3" />
-            <f:selectItem itemLabel="" itemValue="4" />
-            <f:selectItem itemLabel="" itemValue="5" />
-            <f:selectItem itemLabel="" itemValue="6" />
-            <f:selectItem itemLabel="" itemValue="7" />
-            <f:selectItem itemLabel="" itemValue="8" />
-        </p:selectOneRadio>
-        </p:panel>
- 
- </h:panelGrid>
- </p:panel>
- 
- 		<h:commandButton action="#{formMB.backToForm1()}" value="Zur&uuml;ck" class="buttonDesign"/>
- 
- 	
- 	  <h:commandButton value="Weiter" action="#{formMB.goToFormular3()}" class="buttonDesign"/>
- 	  <br/> <br/> 
- 	  <p:growl id="message" showDetail="true" /> 
- 	  
- 	  <h:commandButton action="#{formMB.logout2()}" value="Ausloggen" update="message" class="buttonDesign">
-				
-       <p:confirm header="Bestaetigung" message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen und bearbeiten." icon="pi pi-exclamation-triangle" />
-    </h:commandButton>
- 	   <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <h:commandButton value="Ja, abmelden" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-        <h:commandButton value="Nein, bleiben" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-    </p:confirmDialog> 
+			<h:panelGrid columns="1">
+				<p:panel id="basic17" style="border-style:none">
+					<p:spacer width="360" height="0" />
+					<div id="tooltip" class="fa fa-fw fa-info">
+						<span class="tooltiptext">1 = unwichtig --> 5 = sehr
+							wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 =
+							Trifft nicht zu
+						</span>
+					</div>
+					<h5>
+						<p:spacer width="375" height="0" />
+						1
+						<p:spacer width="35" height="0" />
+						2
+						<p:spacer width="37" height="0" />
+						3
+						<p:spacer width="37" height="0" />
+						4
+						<p:spacer width="35" height="0" />
+						5
+						<p:spacer width="35" height="0" />
+						6
+						<p:spacer width="35" height="0" />
+						7
+						<p:spacer width="35" height="0" />
+						8
+					</h5>
+				</p:panel>
+			</h:panelGrid>
 
- 	  
- 	  
- 	  
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
-</h:form>
+				<p:outputLabel for="fragen20" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen20" value="#{formMB.allAnswers[50]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen21" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen21" value="#{formMB.allAnswers[51]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen22" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen22" value="#{formMB.allAnswers[52]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen23" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen23" value="#{formMB.allAnswers[53]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen24" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen24" value="#{formMB.allAnswers[54]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen25" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen25" value="#{formMB.allAnswers[55]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen26" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen26" value="#{formMB.allAnswers[56]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen27" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen27" value="#{formMB.allAnswers[57]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen28" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers8">
+					<p:selectOneRadio id="fragen28" value="#{formMB.allAnswers[58]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+			</h:panelGrid>
+		</p:panel>
+
+		<p:panel id="basic4"
+			header="Gemeinschafts-, soziales und staatsb&uuml;rgerliches Leben"
+			style="margin-bottom:20px">
+
+			<h:panelGrid columns="1">
+				<p:panel id="basic18" style="border-style:none">
+					<p:spacer width="360" height="0" />
+					<div id="tooltip" class="fa fa-fw fa-info">
+						<span class="tooltiptext">1 = unwichtig --> 5 = sehr
+							wichtig <br></br> 6 = Es soll so bleiben; 7 = Assistenz; 8 =
+							Trifft nicht zu
+						</span>
+					</div>
+					<h5>
+						<p:spacer width="375" height="0" />
+						1
+						<p:spacer width="35" height="0" />
+						2
+						<p:spacer width="37" height="0" />
+						3
+						<p:spacer width="37" height="0" />
+						4
+						<p:spacer width="35" height="0" />
+						5
+						<p:spacer width="35" height="0" />
+						6
+						<p:spacer width="35" height="0" />
+						7
+						<p:spacer width="35" height="0" />
+						8
+					</h5>
+				</p:panel>
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel for="fragen29" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen29" value="#{formMB.allAnswers[59]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen30" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen30" value="#{formMB.allAnswers[60]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen31" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen31" value="#{formMB.allAnswers[61]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen32" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen32" value="#{formMB.allAnswers[62]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen33" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen33" value="#{formMB.allAnswers[63]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen34" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen34" value="#{formMB.allAnswers[64]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen35" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen35" value="#{formMB.allAnswers[65]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen36" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen36" value="#{formMB.allAnswers[66]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen37" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen37" value="#{formMB.allAnswers[67]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen38" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen38" value="#{formMB.allAnswers[68]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+				<p:outputLabel for="fragen39" value="#{formMB.getQuestions2()}"
+					class="fragenStyle" />
+				<p:panel class="answers9">
+					<p:selectOneRadio id="fragen39" value="#{formMB.allAnswers[69]}"
+						unselectable="true">
+						<f:selectItem itemLabel="" itemValue="1" />
+						<f:selectItem itemLabel="" itemValue="2" />
+						<f:selectItem itemLabel="" itemValue="3" />
+						<f:selectItem itemLabel="" itemValue="4" />
+						<f:selectItem itemLabel="" itemValue="5" />
+						<f:selectItem itemLabel="" itemValue="6" />
+						<f:selectItem itemLabel="" itemValue="7" />
+						<f:selectItem itemLabel="" itemValue="8" />
+					</p:selectOneRadio>
+				</p:panel>
+
+			</h:panelGrid>
+		</p:panel>
+
+		<h:commandButton action="#{formMB.backToForm1()}" value="Zur&uuml;ck"
+			class="buttonDesign" />
+
+
+		<h:commandButton value="Weiter" action="#{formMB.goToFormular3()}"
+			class="buttonDesign" />
+		<br />
+		<br />
+		<p:growl id="message" showDetail="true" />
+
+		<p:commandButton action="#{formMB.logout2()}" value="Ausloggen"
+			update="message" class="buttonDesign">
+
+			<p:confirm header="Bestaetigung"
+				message="Wirklich Abmelden? Alle bis hierhin eingegebenen Daten kannst du jederzeit wieder abrufen und bearbeiten."
+				icon="pi pi-exclamation-triangle" />
+
+		</p:commandButton>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+
+			<p:commandButton value="Ja, abmelden" type="button"
+				styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+			<p:commandButton value="Nein, bleiben" type="button"
+				styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+
+		</p:confirmDialog>
+
+
+
+
+
+	</h:form>
 </h:body>
 
 </html>
