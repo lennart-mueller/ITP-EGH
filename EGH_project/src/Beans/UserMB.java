@@ -16,7 +16,6 @@ import Persistence.DatenhaltungsException;
 import usermanagement.entity.UserTO;
 import usermanagement.usecase.impl.IActiveUser;
 import usermanagement.usecase.impl.ILoginUser;
-import usermanagement.usecase.impl.IRegisterUser;
 
 @Named("userMB")
 @SessionScoped
@@ -27,17 +26,14 @@ public class UserMB implements Serializable {
 	@Inject
 	ILoginUser loginUser;
 
-	@Inject
-	IRegisterUser registerUser;
-
 	@EJB(beanName = "ActiveUser")
 	IActiveUser statelessActiveUser;
 
 	PlainSHA512PasswordHash hash = new PlainSHA512PasswordHash();
-	
+
 	private String firstName = null;
 	private String lastName = null;
-	//private int age;
+	// private int age;
 	private String pwd = null;
 	private String email = null;
 	private String msg = null;
@@ -45,13 +41,12 @@ public class UserMB implements Serializable {
 	private String registerSuccess = null;
 
 	// User anhand eingegebener Werte in Datenbank speichern
-	public String register() throws AnwendungskernException, DatenhaltungsException{
-		
+	public String register() throws AnwendungskernException, DatenhaltungsException {
 
-		if(!email.isBlank() && !pwd.isBlank() && !firstName.isBlank() && !lastName.isBlank() && !support.isBlank()  ) {
+		if (!email.isBlank() && !pwd.isBlank() && !firstName.isBlank() && !lastName.isBlank() && !support.isBlank()) {
 
 			System.out.println("Registrieren erfolgreich");
-			
+
 			UserTO aUser = new UserTO();
 			aUser.setFormnr(0); // FormNr wird auf 0 gesetzt, da noch keine zugehoerige Form
 			aUser.setVorname(firstName);
@@ -64,16 +59,15 @@ public class UserMB implements Serializable {
 
 			System.out.println("Registrieren erfolgreich");
 
-			setRegisterSuccess("Die Registrierung war Erfolgreich. Sie können sich jetzt mit ihren Daten anmelden (E-Mail & Passwort).");
+			setRegisterSuccess(
+					"Die Registrierung war Erfolgreich. Sie können sich jetzt mit ihren Daten anmelden (E-Mail & Passwort).");
 			return "backToLogin";
-		}else{
-			System.out.println("Registrieren nicht erfolgreich -> Keine User Daten");	
+		} else {
+			System.out.println("Registrieren nicht erfolgreich -> Keine User Daten");
 			setRegisterSuccess("Die Registrierung war Unerfolgreich! Bitte Überprüfen Sie ihre eingegeben Daten!");
 			return "";
-			
-		
-		
-				}
+
+		}
 	}
 
 	public String registerMenue() {
@@ -105,9 +99,8 @@ public class UserMB implements Serializable {
 			System.out.println("my name is:  " + aUser.getEmail());
 			System.out.println("my login is:  " + email);
 
-//			boolean passwordCheck = aUser.getPassword().equals(pwd);
 			boolean passwordCheck = hash.verify(pwd.toCharArray(), aUser.getPassword());
-			
+
 			if (passwordCheck == true) {
 				System.out.println("Login succesfull");
 				statelessActiveUser.setEmail(email);
@@ -133,7 +126,7 @@ public class UserMB implements Serializable {
 			}
 
 		}
-		
+
 	}
 
 	public String goToLogin() {
@@ -161,13 +154,6 @@ public class UserMB implements Serializable {
 			return null;
 	}
 
-	// logout event, invalidate session
-//	public String logout() {
-//		HttpSession session = SessionUtils.getSession();
-//		session.invalidate();
-//		return "login";
-//	}
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -183,15 +169,6 @@ public class UserMB implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-//  TODO: Is it in Use?
-//	public int getAge() {
-//		return age;
-//	}
-//
-//	public void setAge(int age) {
-//		this.age = age;
-//	}
 
 	public String getPwd() {
 		return pwd;

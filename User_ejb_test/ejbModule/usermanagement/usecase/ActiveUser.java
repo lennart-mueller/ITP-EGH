@@ -58,7 +58,6 @@ public class ActiveUser implements IActiveUser {
 	@Override
 	public void setFormId(int formId) {
 		this.formid = formId;
-		
 	}
 
 	public ApplicationFormTO getaForm() {

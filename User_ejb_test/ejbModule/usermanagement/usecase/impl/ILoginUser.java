@@ -15,7 +15,8 @@ public interface ILoginUser {
 	
 	public UserTO getUser(String username)throws AnwendungskernException, DatenhaltungsException;
 	public void updateUser(UserTO aUserTO);
-	public Optional authentifiziereBenutzer(UserTO userTO) throws AuthenticationException;
+//  Not in Use
+//	public Optional authentifiziereBenutzer(UserTO userTO) throws AuthenticationException;
 	
 	
 	

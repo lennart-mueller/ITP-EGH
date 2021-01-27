@@ -27,13 +27,10 @@ import usermanagement.entity.UserTO;
 @Access(AccessType.FIELD)
 @Table(name="EGH_USER")
 @NamedQuery(name="User.findUserByName", query="select u from User u where u.email = :email")
-@NamedQuery(name="User.compareByName", query="select u from User u where u.email = email")
 
 public class User {
 	
 	public static final String FIND_BY_NAME = "User.findUserByName";
-	public static final String COMPARE_BY_NAME = "User.compareByName";
-
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -48,12 +45,7 @@ public class User {
 	private String nachname;
 	private String support;
 	
-	
-	
 	public User() {}
-	
-	
-
 	
 	public User(int id, String vorname, String nachname) {
 		super();
@@ -62,11 +54,6 @@ public class User {
 		this.nachname = nachname;
 	}
 	
-	
-
-
-
-
 	public User(int id, String email, String password, String vorname, String nachname, int formnr, String support) {
 		super();
 		this.id = id;
@@ -85,14 +72,11 @@ public class User {
 		this.password = password;
 		this.vorname = vorname;
 		this.nachname = nachname;
-		
-		
 	}
 	
 	public UserTO toUserTO() {
 		UserTO aUserTO = new UserTO();
 
-	
 		aUserTO.setId(id);
 		aUserTO.setNachname(nachname);
 		aUserTO.setVorname(vorname);
@@ -101,30 +85,8 @@ public class User {
 		aUserTO.setFormnr(formnr);
 		aUserTO.setSupport(support);
 	
-
 		return aUserTO;
 	}
-	
-	public Optional authentifiziereBenutzer(User benutzer)
-		    throws AuthenticationException
-		{
-		  try
-		  {
-		    Hashtable<String, String> env = new Hashtable<>();
-		    env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-		    env.put(Context.PROVIDER_URL, "ldap://ldap.example.de");
-		    env.put(Context.SECURITY_PRINCIPAL, benutzer.getEmail());
-		    env.put(Context.SECURITY_CREDENTIALS, benutzer.getPassword());
-		    DirContext ctx = new InitialDirContext(env);
-		    return Optional.of(benutzer);
-		  }
-		  catch (NamingException e)
-		  {
-		    throw new AuthenticationException("Benutzername oder Passwort falsch");
-		  }
-		}
-
-
 
 	@Override
 	public int hashCode() {
@@ -136,26 +98,17 @@ public class User {
 		if(obj instanceof User){
 			User user = (User) obj;
 			return user.email.equals(getEmail());
-		}
-		
+		}		
 		return false;
 	}
-	
-	
 	
 	public int getFormnr() {
 		return formnr;
 	}
 
-
-
-
 	public void setFormnr(int formnr) {
 		this.formnr = formnr;
 	}
-
-
-
 
 	public int getId() {
 		return id;
@@ -181,8 +134,6 @@ public class User {
 		this.email = name;
 	}
 
-
-
 	public String getVorname() {
 		return vorname;
 	}
@@ -206,12 +157,5 @@ public class User {
 	public void setSupport(String support) {
 		this.support = support;
 	}
-	
-	
-
-
-
-	
-	
 }
 

@@ -18,13 +18,12 @@ public class UserDAO extends GenericDAO<User> {
 		super.delete(aUser.getId(), User.class);
 	}
 	
-	 public User findUserByName(String username) {
-	    	Map<String, Object> parameters = new HashMap<String, Object>();
-	    	System.out.println("Username: "+username);
-	    	parameters.put("email", username);
-
-	    	return super.findOneResult(User.FIND_BY_NAME, parameters);
-	    }
+	public User findUserByName(String username) {
+    	Map<String, Object> parameters = new HashMap<String, Object>();
+    	System.out.println("Username: "+username);
+    	parameters.put("email", username);
+    	return super.findOneResult(User.FIND_BY_NAME, parameters);
+    }
 	
 
 
