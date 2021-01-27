@@ -11,12 +11,13 @@ import formularmanagement.entity.QuestionTO;
 
 @Local
 public interface IRequestForm {
-	
-	
+
 	public ApplicationFormTO getApplicationForm(int formNr) throws AnwendungskernException, DatenhaltungsException;
+
 	public int getFormNumber(int userNr) throws DatenhaltungsException;
-	public List <ApplicationFormTO> getAllForms();
-	public List <QuestionTO> getAllQuestions();
-	
+
+	public List<ApplicationFormTO> getAllForms();
+
+	public List<QuestionTO> getAllQuestions();
 
 }

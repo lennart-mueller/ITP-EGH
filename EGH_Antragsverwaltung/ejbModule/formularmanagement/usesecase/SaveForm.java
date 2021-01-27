@@ -1,11 +1,9 @@
 package formularmanagement.usesecase;
 
-import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import Peristence.AnwendungskernException;
-import Peristence.DatenhaltungsException;
 import formularmanagement.dao.FormDAO;
 import formularmanagement.entity.ApplicationFormTO;
 import formularmanagement.entity.impl.ApplicationForm;
@@ -35,7 +33,7 @@ public class SaveForm implements ISaveForm {
 
 	}
 
-	// erstellt eine FOrm
+	// erstellt eine Form
 	@Override
 	public void createForm(ApplicationFormTO aFormTO) {
 

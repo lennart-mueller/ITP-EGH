@@ -1,14 +1,10 @@
 package formularmanagement.usesecase;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.Persistence;
 
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
@@ -35,12 +31,10 @@ public class RequestForm implements IRequestForm {
 		return formDAO.find(formNr).toFormTO();
 	}
 
-	
 	public int getFormNumber(int userNr) throws DatenhaltungsException {
-		
-	return 0;
-	
-		
+
+		return 0;
+
 	}
 
 	// Laden aller Formulare
@@ -56,7 +50,7 @@ public class RequestForm implements IRequestForm {
 		return returnList;
 	}
 
-	// Laden alelr Frragen
+	// Laden aller Frragen
 	@Override
 	public List<QuestionTO> getAllQuestions() {
 		List<Question> aList = questionDAO.findAll();

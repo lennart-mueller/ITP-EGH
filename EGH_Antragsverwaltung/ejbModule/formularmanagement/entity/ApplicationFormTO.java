@@ -12,7 +12,7 @@ public class ApplicationFormTO {
 	private static final long serialVersionUID = -1965005798780312432L;
 	int formNr;
 	int userId;
-	String bezeichnung;
+	String description;
 	private List<AnswerNormalTO> normalAnswers;
 	private List<QuestionIndividuellTO> individualQuestions;
 
@@ -20,13 +20,13 @@ public class ApplicationFormTO {
 
 		this.individualQuestions = new ArrayList<QuestionIndividuellTO>();
 		this.normalAnswers = new ArrayList<AnswerNormalTO>();
-		this.bezeichnung = "EGH";
+		this.description = "EGH";
 
 	}
 
 	public ApplicationForm toApplicationForm() {
 
-		ApplicationForm aForm = new ApplicationForm(this.getFormNr(), this.getUserId(), this.getBezeichnung());
+		ApplicationForm aForm = new ApplicationForm(this.getFormNr(), this.getUserId(), this.getDescription());
 
 		for (QuestionIndividuellTO questionIndividuellTO : this.individualQuestions) {
 			aForm.getFormIndiAnswer().add(
@@ -67,12 +67,12 @@ public class ApplicationFormTO {
 		this.formNr = formNr;
 	}
 
-	public String getBezeichnung() {
-		return bezeichnung;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setBezeichnung(String bezeichnung) {
-		this.bezeichnung = bezeichnung;
+	public void setDescription(String bezeichnung) {
+		this.description = bezeichnung;
 	}
 
 	public void addIndiAnswer(QuestionIndividuellTO aQuestionTO) {

@@ -38,7 +38,7 @@ public class ApplicationForm {
 
 	int userId;
 
-	String bezeichnung;
+	String description;
 
 	// https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection
 	@ElementCollection
@@ -51,14 +51,14 @@ public class ApplicationForm {
 
 	public ApplicationForm() {
 		super();
-		this.bezeichnung = "EGH";
+		this.description = "EGH";
 	}
 
 	// Methode zum Speichern einer neu angelegten Form
 	public ApplicationForm(int formNr, int userId, String bezeichnung) {
 		super();
 		this.userId = userId;
-		this.bezeichnung = "EGH";
+		this.description = "EGH";
 		this.formIndiAnswer = new ArrayList<QuestionIndividuell>();
 		this.normalAnswer = new ArrayList<AnswerNormal>();
 	}
@@ -67,7 +67,7 @@ public class ApplicationForm {
 		ApplicationFormTO aFormTO = new ApplicationFormTO();
 
 		aFormTO.setFormNr(this.formNr);
-		aFormTO.setBezeichnung(this.bezeichnung); // auf englisch aendern
+		aFormTO.setDescription(this.description);
 		aFormTO.setUserId(this.userId);
 
 		aFormTO.setIndividualQuestions(new ArrayList<QuestionIndividuellTO>());
@@ -91,14 +91,14 @@ public class ApplicationForm {
 		ApplicationFormTO aApplicationFormTO = new ApplicationFormTO();
 		this.formNr = aApplicationFormTO.getFormNr();
 		this.userId = aApplicationFormTO.getUserId();
-		this.bezeichnung = aApplicationFormTO.getBezeichnung();
+		this.description = aApplicationFormTO.getDescription();
 
 	}
 
 	public ApplicationForm(int formNr2) {
 		ApplicationFormTO aApplicationFormTO = new ApplicationFormTO();
 		this.formNr = aApplicationFormTO.getFormNr();
-		this.bezeichnung = "hdiuf";
+		this.description = "EGH";
 	}
 
 	public int getFormNr() {
@@ -117,12 +117,12 @@ public class ApplicationForm {
 		this.userId = userId;
 	}
 
-	public String getBezeichnung() {
-		return bezeichnung;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setBezeichnung(String bezeichnung) {
-		this.bezeichnung = bezeichnung;
+	public void setDescription(String bezeichnung) {
+		this.description = bezeichnung;
 	}
 
 	public List<QuestionIndividuell> getFormIndiAnswer() {
