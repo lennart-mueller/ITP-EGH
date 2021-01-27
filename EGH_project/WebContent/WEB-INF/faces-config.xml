@@ -18,11 +18,6 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 
-	<managed-bean>
-		<managed-bean-name>userMB</managed-bean-name>
-		<managed-bean-class>Beans.UserMB</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
 
 	<managed-bean>
 		<managed-bean-name>applicationSecurityConfig</managed-bean-name>
@@ -47,13 +42,6 @@
 			<from-outcome>register</from-outcome>
 			<to-view-id>/pages/registerPage.xhtml</to-view-id>
 		</navigation-case>
-
-		<!-- TESTING -->
-
-		<navigation-case>
-			<from-outcome>test</from-outcome>
-			<to-view-id>/pages/test.xhtml</to-view-id>
-		</navigation-case>
 	</navigation-rule>
 
 	<!-- LOGIN PAGE -->
@@ -73,12 +61,6 @@
 			<to-view-id>/pages/formular1.xhtml</to-view-id>
 		</navigation-case>
 
-		<!-- TESTING -->
-
-		<navigation-case>
-			<from-outcome>test2</from-outcome>
-			<to-view-id>/pages/test.xhtml</to-view-id>
-		</navigation-case>
 	</navigation-rule>
 
 	<!-- REGISTER PAGE -->

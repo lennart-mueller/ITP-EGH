@@ -3,8 +3,8 @@
 	<persistence-unit name="Form_EJB">
 	<!--<jta-data-source>java:/MySQL_VS</jta-data-source>-->
 		<jta-data-source>java:/SWP_EGH-2</jta-data-source>
-			<class>antragsverwaltung.entity.impl.ApplicationForm</class>
-			<class>antragsverwaltung.entity.impl.Question</class>
+			<class>formularmanagement.entity.impl.ApplicationForm</class>
+			<class>formularmanagement.entity.impl.Question</class>
 		 <!--  	<class>antragsverwaltung.entity.impl.QuestionIndividuell</class> -->
 		<properties>
 			<!--  <property name="javax.persistence.schema-generation.create-database-schemas" value="true"/> -->

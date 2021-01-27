@@ -15,9 +15,6 @@
    <PROCESS-ITEM-OUTPUT ID="formular::#pages#formular1.xhtml"
     NAME="output2" PATH="/pages/formular1.xhtml"
     TARGET="rules:#pages#formular1.xhtml" TITLE="formular" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="test2::#pages#test.xhtml" NAME="output3"
-    PATH="/pages/test.xhtml" TARGET="rules:#pages#test.xhtml"
-    TITLE="test2" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#welcomePage.xhtml"
@@ -30,9 +27,6 @@
    <PROCESS-ITEM-OUTPUT ID="register::#pages#registerPage.xhtml"
     NAME="output1" PATH="/pages/registerPage.xhtml"
     TARGET="rules:#pages#registerPage.xhtml" TITLE="register" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="test::#pages#test.xhtml" NAME="output2"
-    PATH="/pages/test.xhtml" TARGET="rules:#pages#test.xhtml"
-    TITLE="test" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#registerPage.xhtml"
@@ -83,6 +77,4 @@
     TARGET="rules:#pages#formular1.xhtml" TITLE="form3ToForm1" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#test.xhtml" PATH="/pages/test.xhtml"
-  SHAPE="1024,17,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
