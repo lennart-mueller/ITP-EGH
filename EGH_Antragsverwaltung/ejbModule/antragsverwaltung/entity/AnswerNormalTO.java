@@ -1,7 +1,7 @@
 package antragsverwaltung.entity;
 
 public class AnswerNormalTO {
-//testsstst
+	
 	private int answerNr; // Nr der Antwort, also Frage Nr.1 hat Antwort Nr 1
 	private int oneAnswerNormal; // Antwort der Frage, Skala 0-8
 

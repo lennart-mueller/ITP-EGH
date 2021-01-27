@@ -1,12 +1,10 @@
 package antragsverwaltung.entity.impl;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -15,11 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import antragsverwaltung.entity.AnswerNormalTO;
 import antragsverwaltung.entity.ApplicationFormTO;
@@ -42,7 +39,6 @@ public class ApplicationForm {
 	int userId;
 
 	String bezeichnung;
-
 
 	// https://en.wikibooks.org/wiki/Java_Persistence/ElementCollection
 	@ElementCollection
@@ -74,22 +70,20 @@ public class ApplicationForm {
 		aFormTO.setBezeichnung(this.bezeichnung); // auf englisch aendern
 		aFormTO.setUserId(this.userId);
 
-
-
 		aFormTO.setIndividualQuestions(new ArrayList<QuestionIndividuellTO>());
 		for (QuestionIndividuell aQuestion : this.getFormIndiAnswer()) {
-			aFormTO.getIndividualQuestions().add(new QuestionIndividuellTO(aQuestion.getQuestion(),
-					aQuestion.getAnswer()));
+			aFormTO.getIndividualQuestions()
+					.add(new QuestionIndividuellTO(aQuestion.getQuestion(), aQuestion.getAnswer()));
 
 		}
-		
+
 		aFormTO.setNormalAnswers(new ArrayList<AnswerNormalTO>());
 		for (AnswerNormal aNormalAnswer : this.getNormalAnswer()) {
-			aFormTO.getNormalAnswers().add(new AnswerNormalTO(aNormalAnswer.getAnswerNr(),
-					aNormalAnswer.getOneAnswerNormal()));
+			aFormTO.getNormalAnswers()
+					.add(new AnswerNormalTO(aNormalAnswer.getAnswerNr(), aNormalAnswer.getOneAnswerNormal()));
 
 		}
-			
+
 		return aFormTO;
 	}
 
@@ -142,7 +136,7 @@ public class ApplicationForm {
 	public void addIndiAnswer(QuestionIndividuell aQuestion) {
 		this.formIndiAnswer.add(aQuestion);
 	}
-	
+
 	public void addAnswerNormal(AnswerNormal aAnswer) {
 		this.normalAnswer.add(aAnswer);
 	}
@@ -154,7 +148,5 @@ public class ApplicationForm {
 	public void setNormalAnswer(List<AnswerNormal> normalAnswer) {
 		this.normalAnswer = normalAnswer;
 	}
-	
-	
 
 }
