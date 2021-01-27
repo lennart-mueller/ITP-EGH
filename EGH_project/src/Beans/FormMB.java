@@ -15,12 +15,12 @@ import javax.inject.Named;
 import org.primefaces.event.CloseEvent;
 import org.primefaces.event.MoveEvent;
 
-import antragsverwaltung.entity.AnswerNormalTO;
-import antragsverwaltung.entity.ApplicationFormTO;
-import antragsverwaltung.entity.QuestionIndividuellTO;
-import antragsverwaltung.entity.QuestionTO;
-import antragsverwaltung.usesecase.impl.IRequestForm;
-import antragsverwaltung.usesecase.impl.ISaveForm;
+import formularmanagement.entity.AnswerNormalTO;
+import formularmanagement.entity.ApplicationFormTO;
+import formularmanagement.entity.QuestionIndividuellTO;
+import formularmanagement.entity.QuestionTO;
+import formularmanagement.usesecase.impl.IRequestForm;
+import formularmanagement.usesecase.impl.ISaveForm;
 import usermanagement.entity.UserTO;
 import usermanagement.usecase.impl.IActiveUser;
 import usermanagement.usecase.impl.ILoginUser;

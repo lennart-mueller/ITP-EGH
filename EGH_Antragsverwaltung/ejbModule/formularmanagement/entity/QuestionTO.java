@@ -1,6 +1,6 @@
-package antragsverwaltung.entity;
+package formularmanagement.entity;
 
-import antragsverwaltung.entity.impl.Question;
+import formularmanagement.entity.impl.Question;
 
 public class QuestionTO {
 

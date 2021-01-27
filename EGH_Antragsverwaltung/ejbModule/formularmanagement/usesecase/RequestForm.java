@@ -1,4 +1,4 @@
-package antragsverwaltung.usesecase;
+package formularmanagement.usesecase;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,13 +12,13 @@ import javax.persistence.Persistence;
 
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
-import antragsverwaltung.dao.FormDAO;
-import antragsverwaltung.dao.QuestionDAO;
-import antragsverwaltung.entity.ApplicationFormTO;
-import antragsverwaltung.entity.QuestionTO;
-import antragsverwaltung.entity.impl.ApplicationForm;
-import antragsverwaltung.entity.impl.Question;
-import antragsverwaltung.usesecase.impl.IRequestForm;
+import formularmanagement.dao.FormDAO;
+import formularmanagement.dao.QuestionDAO;
+import formularmanagement.entity.ApplicationFormTO;
+import formularmanagement.entity.QuestionTO;
+import formularmanagement.entity.impl.ApplicationForm;
+import formularmanagement.entity.impl.Question;
+import formularmanagement.usesecase.impl.IRequestForm;
 
 @Stateless
 public class RequestForm implements IRequestForm {

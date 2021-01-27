@@ -1,11 +1,11 @@
-package antragsverwaltung.entity;
+package formularmanagement.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import antragsverwaltung.entity.impl.AnswerNormal;
-import antragsverwaltung.entity.impl.ApplicationForm;
-import antragsverwaltung.entity.impl.QuestionIndividuell;
+import formularmanagement.entity.impl.AnswerNormal;
+import formularmanagement.entity.impl.ApplicationForm;
+import formularmanagement.entity.impl.QuestionIndividuell;
 
 public class ApplicationFormTO {
 

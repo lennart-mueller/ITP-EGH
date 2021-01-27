@@ -1,4 +1,4 @@
-package antragsverwaltung.dao;
+package formularmanagement.dao;
 
 import java.util.List;
 import java.util.Map;

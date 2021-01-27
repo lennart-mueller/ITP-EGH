@@ -1,4 +1,4 @@
-package antragsverwaltung.entity.impl;
+package formularmanagement.entity.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,9 +19,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import antragsverwaltung.entity.ApplicationFormTO;
-import antragsverwaltung.entity.QuestionIndividuellTO;
-import antragsverwaltung.entity.QuestionTO;
+import formularmanagement.entity.ApplicationFormTO;
+import formularmanagement.entity.QuestionIndividuellTO;
+import formularmanagement.entity.QuestionTO;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

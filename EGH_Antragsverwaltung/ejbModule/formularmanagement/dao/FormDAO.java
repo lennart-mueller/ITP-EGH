@@ -1,8 +1,8 @@
-package antragsverwaltung.dao;
+package formularmanagement.dao;
 
 import javax.ejb.Stateless;
 
-import antragsverwaltung.entity.impl.ApplicationForm;
+import formularmanagement.entity.impl.ApplicationForm;
 
 @Stateless
 public class FormDAO extends GenericDAO<ApplicationForm> {

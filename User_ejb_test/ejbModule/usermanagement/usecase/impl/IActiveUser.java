@@ -1,6 +1,6 @@
 package usermanagement.usecase.impl;
 
-import antragsverwaltung.entity.ApplicationFormTO;
+import formularmanagement.entity.ApplicationFormTO;
 
 
 public interface IActiveUser {

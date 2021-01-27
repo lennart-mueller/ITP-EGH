@@ -1,8 +1,8 @@
-package antragsverwaltung.dao;
+package formularmanagement.dao;
 
 import javax.ejb.Stateless;
 
-import antragsverwaltung.entity.impl.Question;
+import formularmanagement.entity.impl.Question;
 
 @Stateless
 public class QuestionDAO extends GenericDAO<Question> {

@@ -1,4 +1,4 @@
-package antragsverwaltung.entity;
+package formularmanagement.entity;
 
 public class AnswerNormalTO {
 	

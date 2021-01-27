@@ -1,4 +1,4 @@
-package antragsverwaltung.entity.impl;
+package formularmanagement.entity.impl;
 
 import java.io.Serializable;
 

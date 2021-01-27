@@ -1,10 +1,10 @@
-package antragsverwaltung.usesecase.impl;
+package formularmanagement.usesecase.impl;
 
 import javax.ejb.Local;
 
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
-import antragsverwaltung.entity.ApplicationFormTO;
+import formularmanagement.entity.ApplicationFormTO;
 
 @Local
 public interface ISaveForm{

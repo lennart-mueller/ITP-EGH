@@ -19,10 +19,10 @@ import javax.ws.rs.core.MediaType;
 
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
-import antragsverwaltung.entity.AnswerNormalTO;
-import antragsverwaltung.entity.ApplicationFormTO;
-import antragsverwaltung.usesecase.impl.IRequestForm;
-import antragsverwaltung.usesecase.impl.ISaveForm;
+import formularmanagement.entity.AnswerNormalTO;
+import formularmanagement.entity.ApplicationFormTO;
+import formularmanagement.usesecase.impl.IRequestForm;
+import formularmanagement.usesecase.impl.ISaveForm;
 
 //https://www.javacodegeeks.com/2013/01/get-post-with-restful-client-api.html
 

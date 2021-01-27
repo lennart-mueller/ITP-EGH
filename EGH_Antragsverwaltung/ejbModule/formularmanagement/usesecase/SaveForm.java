@@ -1,4 +1,4 @@
-package antragsverwaltung.usesecase;
+package formularmanagement.usesecase;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -6,10 +6,10 @@ import javax.inject.Inject;
 
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
-import antragsverwaltung.dao.FormDAO;
-import antragsverwaltung.entity.ApplicationFormTO;
-import antragsverwaltung.entity.impl.ApplicationForm;
-import antragsverwaltung.usesecase.impl.ISaveForm;
+import formularmanagement.dao.FormDAO;
+import formularmanagement.entity.ApplicationFormTO;
+import formularmanagement.entity.impl.ApplicationForm;
+import formularmanagement.usesecase.impl.ISaveForm;
 
 @Stateless
 public class SaveForm implements ISaveForm {

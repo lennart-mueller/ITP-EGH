@@ -3,7 +3,7 @@ package usermanagement.usecase;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
-import antragsverwaltung.entity.ApplicationFormTO;
+import formularmanagement.entity.ApplicationFormTO;
 import usermanagement.usecase.impl.IActiveUser;
 
 @Stateless

@@ -1,4 +1,4 @@
-package antragsverwaltung.usesecase.impl;
+package formularmanagement.usesecase.impl;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.ejb.Local;
 
 import Peristence.AnwendungskernException;
 import Peristence.DatenhaltungsException;
-import antragsverwaltung.entity.ApplicationFormTO;
-import antragsverwaltung.entity.QuestionTO;
+import formularmanagement.entity.ApplicationFormTO;
+import formularmanagement.entity.QuestionTO;
 
 @Local
 public interface IRequestForm {
