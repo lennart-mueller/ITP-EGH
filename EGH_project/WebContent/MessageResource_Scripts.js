@@ -59,7 +59,7 @@ function getdetails() {
     			
     				//jason2html-Lib verwenden, um jason-Array in HTML-Liste umzuwandeln
 						
-   							var transform = {'<>':'li','html':'Frage Nr. ${oneAnswerNormal} Antwort: ${answerNr}'};
+   							var transform = {'<>':'li','html':'Frage Nr. ${answerNr} Antwort: ${oneAnswerNormal}'};
     				
     				document.getElementById('list').innerHTML = json2html.transform(data,transform);
 						
